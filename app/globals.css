@@ -269,6 +269,15 @@ h1 { max-width: 720px; margin: 0; font-family: var(--font-serif); font-size: cla
 .route-content .service-grid { margin-top: 0; }
 .route-form-wrap { max-width: 950px; margin: 0 auto; }
 .route-form-wrap .request-form-shell { box-shadow: 0 24px 70px rgb(10 36 70 / 12%); }
+.contact-route-layout { display: grid; grid-template-columns: minmax(230px, .55fr) minmax(0, 1.45fr); align-items: start; gap: clamp(45px, 7vw, 110px); }
+.contact-route-layout .route-form-wrap { width: 100%; }
+.contact-route-details { position: sticky; top: 116px; display: flex; flex-direction: column; align-items: flex-start; padding: 30px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.contact-route-details svg { margin-bottom: 28px; color: var(--primary); }
+.contact-route-details span { font-size: .63rem; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; color: #66788a; }
+.contact-route-details a { margin-top: 10px; font-family: var(--font-serif); font-size: clamp(1.9rem, 3vw, 2.8rem); line-height: 1; color: var(--navy); }
+.contact-route-details p { margin: 25px 0 0; font-size: .78rem; line-height: 1.75; color: var(--ink-muted); }
+.resource-next-step { max-width: 830px; padding: clamp(38px, 5vw, 68px); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: #e9e2d5; }
+.resource-next-step p { margin: 0 0 22px; font-family: var(--font-serif); font-size: clamp(1.5rem, 2.6vw, 2.35rem); line-height: 1.35; color: var(--navy); }
 .about-founder-card { display: grid; grid-template-columns: minmax(320px, .78fr) minmax(0, 1.22fr); min-height: 620px; background: var(--navy); color: var(--ivory); }
 .about-founder-image { position: relative; min-height: 620px; overflow: hidden; background: #c8c8c5; }
 .about-founder-image img { object-fit: cover; object-position: center 18%; }
@@ -450,10 +459,25 @@ h1 { max-width: 720px; margin: 0; font-family: var(--font-serif); font-size: cla
 .insurance-overview-hero h1 { max-width: 850px; }
 .overview-hero-aside { padding: 30px 0 7px 30px; border-left: 1px solid var(--border); }
 .overview-hero-aside p { margin: 0 0 28px; font-size: 1rem; line-height: 1.75; color: var(--ink-muted); }
-.overview-approach { display: grid; grid-template-columns: 1fr 1fr; gap: 9vw; padding: clamp(80px, 9vw, 130px) clamp(24px, 6.8vw, 110px); background: var(--navy-deep); color: var(--ivory); }
-.overview-approach h2 { max-width: 720px; margin: 0; font-family: var(--font-serif); font-size: clamp(3rem, 5vw, 5.6rem); font-weight: 400; line-height: .96; letter-spacing: -.05em; }
-.overview-approach > div:last-child { align-self: end; }
-.overview-approach p { max-width: 650px; margin: 0; font-size: 1rem; line-height: 1.75; color: #bccbd9; }
+.overview-approach { display: grid; grid-template-columns: minmax(260px, .68fr) minmax(580px, 1.32fr); gap: clamp(60px, 8vw, 130px); padding: clamp(90px, 9vw, 140px) clamp(24px, 6.8vw, 110px); background: var(--navy-deep); color: var(--ivory); }
+.overview-approach-intro { align-self: start; }
+.overview-approach h2 { max-width: 570px; margin: 0; font-family: var(--font-serif); font-size: clamp(3rem, 4.3vw, 4.9rem); font-weight: 400; line-height: .95; letter-spacing: -.05em; }
+.overview-approach-intro > p:not(.eyebrow, .overview-origin) { max-width: 520px; margin: 27px 0 0; font-size: .94rem; line-height: 1.76; color: #bccbd9; }
+.overview-origin { display: grid; grid-template-columns: 42px 1fr; align-items: center; gap: 14px; max-width: 360px; margin: 50px 0 0; padding-top: 24px; border-top: 1px solid rgb(255 255 255 / 18%); font-size: .68rem; line-height: 1.5; letter-spacing: .08em; text-transform: uppercase; color: #a9bfd3; }
+.overview-origin span { display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid rgb(255 255 255 / 30%); border-radius: 50%; font-family: var(--font-serif); font-size: 1.2rem; color: #e3d4b3; }
+.overview-origin strong { font-weight: 720; color: #e6edf4; }
+.overview-market-paths { align-self: start; border-top: 1px solid rgb(255 255 255 / 24%); }
+.overview-market-path { position: relative; display: grid; grid-template-columns: minmax(205px, .72fr) minmax(0, 1.28fr); gap: 18px clamp(28px, 4vw, 64px); padding: 34px 0 38px 25px; border-bottom: 1px solid rgb(255 255 255 / 18%); }
+.overview-market-path::before { content: ""; position: absolute; top: 39px; left: 0; width: 7px; height: 7px; border: 1px solid #d7c391; border-radius: 50%; }
+.overview-path-heading { display: flex; flex-direction: column; }
+.overview-path-heading span { margin-bottom: 27px; font-size: .61rem; font-weight: 750; line-height: 1.5; letter-spacing: .13em; text-transform: uppercase; color: #8cb7df; }
+.overview-path-heading strong { max-width: 270px; font-family: var(--font-serif); font-size: clamp(1.8rem, 2.6vw, 2.75rem); font-weight: 400; line-height: 1.02; letter-spacing: -.035em; color: #f7f1e6; }
+.overview-market-path > p { grid-column: 1; max-width: 290px; margin: 0; font-size: .8rem; line-height: 1.68; color: #aebfd0; }
+.overview-market-path ul { grid-column: 2; grid-row: 1 / 3; margin: 0; padding: 0; list-style: none; }
+.overview-market-path li { display: grid; grid-template-columns: minmax(135px, .72fr) minmax(180px, 1.28fr); gap: 22px; padding: 17px 0; border-bottom: 1px solid rgb(255 255 255 / 12%); }
+.overview-market-path li:last-child { border-bottom: 0; }
+.overview-market-path li span { font-family: var(--font-serif); font-size: 1.05rem; line-height: 1.35; color: #eef2f5; }
+.overview-market-path li small { font-size: .7rem; line-height: 1.55; color: #9eb2c5; }
 .overview-lines { padding: clamp(72px, 7vw, 112px) clamp(24px, 6.8vw, 110px); }
 .overview-line-reveal { border-bottom: 1px solid var(--border); }
 .overview-line-reveal:first-child { border-top: 1px solid var(--border); }
@@ -678,9 +702,16 @@ h1 { max-width: 720px; margin: 0; font-family: var(--font-serif); font-size: cla
 .home-hero-region svg { flex: 0 0 auto; color: var(--primary); }
 .home-hero-visual { position: relative; min-height: 710px; padding: clamp(28px, 4vw, 62px); background: var(--navy-deep); }
 .home-hero-placeholder { height: 100%; min-height: 585px; }
+.concise-home .home-hero-photo { position: relative; height: 100%; min-height: 585px; overflow: hidden; border: 1px solid rgb(255 255 255 / 22%); background: #bdc7cc; }
+.concise-home .home-hero-photo img { object-fit: cover; object-position: 52% center; }
 .home-hero-welcome { position: absolute; left: 0; top: 17%; width: min(310px, 48%); transform: translateX(-14%); padding: 24px 27px; background: #ded1b8; box-shadow: 0 24px 60px rgb(3 17 35 / 27%); color: var(--navy); }
 .home-hero-welcome span { display: block; margin-bottom: 9px; font-size: .61rem; font-weight: 750; letter-spacing: .14em; text-transform: uppercase; }
 .home-hero-welcome strong { font-family: var(--font-serif); font-size: 1.18rem; font-weight: 400; line-height: 1.3; }
+
+.not-found-page { min-height: 67vh; display: flex; flex-direction: column; justify-content: center; padding: clamp(88px, 11vw, 170px) clamp(24px, 6.8vw, 110px); }
+.not-found-page h1 { max-width: 820px; font-size: clamp(4rem, 7vw, 7rem); }
+.not-found-page > p:not(.eyebrow) { max-width: 620px; margin: 30px 0 0; font-size: 1.02rem; line-height: 1.72; color: var(--ink-muted); }
+.not-found-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 26px; margin-top: 35px; }
 
 .home-promise { display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: clamp(60px, 10vw, 160px); padding: clamp(88px, 9vw, 140px) clamp(24px, 6.8vw, 110px); background: var(--navy-deep); color: var(--ivory); }
 .home-promise h2, .home-section-heading h2, .home-team-copy h2, .home-quote-intro h2 { margin: 0; font-family: var(--font-serif); font-weight: 400; letter-spacing: -.05em; }
@@ -787,6 +818,7 @@ h1 { max-width: 720px; margin: 0; font-family: var(--font-serif); font-size: cla
   .philosophy-section { grid-template-columns: 1fr; gap: 70px; }
   .philosophy-principles { max-width: 780px; }
   .insurance-overview-hero { min-height: 560px; }
+  .overview-approach { grid-template-columns: minmax(230px, .62fr) minmax(0, 1.38fr); gap: 55px; }
   .overview-line { grid-template-columns: 52px minmax(210px, .72fr) minmax(260px, 1fr) 44px; gap: 20px; }
   .auto-hero, .home-hero, .business-hero { min-height: auto; grid-template-columns: 1fr; }
   .auto-hero-visual, .home-hero-visual, .business-hero-visual { min-height: 600px; }
@@ -935,6 +967,12 @@ h1 { max-width: 720px; margin: 0; font-family: var(--font-serif); font-size: cla
   .overview-hero-aside { padding: 25px 0 0; border-top: 1px solid var(--border); border-left: 0; }
   .overview-approach { grid-template-columns: 1fr; gap: 38px; padding: 76px 22px; }
   .overview-approach h2 { font-size: clamp(2.85rem, 12.5vw, 4.1rem); }
+  .overview-origin { margin-top: 35px; }
+  .overview-market-path { grid-template-columns: 1fr; gap: 20px; padding: 30px 0 32px 22px; }
+  .overview-path-heading span { margin-bottom: 17px; }
+  .overview-market-path > p, .overview-market-path ul { grid-column: 1; grid-row: auto; }
+  .overview-market-path > p { max-width: 520px; }
+  .overview-market-path li { grid-template-columns: minmax(120px, .8fr) minmax(0, 1.2fr); }
   .overview-lines { padding: 72px 22px; }
   .overview-line { grid-template-columns: 38px 1fr 42px; gap: 8px 12px; min-height: 0; padding: 28px 8px; }
   .overview-line-index { grid-column: 1; grid-row: 1; padding-top: 4px; }
@@ -1007,6 +1045,8 @@ h1 { max-width: 720px; margin: 0; font-family: var(--font-serif); font-size: cla
   .request-service-hero { gap: 32px; padding: 76px 22px 58px; }
   .request-service-workspace { gap: 42px; padding: 70px 16px; }
   .request-service-intro { padding-inline: 6px; }
+  .contact-route-layout { grid-template-columns: 1fr; gap: 45px; }
+  .contact-route-details { position: static; }
 }
 
 @media (max-width: 360px) {
@@ -1051,6 +1091,8 @@ h1 { max-width: 720px; margin: 0; font-family: var(--font-serif); font-size: cla
   .home-hero-copy { min-height: 620px; padding: 84px clamp(30px, 7vw, 64px) 68px; }
   .home-hero-visual { min-height: 560px; }
   .home-hero-placeholder { min-height: 450px; }
+  .concise-home .home-hero-photo { min-height: 0; aspect-ratio: 16 / 9; }
+  .concise-home .home-hero-photo img { object-position: center; }
   .home-promise, .home-section-heading, .home-quote { grid-template-columns: 1fr; }
   .home-promise { gap: 46px; }
   .home-promise-copy { max-width: 720px; }

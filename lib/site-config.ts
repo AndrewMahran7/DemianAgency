@@ -3,8 +3,8 @@ import { BriefcaseBusiness, CarFront, HeartHandshake, House } from "lucide-react
 export const siteConfig = {
   businessName: "Demian Insurance Agency",
   displayName: "Demian",
-  region: "Southwest Florida",
-  serviceRegion: "Southwest Florida and Florida's Gulf Coast",
+  region: "Florida",
+  serviceRegion: "Florida's Gulf Coast and nearby inland counties",
   phone: "(941) 377-1806",
   phoneHref: "tel:+19413771806",
   email: null,
@@ -78,5 +78,4 @@ export const missingBusinessInformation = [
   "email",
   "officeAddress",
   "licenseInformation",
-  "approvedPhotography",
 ] as const;

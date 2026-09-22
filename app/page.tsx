@@ -1,13 +1,22 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Clock3, Phone, ShieldCheck } from "lucide-react";
-import { ImagePlaceholder } from "@/components/demian/image-placeholder";
 import { MotionReveal } from "@/components/demian/motion-reveal";
 import { QuoteRequestForm } from "@/components/demian/quote-request-form";
 import { SiteFooter } from "@/components/demian/site-footer";
 import { SiteHeader } from "@/components/demian/site-header";
+import { StructuredData } from "@/components/demian/structured-data";
+import { createAgencySchema, createPageMetadata } from "@/lib/seo";
 import { services, siteConfig } from "@/lib/site-config";
 import { teamMembers } from "@/lib/team";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "Florida Insurance Guidance | Demian Insurance Agency",
+  description: "Personal Florida insurance guidance for your vehicles, home, family, and small business from a family-owned agency you can call.",
+  path: "/",
+  image: "/images/home/coastal-family-home.jpg",
+});
 
 export default function Home() {
   return (
@@ -19,7 +28,7 @@ export default function Home() {
             <p className="eyebrow"><span /> Welcome to Demian Insurance Agency</p>
             <h1>Insurance should feel personal.</h1>
             <p className="home-hero-intro">
-              A family-owned Southwest Florida agency helping you make sense of Auto, Home, Life, and Business insurance—with real guidance from people you can call.
+              A family-owned Florida agency helping you make sense of Auto, Home, Life, and Business insurance—with real guidance from people you can call.
             </p>
             <div className="home-hero-actions">
               <Link className="button" href={siteConfig.requestQuoteHref}>Request a Quote <ArrowRight aria-hidden="true" size={18} /></Link>
@@ -29,11 +38,16 @@ export default function Home() {
           </MotionReveal>
 
           <div className="home-hero-visual">
-            <ImagePlaceholder
-              className="home-hero-placeholder"
-              label="Florida Gulf Coast family at home"
-              detail="Future agency photography"
-            />
+            <div className="home-hero-photo">
+              <Image
+                src="/images/home/coastal-family-home.jpg"
+                alt="Family outside a coastal Florida home"
+                fill
+                priority
+                quality={88}
+                sizes="(max-width: 600px) 0px, (max-width: 900px) 100vw, 46vw"
+              />
+            </div>
             <aside className="home-hero-welcome">
               <span>A local relationship</span>
               <strong>Clear answers. Thoughtful options. A real person to call.</strong>
@@ -135,6 +149,7 @@ export default function Home() {
           </MotionReveal>
         </section>
       </main>
+      <StructuredData data={createAgencySchema()} />
       <SiteFooter />
     </>
   );
