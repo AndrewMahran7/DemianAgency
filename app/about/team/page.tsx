@@ -54,7 +54,6 @@ export default function MeetTheTeamPage() {
             <p className="eyebrow"><span /> Meet the founder</p>
             <div className="founder-name-row">
               <h1>{minaDemian.name}</h1>
-              <span className="founder-credential">{minaDemian.credentials[0]}</span>
             </div>
             <p className="founder-role">{minaDemian.title}</p>
             <h2>A personal approach to protecting what matters.</h2>

@@ -20,7 +20,7 @@ export default function AboutPage() {
         </div>
         <div className="about-founder-copy">
           <p className="eyebrow"><span /> Meet the founder</p>
-          <h2>{minaDemian.name} <small>{minaDemian.credentials[0]}</small></h2>
+          <h2>{minaDemian.name}</h2>
           <p>{minaDemian.title}</p>
           <p>More than a decade of relevant professional experience, a family perspective, and a belief that insurance guidance should always feel personal.</p>
           <Link className="button" href="/about/team">Meet Mina <ArrowRight size={18} aria-hidden="true" /></Link>
