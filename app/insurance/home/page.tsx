@@ -6,13 +6,18 @@ import { ImagePlaceholder } from "@/components/demian/image-placeholder";
 import { MotionReveal } from "@/components/demian/motion-reveal";
 import { SiteFooter } from "@/components/demian/site-footer";
 import { SiteHeader } from "@/components/demian/site-header";
+import { StructuredData } from "@/components/demian/structured-data";
 import { homeInsurance } from "@/lib/insurance";
+import { createInsuranceServiceSchema, createPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
-export const metadata: Metadata = {
-  title: "Home Insurance | Demian Insurance Agency",
-  description: "Florida home insurance guidance with access to multiple carriers for homeowners, condos, rentals, flood, wind, and more.",
-};
+const description = "Florida home insurance guidance with multiple carrier options for homeowners, condos, renters, landlords, flood, wind, and hurricane considerations.";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "Florida Home Insurance | Demian Insurance Agency",
+  description,
+  path: "/insurance/home",
+});
 
 export default function HomeInsurancePage() {
   return (
@@ -33,7 +38,7 @@ export default function HomeInsurancePage() {
         </section>
 
         <section className="home-local-strip">
-          <p><span>Serving communities across</span>{siteConfig.serviceRegion}</p>
+          <p><span>Serving households across</span>{siteConfig.serviceRegion}</p>
           <div>{siteConfig.serviceAreas.map((county) => <span key={county}>{county}</span>)}</div>
         </section>
 
@@ -90,6 +95,7 @@ export default function HomeInsurancePage() {
         <AgencyContactStrip />
         <ExistingCustomerCTA />
       </main>
+      <StructuredData data={createInsuranceServiceSchema("Florida Home Insurance", description, "/insurance/home")} />
       <SiteFooter />
     </>
   );

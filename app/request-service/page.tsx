@@ -4,12 +4,14 @@ import { ArrowLeft, Clock3, ShieldCheck } from "lucide-react";
 import { ServiceRequestForm } from "@/components/demian/service-request-form";
 import { SiteFooter } from "@/components/demian/site-footer";
 import { SiteHeader } from "@/components/demian/site-header";
+import { createPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Request Service | Demian Insurance Agency",
   description: "Submit a policy change, document request, billing question, claim-guidance request, or other service request to Demian Insurance Agency.",
-};
+  path: "/request-service",
+});
 
 export default async function RequestServicePage({ searchParams }: { searchParams: Promise<{ type?: string }> }) {
   const { type = "" } = await searchParams;

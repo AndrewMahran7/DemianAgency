@@ -7,13 +7,18 @@ import { ImagePlaceholder } from "@/components/demian/image-placeholder";
 import { MotionReveal } from "@/components/demian/motion-reveal";
 import { SiteFooter } from "@/components/demian/site-footer";
 import { SiteHeader } from "@/components/demian/site-header";
+import { StructuredData } from "@/components/demian/structured-data";
 import { lifeInsurance } from "@/lib/insurance";
+import { createInsuranceServiceSchema, createPageMetadata } from "@/lib/seo";
 import { minaDemian } from "@/lib/team";
 
-export const metadata: Metadata = {
-  title: "Life Insurance | Demian Insurance Agency",
-  description: "Thoughtful life insurance guidance for Florida families, individuals, and business owners through multiple carriers.",
-};
+const description = "Florida life insurance guidance through multiple carriers, including term, whole, universal, final expense, and key-person or business life coverage.";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "Florida Life Insurance | Demian Insurance Agency",
+  description,
+  path: "/insurance/life",
+});
 
 export default function LifePage() {
   return (
@@ -86,6 +91,7 @@ export default function LifePage() {
         <AgencyContactStrip />
         <ExistingCustomerCTA />
       </main>
+      <StructuredData data={createInsuranceServiceSchema("Florida Life Insurance", description, "/insurance/life")} />
       <SiteFooter />
     </>
   );

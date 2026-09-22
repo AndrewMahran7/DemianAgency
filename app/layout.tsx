@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import { siteUrl } from "@/lib/seo";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Demian Insurance Agency | Southwest Florida",
-  description:
-    "Personal insurance guidance for homes, vehicles, families, and businesses across Southwest Florida.",
+  metadataBase: siteUrl ?? undefined,
+  title: "Demian Insurance Agency | Personal Insurance Guidance in Florida",
+  description: "Personal guidance for Florida auto, home, life, and small-business insurance from Demian Insurance Agency.",
+  robots: { index: true, follow: true },
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",

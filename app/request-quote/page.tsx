@@ -3,11 +3,13 @@ import { AgencyContactStrip } from "@/components/demian/insurance-conversion";
 import { QuoteRequestForm } from "@/components/demian/quote-request-form";
 import { SiteFooter } from "@/components/demian/site-footer";
 import { SiteHeader } from "@/components/demian/site-header";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Request an Insurance Quote | Demian Insurance Agency",
-  description: "Start a personal auto, home, life, or business insurance conversation with Demian Insurance Agency in Florida.",
-};
+  description: "Request a Florida auto, home, life, or small-business insurance quote and start a personal conversation with Demian Insurance Agency.",
+  path: "/request-quote",
+});
 
 export default async function RequestQuotePage({ searchParams }: { searchParams: Promise<{ type?: string }> }) {
   const { type = "" } = await searchParams;

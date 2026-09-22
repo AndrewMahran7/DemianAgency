@@ -6,12 +6,17 @@ import { ImagePlaceholder } from "@/components/demian/image-placeholder";
 import { MotionReveal } from "@/components/demian/motion-reveal";
 import { SiteFooter } from "@/components/demian/site-footer";
 import { SiteHeader } from "@/components/demian/site-header";
+import { StructuredData } from "@/components/demian/structured-data";
 import { autoInsurance } from "@/lib/insurance";
+import { createInsuranceServiceSchema, createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Auto Insurance | Demian Insurance Agency",
-  description: "Personalized auto insurance guidance for Florida drivers, households, specialty vehicles, and changing coverage needs.",
-};
+const description = "Florida auto insurance guidance for standard personal auto through Allstate, plus motorcycles, classic cars, RVs, boats, and special-risk options.";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "Florida Auto Insurance | Demian Insurance Agency",
+  description,
+  path: "/insurance/auto",
+});
 
 export default function AutoPage() {
   return (
@@ -88,6 +93,7 @@ export default function AutoPage() {
         <AgencyContactStrip />
         <ExistingCustomerCTA />
       </main>
+      <StructuredData data={createInsuranceServiceSchema("Florida Auto Insurance", description, "/insurance/auto")} />
       <SiteFooter />
     </>
   );

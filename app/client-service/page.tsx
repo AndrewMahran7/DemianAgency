@@ -5,12 +5,14 @@ import { AgencyContactStrip } from "@/components/demian/insurance-conversion";
 import { MotionReveal } from "@/components/demian/motion-reveal";
 import { SiteFooter } from "@/components/demian/site-footer";
 import { SiteHeader } from "@/components/demian/site-header";
+import { createPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Client Service | Demian Insurance Agency",
   description: "Policy changes, documents, billing questions, claim guidance, and service requests for existing Demian Insurance Agency clients.",
-};
+  path: "/client-service",
+});
 
 const serviceGroups = [
   {

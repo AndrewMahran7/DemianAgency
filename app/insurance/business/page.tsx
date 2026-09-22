@@ -6,12 +6,17 @@ import { ImagePlaceholder } from "@/components/demian/image-placeholder";
 import { MotionReveal } from "@/components/demian/motion-reveal";
 import { SiteFooter } from "@/components/demian/site-footer";
 import { SiteHeader } from "@/components/demian/site-header";
+import { StructuredData } from "@/components/demian/structured-data";
 import { businessInsurance } from "@/lib/insurance";
+import { createInsuranceServiceSchema, createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Business Insurance | Demian Insurance Agency",
-  description: "Consultative small-business insurance guidance for Florida contractors, restaurants, offices, professional services, and more.",
-};
+const description = "Florida small-business insurance guidance for general liability, property, commercial auto, workers' compensation, E&O, cyber, BOP, umbrella, and EPLI.";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "Florida Business Insurance | Demian Insurance Agency",
+  description,
+  path: "/insurance/business",
+});
 
 export default function BusinessPage() {
   return (
@@ -74,6 +79,7 @@ export default function BusinessPage() {
         <AgencyContactStrip />
         <ExistingCustomerCTA />
       </main>
+      <StructuredData data={createInsuranceServiceSchema("Florida Small-Business Insurance", description, "/insurance/business")} />
       <SiteFooter />
     </>
   );

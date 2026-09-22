@@ -5,13 +5,15 @@ import { ArrowRight, Building2, CarFront, GraduationCap, Heart, Home, MapPin, Pa
 import { MotionReveal } from "@/components/demian/motion-reveal";
 import { SiteFooter } from "@/components/demian/site-footer";
 import { SiteHeader } from "@/components/demian/site-header";
+import { StructuredData } from "@/components/demian/structured-data";
+import { absoluteUrl, createPageMetadata } from "@/lib/seo";
 import { minaDemian } from "@/lib/team";
 
-export const metadata: Metadata = {
-  title: "Meet Mina Demian | Demian Insurance Agency",
-  description:
-    "Meet Mina Demian, founder of Demian Insurance Agency, serving Southwest Florida with a personal approach to home, auto, life, and business insurance.",
-};
+export const metadata: Metadata = createPageMetadata({
+  title: "Mina Demian, CSFS® | Founder, Demian Insurance Agency",
+  description: "Meet Mina Demian, CSFS®, founder and Florida-licensed insurance professional bringing a personal approach to auto, home, life, and business coverage.",
+  path: "/about/team",
+});
 
 const credibility = [
   ["12+ Years", "Insurance, financial services & client advisory experience"],
@@ -25,11 +27,21 @@ export default function MeetTheTeamPage() {
     "@context": "https://schema.org",
     "@type": "Person",
     name: minaDemian.name,
+    honorificSuffix: "CSFS®",
     jobTitle: "Founder",
-    image: minaDemian.portrait,
-    worksFor: { "@type": "Organization", name: "Demian Insurance Agency" },
+    worksFor: {
+      "@type": "InsuranceAgency",
+      name: "Demian Insurance Agency",
+      ...(absoluteUrl("/") ? { url: absoluteUrl("/") } : {}),
+    },
     alumniOf: { "@type": "CollegeOrUniversity", name: minaDemian.education.institution },
-    homeLocation: { "@type": "Place", name: "Southwest Florida" },
+    hasCredential: minaDemian.licenses.map((license) => ({
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: "Professional license",
+      name: `${license.name} insurance license`,
+      recognizedBy: { "@type": "Organization", name: license.authority },
+    })),
+    ...(absoluteUrl(minaDemian.portrait) ? { image: absoluteUrl(minaDemian.portrait) } : {}),
   };
 
   return (
@@ -185,7 +197,7 @@ export default function MeetTheTeamPage() {
           <div><p>Share what you need help with and start a more personal insurance conversation.</p><Link className="button button-light" href="/request-quote">Request a Quote <ArrowRight size={18} aria-hidden="true" /></Link></div>
         </section>
       </main>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
+      <StructuredData data={structuredData} />
       <SiteFooter />
     </>
   );
