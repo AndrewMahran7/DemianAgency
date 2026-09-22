@@ -61,7 +61,7 @@ export default function MeetTheTeamPage() {
               With more than a decade across insurance, employee benefits, banking, and client advisory work, Mina brings broad perspective to every conversation. As a husband and father, he understands that the decisions behind a policy are deeply personal.
             </p>
             <div className="hero-actions founder-actions">
-              <Link className="button" href="/#request-service">Request Service <ArrowRight size={18} aria-hidden="true" /></Link>
+              <Link className="button" href="/request-quote">Request a Quote <ArrowRight size={18} aria-hidden="true" /></Link>
               <Link className="text-link" href="/insurance">Explore Coverage <span aria-hidden="true">↗</span></Link>
             </div>
             <p className="founder-location"><MapPin size={16} aria-hidden="true" /> Serving Southwest Florida</p>
@@ -119,38 +119,16 @@ export default function MeetTheTeamPage() {
           </div>
         </section>
 
-        <section className="experience-section section">
-          <MotionReveal className="experience-heading">
-            <p className="section-index">03 / Experience</p>
-            <p className="eyebrow"><span /> A career built around people</p>
-            <h2>Experience from every side of the conversation.</h2>
-            <p>Mina&apos;s path brings together client relationships, small-business insight, financial services, employee benefits, and insurance.</p>
-          </MotionReveal>
-          <ol className="founder-timeline">
-            {minaDemian.experience.map((item, index) => (
-              <MotionReveal className="timeline-item" delay={index * 0.055} key={`${item.organization}-${item.period}`}>
-                <li>
-                  <span className="timeline-number">0{index + 1}</span>
-                  <span className="timeline-period">{item.period}</span>
-                  <h3>{item.organization}</h3>
-                  <p>{item.role}</p>
-                  <ul>{item.focus.map((focus) => <li key={focus}>{focus}</li>)}</ul>
-                </li>
-              </MotionReveal>
-            ))}
-          </ol>
-        </section>
-
         <section className="qualifications-section">
           <MotionReveal className="qualification-panel education-panel">
             <div className="qualification-icon"><GraduationCap aria-hidden="true" size={25} strokeWidth={1.5} /></div>
-            <p className="section-index">04 / Education</p>
+            <p className="section-index">03 / Education</p>
             <h2>{minaDemian.education.institution}</h2>
             <p>{minaDemian.education.degree}</p>
           </MotionReveal>
           <MotionReveal className="qualification-panel license-panel" delay={0.08}>
             <div className="qualification-icon"><ShieldCheck aria-hidden="true" size={25} strokeWidth={1.5} /></div>
-            <p className="section-index">05 / Credentials</p>
+            <p className="section-index">04 / Credentials</p>
             <h2>Florida licensed for the conversations that matter.</h2>
             <p className="license-authority">{minaDemian.licenses[0].authority}</p>
             <ul className="license-list">
@@ -167,7 +145,7 @@ export default function MeetTheTeamPage() {
         <section className="community-section">
           <div className="community-mark" aria-hidden="true"><span>Since</span><strong>2015</strong></div>
           <MotionReveal className="community-copy">
-            <p className="section-index">06 / Community</p>
+            <p className="section-index">05 / Community</p>
             <p className="eyebrow"><span /> Giving back</p>
             <h2>Service doesn&apos;t stop at the office.</h2>
             <p>Helping people has been part of Mina&apos;s life outside the office, too. Since February 2015, he has volunteered with The Compton Initiative, contributing to hands-on neighborhood restoration and cleanup efforts.</p>
@@ -182,7 +160,7 @@ export default function MeetTheTeamPage() {
 
         <section className="philosophy-section section">
           <MotionReveal>
-            <p className="section-index">07 / Philosophy</p>
+            <p className="section-index">06 / Philosophy</p>
             <p className="eyebrow"><span /> The Demian approach</p>
             <h2>Clear guidance.<br />Real relationships.<br />Long-term trust.</h2>
             <p className="philosophy-intro">Insurance should feel personal. The agency&apos;s approach is built around giving people the clarity and space to make informed decisions.</p>
@@ -204,7 +182,7 @@ export default function MeetTheTeamPage() {
 
         <section className="final-cta team-final-cta">
           <div><p className="eyebrow light"><span /> Start a conversation</p><h2>Ready to talk about what you&apos;re protecting?</h2></div>
-          <div><p>Share what you need help with and start a more personal insurance conversation.</p><Link className="button button-light" href="/#request-service">Request Service <ArrowRight size={18} aria-hidden="true" /></Link></div>
+          <div><p>Share what you need help with and start a more personal insurance conversation.</p><Link className="button button-light" href="/request-quote">Request a Quote <ArrowRight size={18} aria-hidden="true" /></Link></div>
         </section>
       </main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
