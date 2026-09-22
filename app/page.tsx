@@ -21,7 +21,7 @@ export default function Home() {
               <h1>Protect what<br />you&apos;ve built.</h1>
               <p className="hero-intro">Your home, vehicles, family, and business deserve more than a policy. They deserve a local agency that sees the whole picture.</p>
               <div className="hero-actions">
-                <Link className="button" href="#request-service">Request Service <ArrowRight aria-hidden="true" size={18} /></Link>
+                <Link className="button" href="/request-quote">Request a Quote <ArrowRight aria-hidden="true" size={18} /></Link>
                 <Link className="text-link" href="#insurance">Explore Coverage <span aria-hidden="true">↘</span></Link>
               </div>
             </MotionReveal>
@@ -102,8 +102,8 @@ export default function Home() {
           <div className="request-intro">
             <p className="eyebrow light"><span /> Request service</p>
             <h2>Tell us what you need.</h2>
-            <p>Start with a few details. This frontend preview lets you experience the complete flow without sending or storing personal information.</p>
-            <div className="request-assurance"><ShieldCheck aria-hidden="true" size={20} /><span>A secure agency connection will replace the isolated demo handler in the next backend phase.</span></div>
+            <p>Existing customers can share a policy question, change, or request. A dedicated customer service representative will follow up within one business day with a resolution or a request for more information.</p>
+            <div className="request-assurance"><ShieldCheck aria-hidden="true" size={20} /><span>Routine requests are handled by customer service, with Mina available for escalations when needed.</span></div>
           </div>
           <ServiceRequestForm />
         </section>
@@ -124,8 +124,8 @@ export default function Home() {
         </section>
 
         <section className="final-cta" id="contact">
-          <div><p className="eyebrow light"><span /> Here when you need us</p><h2>Have something you need help with?</h2></div>
-          <div><p>Tell us what you need and the Demian team can follow up.</p><Link className="button button-light" href="#request-service">Request Service <ArrowRight size={18} /></Link></div>
+          <div><p className="eyebrow light"><span /> Looking for coverage?</p><h2>Start with a personal quote conversation.</h2></div>
+          <div><p>Tell the Demian team what you are looking to insure, or use Request Service if you are already a client.</p><Link className="button button-light" href="/request-quote">Request a Quote <ArrowRight aria-hidden="true" size={18} /></Link><Link className="final-service-link" href="/request-service">Already a client? Request Service</Link></div>
         </section>
       </main>
 

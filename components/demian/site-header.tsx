@@ -23,9 +23,12 @@ export function SiteHeader() {
       <nav className="desktop-nav" aria-label="Primary navigation">
         {siteConfig.navigation.map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}
       </nav>
-      <Link className="button button-small header-cta" href="/#request-service">
-        Request Service <ArrowRight aria-hidden="true" size={16} />
-      </Link>
+      <div className="header-actions">
+        <Link className="header-service-link" href={siteConfig.requestServiceHref}>Client Service</Link>
+        <Link className="button button-small header-cta" href={siteConfig.requestQuoteHref}>
+          Request a Quote <ArrowRight aria-hidden="true" size={16} />
+        </Link>
+      </div>
       <Sheet>
         <SheetTrigger className="menu-trigger" aria-label="Open navigation menu">
           <Menu aria-hidden="true" size={21} />
@@ -44,8 +47,9 @@ export function SiteHeader() {
             ))}
           </nav>
           <div className="mobile-sheet-footer">
-            <p>Personal insurance guidance for Southwest Florida.</p>
-            <SheetClose asChild><Link className="button" href="/#request-service">Request Service <ArrowRight size={17} /></Link></SheetClose>
+            <p>Looking for coverage or help with an existing policy?</p>
+            <SheetClose asChild><Link className="button" href={siteConfig.requestQuoteHref}>Request a Quote <ArrowRight aria-hidden="true" size={17} /></Link></SheetClose>
+            <SheetClose asChild><Link className="mobile-service-link" href={siteConfig.requestServiceHref}>Already a client? Request Service</Link></SheetClose>
           </div>
         </SheetContent>
       </Sheet>

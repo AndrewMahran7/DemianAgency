@@ -114,7 +114,7 @@ export function ServiceRequestForm({ compact = false }: { compact?: boolean }) {
             <span className="success-icon"><Check aria-hidden="true" /></span>
             <p className="eyebrow">Demo complete</p>
             <h3>Your request is ready for the real connection.</h3>
-            <p>This preview did not send or store your information. Once the agency&apos;s secure endpoint is connected, this screen will confirm an actual request.</p>
+            <p>This preview did not send or store your information. In the live experience, a dedicated customer service representative will follow up within one business day using your selected contact method. Mina is available for escalations when needed.</p>
             <button className="text-button" type="button" onClick={reset}><RotateCcw size={16} /> Start another demo</button>
           </motion.div>
         ) : (

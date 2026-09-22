@@ -4,10 +4,21 @@ export const siteConfig = {
   businessName: "Demian Insurance Agency",
   displayName: "Demian",
   region: "Southwest Florida",
-  phone: null,
+  serviceRegion: "Southwest Florida and Florida's Gulf Coast",
+  phone: "(941) 377-1806",
+  phoneHref: "tel:+19413771806",
   email: null,
   officeAddress: null,
-  hours: null,
+  hours: [
+    { days: "Monday–Friday", time: "9 AM–6 PM" },
+    { days: "Saturday", time: "9 AM–1 PM" },
+  ],
+  serviceAreas: [
+    "Sarasota", "Hillsborough", "Manatee", "Pinellas", "Hardee", "DeSoto",
+    "Charlotte", "Lee", "Hernando", "Pasco", "Highlands", "Collier",
+  ],
+  requestQuoteHref: "/request-quote",
+  requestServiceHref: "/request-service",
   licenseInformation: null,
   socialLinks: [],
   navigation: [
@@ -62,11 +73,8 @@ export const requestTypes = [
 ] as const;
 
 export const missingBusinessInformation = [
-  "phone",
   "email",
   "officeAddress",
-  "hours",
   "licenseInformation",
-  "agentNames",
   "approvedPhotography",
 ] as const;
