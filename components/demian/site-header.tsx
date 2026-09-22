@@ -24,7 +24,7 @@ export function SiteHeader() {
         {siteConfig.navigation.map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}
       </nav>
       <div className="header-actions">
-        <Link className="header-service-link" href={siteConfig.requestServiceHref}>Client Service</Link>
+        <Link className="header-service-link" href={siteConfig.clientServiceHref}>Client Service</Link>
         <Link className="button button-small header-cta" href={siteConfig.requestQuoteHref}>
           Request a Quote <ArrowRight aria-hidden="true" size={16} />
         </Link>
@@ -49,7 +49,7 @@ export function SiteHeader() {
           <div className="mobile-sheet-footer">
             <p>Looking for coverage or help with an existing policy?</p>
             <SheetClose asChild><Link className="button" href={siteConfig.requestQuoteHref}>Request a Quote <ArrowRight aria-hidden="true" size={17} /></Link></SheetClose>
-            <SheetClose asChild><Link className="mobile-service-link" href={siteConfig.requestServiceHref}>Already a client? Request Service</Link></SheetClose>
+            <SheetClose asChild><Link className="mobile-service-link" href={siteConfig.clientServiceHref}>Client Service</Link></SheetClose>
           </div>
         </SheetContent>
       </Sheet>

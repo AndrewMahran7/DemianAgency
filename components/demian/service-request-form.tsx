@@ -39,8 +39,10 @@ function validate(values: FormValues): Errors {
   return errors;
 }
 
-export function ServiceRequestForm({ compact = false }: { compact?: boolean }) {
-  const [values, setValues] = useState<FormValues>(initialValues);
+export function ServiceRequestForm({ compact = false, initialType = "" }: { compact?: boolean; initialType?: string }) {
+  const matchedInitialType = requestTypes.find((type) => type.toLowerCase() === initialType.toLowerCase()) ?? "";
+  const startingValues = { ...initialValues, requestType: matchedInitialType };
+  const [values, setValues] = useState<FormValues>(() => startingValues);
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
   const formRef = useRef<HTMLFormElement>(null);
@@ -101,7 +103,7 @@ export function ServiceRequestForm({ compact = false }: { compact?: boolean }) {
   }
 
   function reset() {
-    setValues(initialValues);
+    setValues(startingValues);
     setErrors({});
     setStatus("idle");
   }
