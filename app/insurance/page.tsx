@@ -37,11 +37,13 @@ export default function InsurancePage() {
 
         <section className="overview-lines" aria-label="Insurance categories">
           {lines.map((line, index) => (
-            <MotionReveal className="overview-line" delay={index * 0.05} key={line.key}>
-              <span>0{index + 1}</span>
-              <div><p>{line.audience}</p><h2>{line.name}</h2></div>
-              <p>{line.summary}</p>
-              <Link href={line.href} aria-label={`Explore ${line.name}`}>Explore <ArrowUpRight aria-hidden="true" size={18} /></Link>
+            <MotionReveal className="overview-line-reveal" delay={index * 0.05} key={line.key}>
+              <Link className="overview-line" href={line.href}>
+                <span className="overview-line-index">0{index + 1}</span>
+                <div className="overview-line-title"><p>{line.audience}</p><h2>{line.name}</h2></div>
+                <p className="overview-line-summary">{line.summary}</p>
+                <span className="overview-line-arrow" aria-hidden="true"><ArrowUpRight size={19} /></span>
+              </Link>
             </MotionReveal>
           ))}
         </section>

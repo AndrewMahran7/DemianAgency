@@ -15,14 +15,22 @@ export function QuoteActions({ label, line }: { label: string; line?: string }) 
 export function ExistingCustomerCTA() {
   return (
     <aside className="existing-customer-cta" aria-label="Existing customer service">
-      <div>
-        <p className="eyebrow"><span /> Already insured with Demian?</p>
-        <h2>Questions and changes deserve a clear response.</h2>
+      <div className="existing-customer-copy">
+        <p className="eyebrow light"><span /> Already a client?</p>
+        <h2>We&apos;re here after the policy is written.</h2>
+        <p>Need to make a change, ask a coverage question, request documents, or get help with an existing policy? A member of the Demian customer service team will follow up within one business day.</p>
+        <div className="existing-customer-actions">
+          <Link className="button button-light" href={siteConfig.requestServiceHref}>Request Service <ArrowRight aria-hidden="true" size={18} /></Link>
+          <a className="existing-customer-phone" href={siteConfig.phoneHref}><Phone aria-hidden="true" size={17} /> Call {siteConfig.phone}</a>
+        </div>
+        <p className="existing-customer-hours">{siteConfig.hours[0].days}, {siteConfig.hours[0].time} · {siteConfig.hours[1].days}, {siteConfig.hours[1].time}</p>
       </div>
-      <div>
-        <p>A dedicated customer service representative will follow up within one business day with a resolution or a request for more information, using your selected contact method. Mina is available for escalations when needed.</p>
-        <Link className="button button-light" href={siteConfig.requestServiceHref}>Request Service <ArrowRight aria-hidden="true" size={18} /></Link>
-      </div>
+      <ul className="existing-customer-topics" aria-label="Common service requests">
+        <li>Policy changes</li>
+        <li>Billing questions</li>
+        <li>Documents</li>
+        <li>Claim guidance</li>
+      </ul>
     </aside>
   );
 }
