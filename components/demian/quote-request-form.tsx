@@ -36,7 +36,7 @@ function validateQuote(values: QuoteValues): QuoteErrors {
   return errors;
 }
 
-export function QuoteRequestForm({ initialType = "" }: { initialType?: string }) {
+export function QuoteRequestForm({ initialType = "", compact = false }: { initialType?: string; compact?: boolean }) {
   const matchedInitialType = insuranceTypes.find((type) => type.toLowerCase() === initialType.toLowerCase()) ?? "";
   const [values, setValues] = useState<QuoteValues>(() => ({ ...blankValues, insuranceType: matchedInitialType }));
   const [errors, setErrors] = useState<QuoteErrors>({});
@@ -63,13 +63,13 @@ export function QuoteRequestForm({ initialType = "" }: { initialType?: string })
   }
 
   function reset() {
-    setValues(blankValues);
+    setValues({ ...blankValues, insuranceType: matchedInitialType });
     setErrors({});
     setStatus("idle");
   }
 
   return (
-    <div className="request-form-shell quote-form-shell">
+    <div className={`request-form-shell quote-form-shell ${compact ? "is-compact" : ""}`}>
       <AnimatePresence mode="wait">
         {status === "success" ? (
           <motion.div className="form-success" key="success" role="status" initial={reduceMotion ? false : { opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>

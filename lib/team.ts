@@ -42,7 +42,7 @@ export const teamMembers: readonly TeamMember[] = [
   {
     slug: "mina-demian",
     name: "Mina Demian",
-    credentials: [],
+    credentials: ["CSFS®"],
     title: "Founder, Demian Insurance Agency",
     location: "Southwest Florida",
     portrait: "/team/mina-demian.jpg",
