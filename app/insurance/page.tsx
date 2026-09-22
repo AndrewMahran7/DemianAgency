@@ -6,11 +6,13 @@ import { MotionReveal } from "@/components/demian/motion-reveal";
 import { SiteFooter } from "@/components/demian/site-footer";
 import { SiteHeader } from "@/components/demian/site-header";
 import { insuranceLines } from "@/lib/insurance";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "Insurance Coverage | Demian Insurance Agency",
-  description: "Explore personal auto, home, life, and small-business insurance guidance from Demian Insurance Agency in Florida.",
-};
+  description: "Explore Florida auto, home, life, and small-business insurance with direct carrier relationships and broader market access where available.",
+  path: "/insurance",
+});
 
 const lines = Object.values(insuranceLines);
 
@@ -31,8 +33,34 @@ export default function InsurancePage() {
         </section>
 
         <section className="overview-approach">
-          <p>One agency. Different ways to reach the right market.</p>
-          <h2>Dedicated carrier relationships where appropriate. Broader market access where available.</h2>
+          <MotionReveal className="overview-approach-intro">
+            <p className="eyebrow light"><span /> One agency / Two paths</p>
+            <h2>The market path should fit the risk.</h2>
+            <p>Every conversation begins with Demian Insurance Agency. From there, the coverage need determines how the agency reaches the market.</p>
+            <p className="overview-origin"><span aria-hidden="true">D</span><strong>One agency relationship guiding both paths.</strong></p>
+          </MotionReveal>
+
+          <div className="overview-market-paths">
+            <MotionReveal className="overview-market-path" delay={0.06}>
+              <div className="overview-path-heading"><span>01 / Dedicated relationship</span><strong>Allstate</strong></div>
+              <p>A direct carrier relationship for select personal lines.</p>
+              <ul>
+                <li><span>Standard personal auto</span><small>For eligible Florida drivers and households</small></li>
+                <li><span>Renters</span><small>Personal property and liability conversations</small></li>
+                <li><span>Umbrella</span><small>Additional personal liability options</small></li>
+              </ul>
+            </MotionReveal>
+
+            <MotionReveal className="overview-market-path" delay={0.12}>
+              <div className="overview-path-heading"><span>02 / Broader market access</span><strong>Multiple carrier options</strong></div>
+              <p>Broader access where the coverage need calls for more than one place to look.</p>
+              <ul>
+                <li><span>Home</span><small>Multiple Florida carriers</small></li>
+                <li><span>Life</span><small>Multiple carriers</small></li>
+                <li><span>Special-risk auto</span><small>Independent brokerage options may be available</small></li>
+              </ul>
+            </MotionReveal>
+          </div>
         </section>
 
         <section className="overview-lines" aria-label="Insurance categories">
