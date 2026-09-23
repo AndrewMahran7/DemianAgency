@@ -10,7 +10,7 @@ import { StructuredData } from "@/components/demian/structured-data";
 import { autoInsurance } from "@/lib/insurance";
 import { createInsuranceServiceSchema, createPageMetadata } from "@/lib/seo";
 
-const description = "Florida auto insurance guidance for standard personal auto through Allstate, plus motorcycles, classic cars, RVs, boats, and special-risk options.";
+const description = "Florida auto insurance guidance for standard personal auto, plus motorcycles, classic cars, RVs, boats, and special-risk options where available.";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Florida Auto Insurance | Demian Insurance Agency",
@@ -66,7 +66,7 @@ export default function AutoPage() {
             <h2>A dedicated relationship for standard auto. Another path for special situations.</h2>
           </MotionReveal>
           <MotionReveal className="auto-market-details" delay={0.08}>
-            <div><span>Standard personal auto</span><h3>Allstate is the agency&apos;s primary carrier relationship.</h3><p>Demian can guide eligible standard personal-auto customers through available Allstate options without making the carrier the agency&apos;s identity.</p></div>
+            <div><span>Standard personal auto</span><h3>A dedicated carrier relationship for eligible personal-auto needs.</h3><p>Demian guides eligible standard personal-auto customers through available coverage options while keeping the advice centered on the household and policy details.</p></div>
             <div><span>Special-risk auto</span><h3>Independent brokerage options may be available.</h3><p>For situations outside a standard personal-auto profile, the agency can explore broader-market options where available.</p></div>
           </MotionReveal>
         </section>

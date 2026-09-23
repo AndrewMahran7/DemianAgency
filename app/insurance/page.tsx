@@ -42,8 +42,8 @@ export default function InsurancePage() {
 
           <div className="overview-market-paths">
             <MotionReveal className="overview-market-path" delay={0.06}>
-              <div className="overview-path-heading"><span>01 / Dedicated relationship</span><strong>Allstate</strong></div>
-              <p>A direct carrier relationship for select personal lines.</p>
+              <div className="overview-path-heading"><span>01 / Dedicated relationship</span><strong>Select personal lines</strong></div>
+              <p>A direct carrier relationship for select personal insurance needs.</p>
               <ul>
                 <li><span>Standard personal auto</span><small>For eligible Florida drivers and households</small></li>
                 <li><span>Renters</span><small>Personal property and liability conversations</small></li>

@@ -113,7 +113,7 @@ export default function Home() {
                   <p className="eyebrow light"><span /> Meet the person behind the agency</p>
                   <h2>A real relationship starts with a real introduction.</h2>
                   <div className="home-team-identity">
-                    <h3>{member.name}{member.credentials.length ? `, ${member.credentials.join(", ")}` : ""}</h3>
+                    <h3>{member.name}</h3>
                     <p>{member.title}</p>
                   </div>
                   <p className="home-team-bio">A husband, father, and Florida-licensed insurance professional, Mina brings more than a decade of experience across insurance, financial services, employee benefits, banking, and client advisory work—along with a long-standing commitment to serving his community.</p>

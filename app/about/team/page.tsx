@@ -10,8 +10,8 @@ import { absoluteUrl, createPageMetadata } from "@/lib/seo";
 import { minaDemian } from "@/lib/team";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Mina Demian, CSFS® | Founder, Demian Insurance Agency",
-  description: "Meet Mina Demian, CSFS®, founder and Florida-licensed insurance professional bringing a personal approach to auto, home, life, and business coverage.",
+  title: "Meet Mina Demian | Demian Insurance Agency",
+  description: "Meet Mina Demian, founder and Florida-licensed insurance professional bringing a personal approach to auto, home, life, and business coverage.",
   path: "/about/team",
 });
 
@@ -27,7 +27,6 @@ export default function MeetTheTeamPage() {
     "@context": "https://schema.org",
     "@type": "Person",
     name: minaDemian.name,
-    honorificSuffix: "CSFS®",
     jobTitle: "Founder",
     worksFor: {
       "@type": "InsuranceAgency",
@@ -35,12 +34,6 @@ export default function MeetTheTeamPage() {
       ...(absoluteUrl("/") ? { url: absoluteUrl("/") } : {}),
     },
     alumniOf: { "@type": "CollegeOrUniversity", name: minaDemian.education.institution },
-    hasCredential: minaDemian.licenses.map((license) => ({
-      "@type": "EducationalOccupationalCredential",
-      credentialCategory: "Professional license",
-      name: `${license.name} insurance license`,
-      recognizedBy: { "@type": "Organization", name: license.authority },
-    })),
     ...(absoluteUrl(minaDemian.portrait) ? { image: absoluteUrl(minaDemian.portrait) } : {}),
   };
 
@@ -139,18 +132,10 @@ export default function MeetTheTeamPage() {
             <p>{minaDemian.education.degree}</p>
           </MotionReveal>
           <MotionReveal className="qualification-panel license-panel" delay={0.08}>
-            <div className="qualification-icon"><ShieldCheck aria-hidden="true" size={25} strokeWidth={1.5} /></div>
-            <p className="section-index">04 / Credentials</p>
-            <h2>Florida licensed for the conversations that matter.</h2>
-            <p className="license-authority">{minaDemian.licenses[0].authority}</p>
-            <ul className="license-list">
-              {minaDemian.licenses.map((license) => (
-                <li key={license.name}>
-                  <span>{license.name}</span>
-                  <small>Issued {license.issued} · Expires {license.expires}</small>
-                </li>
-              ))}
-            </ul>
+            <div className="qualification-icon"><Users aria-hidden="true" size={25} strokeWidth={1.5} /></div>
+            <p className="section-index">04 / Perspective</p>
+            <h2>Experience across insurance and client advisory work.</h2>
+            <p>{minaDemian.experienceSummary}</p>
           </MotionReveal>
         </section>
 

@@ -91,7 +91,6 @@ export function createAgencySchema() {
     founder: {
       "@type": "Person",
       name: "Mina Demian",
-      honorificSuffix: "CSFS®",
     },
     openingHoursSpecification: [
       {

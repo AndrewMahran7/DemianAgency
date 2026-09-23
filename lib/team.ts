@@ -10,17 +10,9 @@ export type TeamEducation = {
   degree: string;
 };
 
-export type TeamLicense = {
-  authority: string;
-  name: string;
-  issued: string;
-  expires: string;
-};
-
 export type TeamMember = {
   slug: string;
   name: string;
-  credentials: readonly string[];
   title: string;
   location: string;
   portrait: string;
@@ -28,7 +20,6 @@ export type TeamMember = {
   professionalIdentity: readonly string[];
   experienceSummary: string;
   education: TeamEducation;
-  licenses: readonly TeamLicense[];
   experience: readonly TeamExperience[];
   community: {
     organization: string;
@@ -42,7 +33,6 @@ export const teamMembers: readonly TeamMember[] = [
   {
     slug: "mina-demian",
     name: "Mina Demian",
-    credentials: ["CSFS®"],
     title: "Founder, Demian Insurance Agency",
     location: "Southwest Florida",
     portrait: "/team/mina-demian.jpg",
@@ -54,20 +44,6 @@ export const teamMembers: readonly TeamMember[] = [
       institution: "San Diego State University",
       degree: "B.S. Business Administration & Management",
     },
-    licenses: [
-      {
-        authority: "Florida Department of Financial Services",
-        name: "Life & Health",
-        issued: "March 2026",
-        expires: "March 2028",
-      },
-      {
-        authority: "Florida Department of Financial Services",
-        name: "Property & Casualty",
-        issued: "March 2026",
-        expires: "March 2028",
-      },
-    ],
     experience: [
       {
         organization: "Aflac",
