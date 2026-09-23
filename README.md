@@ -27,6 +27,20 @@ $env:SITE_URL = "<verified-production-origin>"
 npm run build
 ```
 
+## Vercel deployment
+
+This project deploys through Vinext's Vite + Nitro adapter; it is not a stock Next.js `.next` deployment. In the Vercel project settings use:
+
+- Framework Preset: `Other`
+- Root Directory: `.`
+- Install Command: `npm ci`
+- Build Command: `npm run build`
+- Output Directory: leave blank (Nitro writes `.vercel/output`)
+- Node.js Version: `22.x`
+- Environment variable: `SITE_URL=https://demianinsurance.com`
+
+Vercel sets `VERCEL=1` automatically, which selects the Vite + Nitro build path. `NITRO_PRESET=vercel` may also be added as an explicit build-environment variable, but is not required. No `vercel.json` file or production deploy command is needed.
+
 ## Quality checks
 
 ```bash
