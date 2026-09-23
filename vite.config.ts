@@ -58,7 +58,11 @@ export default defineConfig(async () => {
 
   if (isVercelBuild) {
     return {
-      plugins: [vinext(), tailwindcss(), nitro()],
+      plugins: [
+        vinext(),
+        tailwindcss(),
+        nitro({ vercel: { functions: { runtime: "nodejs22.x" } } }),
+      ],
     };
   }
 
