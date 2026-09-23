@@ -39,7 +39,9 @@ This project deploys through Vinext's Vite + Nitro adapter; it is not a stock Ne
 - Node.js Version: `22.x`
 - Environment variable: `SITE_URL=https://demianinsurance.com`
 
-Vercel sets `VERCEL=1` automatically, which selects the Vite + Nitro build path. `NITRO_PRESET=vercel` may also be added as an explicit build-environment variable, but is not required. No `vercel.json` file or production deploy command is needed.
+Use the standard `npm ci` install command on Vercel. The `install:ci` script is retained only for the local Sites execution workflow and is not part of the Vercel path.
+
+Vercel sets `VERCEL=1` automatically, which selects the Vite + Nitro build path. `NITRO_PRESET=vercel` is not required in Vercel. No `vercel.json` file or production deploy command is needed.
 
 ## Quality checks
 
