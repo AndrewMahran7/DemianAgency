@@ -43,6 +43,14 @@ Use the standard `npm ci` install command on Vercel. The `install:ci` script is 
 
 Vercel sets `VERCEL=1` automatically, which selects the Vite + Nitro build path. `NITRO_PRESET=vercel` is not required in Vercel. No `vercel.json` file or production deploy command is needed.
 
+The production Demian Insurance Agency site is a commercial business website and should use an appropriate Vercel commercial plan.
+
+## Analytics
+
+Production uses Vercel Web Analytics for page traffic and a small set of non-PII conversion events. In Vercel, open **Project → Analytics → Enable Web Analytics**, then redeploy. Page views and traffic sources appear in the Analytics dashboard; conversion activity appears under custom events. Ordinary use does not require an analytics API token. Custom events require a Vercel plan that supports them.
+
+The tracked event properties are limited to predefined locations, form sources, insurance/service categories, and broad error categories. Names, email addresses, phone numbers, policy numbers, messages, and form payloads must never be added to analytics events.
+
 ## Transactional form email
 
 Quote and service requests are delivered through Resend. The agency notification is sent first and is the critical operation: the website only shows a received state after that email succeeds. The customer confirmation is attempted second; if it fails after the agency notification succeeds, the submission remains successful so the customer is not encouraged to create a duplicate request.
@@ -72,4 +80,4 @@ npm run lint
 npm run build
 ```
 
-The agency office address, license-display information, remaining line-specific photography, and final legal copy are intentionally pending.
+The agency office address and remaining line-specific photography are intentionally pending. The Privacy Policy and Website Terms are practical drafts and should receive owner and legal review before they are treated as final legal advice.

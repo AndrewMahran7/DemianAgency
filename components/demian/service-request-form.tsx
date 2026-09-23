@@ -8,6 +8,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { requestTypes } from "@/lib/site-config";
+import { trackEvent } from "@/lib/analytics";
+import { TrackedPhoneLink } from "./analytics-link";
 
 type FormValues = {
   requestType: string;
@@ -114,6 +116,8 @@ export function ServiceRequestForm({ compact = false, initialType = "" }: { comp
         requestAnimationFrame(() => submissionErrorRef.current?.focus());
         return;
       }
+      const requestType = requestTypes.find((type) => type === values.requestType);
+      if (requestType) trackEvent("service_submission_success", { requestType });
       setStatus("success");
     } catch {
       setStatus("error");
@@ -142,7 +146,7 @@ export function ServiceRequestForm({ compact = false, initialType = "" }: { comp
           <motion.form ref={formRef} key="form" className="request-form" onSubmit={handleSubmit} noValidate aria-busy={status === "loading"} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
             <div className="demo-notice"><LockKeyhole size={15} aria-hidden="true" /><span><strong>Privacy note:</strong> Please don&apos;t include Social Security numbers, payment details, or other sensitive application information.</span></div>
             <div className="form-honeypot" aria-hidden="true"><label htmlFor="service-company-website">Company website</label><input id="service-company-website" name="companyWebsite" type="text" tabIndex={-1} autoComplete="off" /></div>
-            {status === "error" && <div className="submission-error field-wide" role="alert" tabIndex={-1} ref={submissionErrorRef}><AlertCircle aria-hidden="true" size={18} /><p><strong>We couldn&apos;t send your request right now.</strong><br />Please try again, or call us at <a href="tel:+19413771806">(941) 377-1806</a>.</p></div>}
+            {status === "error" && <div className="submission-error field-wide" role="alert" tabIndex={-1} ref={submissionErrorRef}><AlertCircle aria-hidden="true" size={18} /><p><strong>We couldn&apos;t send your request right now.</strong><br />Please try again, or call us at <TrackedPhoneLink location="client_service" href="tel:+19413771806">(941) 377-1806</TrackedPhoneLink>.</p></div>}
 
             <div className="field field-wide">
               <label id="request-type-label">Insurance or service type</label>

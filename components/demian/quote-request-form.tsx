@@ -8,6 +8,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { quoteInsuranceTypes } from "@/lib/forms/validation";
+import { trackEvent } from "@/lib/analytics";
+import { TrackedPhoneLink } from "./analytics-link";
 
 const insuranceTypes = quoteInsuranceTypes;
 
@@ -38,16 +40,21 @@ function validateQuote(values: QuoteValues): QuoteErrors {
   return errors;
 }
 
-export function QuoteRequestForm({ initialType = "", compact = false }: { initialType?: string; compact?: boolean }) {
+export function QuoteRequestForm({ initialType = "", compact = false, source }: { initialType?: string; compact?: boolean; source: "homepage" | "request_quote" }) {
   const matchedInitialType = insuranceTypes.find((type) => type.toLowerCase() === initialType.toLowerCase()) ?? "";
   const [values, setValues] = useState<QuoteValues>(() => ({ ...blankValues, insuranceType: matchedInitialType }));
   const [errors, setErrors] = useState<QuoteErrors>({});
   const [status, setStatus] = useState<FormStatus>("idle");
   const formRef = useRef<HTMLFormElement>(null);
   const submissionErrorRef = useRef<HTMLDivElement>(null);
+  const startedRef = useRef(false);
   const reduceMotion = useReducedMotion();
 
   function update<K extends keyof QuoteValues>(field: K, value: QuoteValues[K]) {
+    if (!startedRef.current) {
+      startedRef.current = true;
+      trackEvent("quote_form_start", { source });
+    }
     setValues((current) => ({ ...current, [field]: value }));
     setErrors((current) => ({ ...current, [field]: undefined }));
   }
@@ -57,6 +64,7 @@ export function QuoteRequestForm({ initialType = "", compact = false }: { initia
     const nextErrors = validateQuote(values);
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length) {
+      trackEvent("quote_submission_error", { category: "validation" });
       requestAnimationFrame(() => formRef.current?.querySelector<HTMLElement>("[aria-invalid='true']")?.focus());
       return;
     }
@@ -70,13 +78,17 @@ export function QuoteRequestForm({ initialType = "", compact = false }: { initia
       });
       const result = await response.json().catch(() => null) as { fieldErrors?: QuoteErrors } | null;
       if (!response.ok) {
+        trackEvent("quote_submission_error", { category: "delivery" });
         if (result?.fieldErrors) setErrors(result.fieldErrors);
         setStatus("error");
         requestAnimationFrame(() => submissionErrorRef.current?.focus());
         return;
       }
+      const insuranceType = insuranceTypes.find((type) => type === values.insuranceType);
+      if (insuranceType) trackEvent("quote_submission_success", { insuranceType });
       setStatus("success");
     } catch {
+      trackEvent("quote_submission_error", { category: "network" });
       setStatus("error");
       requestAnimationFrame(() => submissionErrorRef.current?.focus());
     }
@@ -96,14 +108,14 @@ export function QuoteRequestForm({ initialType = "", compact = false }: { initia
             <span className="success-icon"><Check aria-hidden="true" /></span>
             <p className="eyebrow">Request received</p>
             <h2>Thanks, {values.firstName}. We received your request.</h2>
-            <p>A member of the Demian Insurance Agency team will follow up using your preferred contact method. Prefer to talk? Call <a href="tel:+19413771806">(941) 377-1806</a> during business hours.</p>
+            <p>A member of the Demian Insurance Agency team will follow up using your preferred contact method. Prefer to talk? Call <TrackedPhoneLink location="quote_form" href="tel:+19413771806">(941) 377-1806</TrackedPhoneLink> during business hours.</p>
             <button className="text-button" type="button" onClick={reset}><RotateCcw aria-hidden="true" size={16} /> Start another request</button>
           </motion.div>
         ) : (
           <motion.form ref={formRef} key="form" className="request-form quote-form" onSubmit={handleSubmit} noValidate aria-busy={status === "loading"} initial={reduceMotion ? false : { opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
             <div className="demo-notice"><LockKeyhole aria-hidden="true" size={15} /><span><strong>Privacy note:</strong> Please don&apos;t include Social Security numbers, payment details, or other sensitive application information.</span></div>
             <div className="form-honeypot" aria-hidden="true"><label htmlFor="quote-company-website">Company website</label><input id="quote-company-website" name="companyWebsite" type="text" tabIndex={-1} autoComplete="off" /></div>
-            {status === "error" && <div className="submission-error field-wide" role="alert" tabIndex={-1} ref={submissionErrorRef}><AlertCircle aria-hidden="true" size={18} /><p><strong>We couldn&apos;t send your request right now.</strong><br />Please try again, or call us at <a href="tel:+19413771806">(941) 377-1806</a>.</p></div>}
+            {status === "error" && <div className="submission-error field-wide" role="alert" tabIndex={-1} ref={submissionErrorRef}><AlertCircle aria-hidden="true" size={18} /><p><strong>We couldn&apos;t send your request right now.</strong><br />Please try again, or call us at <TrackedPhoneLink location="quote_form" href="tel:+19413771806">(941) 377-1806</TrackedPhoneLink>.</p></div>}
 
             <div className="field field-wide">
               <label id="quote-type-label">What would you like to insure?</label>

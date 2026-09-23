@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ArrowRight, CircleHelp, FileText, RefreshCcw, ShieldCheck } from "lucide-react";
 import { AgencyContactStrip } from "@/components/demian/insurance-conversion";
 import { MotionReveal } from "@/components/demian/motion-reveal";
@@ -7,6 +6,7 @@ import { SiteFooter } from "@/components/demian/site-footer";
 import { SiteHeader } from "@/components/demian/site-header";
 import { createPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
+import { TrackedLink, TrackedPhoneLink } from "@/components/demian/analytics-link";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Client Service | Demian Insurance Agency",
@@ -58,8 +58,8 @@ export default function ClientServicePage() {
           <MotionReveal className="client-service-hero-aside" delay={0.08} immediate>
             <p>Whether you need to make a change, request documents, ask a question, or get help with a claim, the Demian customer service team is here to help.</p>
             <div className="client-service-hero-actions">
-              <Link className="button" href={siteConfig.requestServiceHref}>Request Service <ArrowRight aria-hidden="true" size={18} /></Link>
-              <a className="text-link" href={siteConfig.phoneHref}>Call {siteConfig.phone} <span aria-hidden="true">↗</span></a>
+              <TrackedLink event="service_cta_click" properties={{ location: "client_service" }} className="button" href={siteConfig.requestServiceHref}>Request Service <ArrowRight aria-hidden="true" size={18} /></TrackedLink>
+              <TrackedPhoneLink location="client_service" className="text-link" href={siteConfig.phoneHref}>Call {siteConfig.phone} <span aria-hidden="true">↗</span></TrackedPhoneLink>
             </div>
           </MotionReveal>
         </section>
@@ -68,19 +68,19 @@ export default function ClientServicePage() {
           <MotionReveal className="client-service-actions-heading">
             <p className="eyebrow"><span /> Find the right next step</p>
             <h2 id="service-actions-heading">What can we help with?</h2>
-            <p>Choose the closest category. Each option opens the service form with a helpful starting point; no request is sent until a future secure connection is added.</p>
+            <p>Choose the closest category. Each option opens the service form with a helpful starting point; no request is sent until you review and submit the form.</p>
           </MotionReveal>
           <div className="client-service-grid">
             {serviceGroups.map((group, index) => {
               const Icon = group.icon;
               return (
                 <MotionReveal delay={index * 0.05} key={group.title}>
-                  <Link className="client-service-card" href={group.href}>
+                  <TrackedLink event="service_cta_click" properties={{ location: "client_service" }} className="client-service-card" href={group.href}>
                     <div className="client-service-card-top"><Icon aria-hidden="true" size={21} /><span>0{index + 1}</span></div>
                     <div><h3>{group.title}</h3><p>{group.description}</p></div>
                     <ul>{group.items.map((item) => <li key={item}>{item}</li>)}</ul>
                     <span className="client-service-card-action">Start this request <ArrowRight aria-hidden="true" size={17} /></span>
-                  </Link>
+                  </TrackedLink>
                 </MotionReveal>
               );
             })}
@@ -95,11 +95,11 @@ export default function ClientServicePage() {
           <MotionReveal className="client-service-response-copy" delay={0.08}>
             <p>A dedicated customer service representative will follow up using your selected communication method with either a resolution or a request for additional information.</p>
             <p>Routine service is handled by the customer service team. Mina handles escalations when appropriate.</p>
-            <Link className="button button-light" href={siteConfig.requestServiceHref}>Submit a Service Request <ArrowRight aria-hidden="true" size={18} /></Link>
+            <TrackedLink event="service_cta_click" properties={{ location: "client_service" }} className="button button-light" href={siteConfig.requestServiceHref}>Submit a Service Request <ArrowRight aria-hidden="true" size={18} /></TrackedLink>
           </MotionReveal>
         </section>
 
-        <AgencyContactStrip />
+        <AgencyContactStrip location="client_service" />
       </main>
       <SiteFooter />
     </>

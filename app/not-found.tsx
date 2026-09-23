@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { TrackedLink } from "@/components/demian/analytics-link";
 import { SiteFooter } from "@/components/demian/site-footer";
 import { SiteHeader } from "@/components/demian/site-header";
 
@@ -21,7 +22,7 @@ export default function NotFound() {
         <div className="not-found-actions">
           <Link className="button" href="/">Return Home <ArrowRight aria-hidden="true" size={18} /></Link>
           <Link className="text-link" href="/insurance">Explore Insurance <span aria-hidden="true">↗</span></Link>
-          <Link className="text-link" href="/request-quote">Request a Quote <span aria-hidden="true">↗</span></Link>
+          <TrackedLink event="quote_cta_click" properties={{ location: "not_found" }} className="text-link" href="/request-quote">Request a Quote <span aria-hidden="true">↗</span></TrackedLink>
         </div>
       </main>
       <SiteFooter />

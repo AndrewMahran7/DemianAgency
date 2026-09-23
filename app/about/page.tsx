@@ -15,7 +15,7 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function AboutPage() {
   return (
-    <RouteShell eyebrow="About" title="An agency relationship, built around people." description="Demian Insurance Agency brings a personal, considered approach to protecting homes, vehicles, families, and businesses across Florida's Gulf Coast and nearby inland counties.">
+    <RouteShell eyebrow="About" title="An agency relationship, built around people." description="Demian Insurance Agency brings a personal, considered approach to protecting homes, vehicles, families, and businesses across Florida's Gulf Coast and nearby inland counties." quoteLocation="about_page">
       <MotionReveal className="about-founder-card">
         <div className="about-founder-image">
           <Image src={minaDemian.portrait} alt={minaDemian.portraitAlt} fill sizes="(max-width: 760px) 100vw, 40vw" />

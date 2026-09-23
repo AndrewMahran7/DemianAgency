@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { Sheet, SheetClose, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { siteConfig } from "@/lib/site-config";
 import { Brand } from "./brand";
+import { TrackedLink } from "./analytics-link";
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -24,10 +25,10 @@ export function SiteHeader() {
         {siteConfig.navigation.map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}
       </nav>
       <div className="header-actions">
-        <Link className="header-service-link" href={siteConfig.clientServiceHref}>Client Service</Link>
-        <Link className="button button-small header-cta" href={siteConfig.requestQuoteHref}>
+        <TrackedLink event="service_cta_click" properties={{ location: "header" }} className="header-service-link" href={siteConfig.clientServiceHref}>Client Service</TrackedLink>
+        <TrackedLink event="quote_cta_click" properties={{ location: "header" }} className="button button-small header-cta" href={siteConfig.requestQuoteHref}>
           Request a Quote <ArrowRight aria-hidden="true" size={16} />
-        </Link>
+        </TrackedLink>
       </div>
       <Sheet>
         <SheetTrigger className="menu-trigger" aria-label="Open navigation menu">
@@ -48,8 +49,8 @@ export function SiteHeader() {
           </nav>
           <div className="mobile-sheet-footer">
             <p>Looking for coverage or help with an existing policy?</p>
-            <SheetClose asChild><Link className="button" href={siteConfig.requestQuoteHref}>Request a Quote <ArrowRight aria-hidden="true" size={17} /></Link></SheetClose>
-            <SheetClose asChild><Link className="mobile-service-link" href={siteConfig.clientServiceHref}>Client Service</Link></SheetClose>
+            <SheetClose asChild><TrackedLink event="quote_cta_click" properties={{ location: "header" }} className="button" href={siteConfig.requestQuoteHref}>Request a Quote <ArrowRight aria-hidden="true" size={17} /></TrackedLink></SheetClose>
+            <SheetClose asChild><TrackedLink event="service_cta_click" properties={{ location: "header" }} className="mobile-service-link" href={siteConfig.clientServiceHref}>Client Service</TrackedLink></SheetClose>
           </div>
         </SheetContent>
       </Sheet>

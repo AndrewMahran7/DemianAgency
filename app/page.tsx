@@ -10,6 +10,7 @@ import { StructuredData } from "@/components/demian/structured-data";
 import { createAgencySchema, createPageMetadata } from "@/lib/seo";
 import { services, siteConfig } from "@/lib/site-config";
 import { teamMembers } from "@/lib/team";
+import { TrackedLink, TrackedPhoneLink } from "@/components/demian/analytics-link";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Florida Insurance Guidance | Demian Insurance Agency",
@@ -31,8 +32,8 @@ export default function Home() {
               A family-owned Florida agency helping you make sense of Auto, Home, Life, and Business insurance—with real guidance from people you can call.
             </p>
             <div className="home-hero-actions">
-              <Link className="button" href={siteConfig.requestQuoteHref}>Request a Quote <ArrowRight aria-hidden="true" size={18} /></Link>
-              <Link className="text-link" href={siteConfig.clientServiceHref}>Client Service <span aria-hidden="true">↗</span></Link>
+              <TrackedLink event="quote_cta_click" properties={{ location: "homepage_hero" }} className="button" href={siteConfig.requestQuoteHref}>Request a Quote <ArrowRight aria-hidden="true" size={18} /></TrackedLink>
+              <TrackedLink event="service_cta_click" properties={{ location: "homepage_hero" }} className="text-link" href={siteConfig.clientServiceHref}>Client Service <span aria-hidden="true">↗</span></TrackedLink>
             </div>
             <p className="home-hero-region"><ShieldCheck aria-hidden="true" size={18} /> Serving {siteConfig.serviceRegion}</p>
           </MotionReveal>
@@ -117,7 +118,7 @@ export default function Home() {
                     <p>{member.title}</p>
                   </div>
                   <p className="home-team-bio">A husband, father, and Florida-licensed insurance professional, Mina brings more than a decade of experience across insurance, financial services, employee benefits, banking, and client advisory work—along with a long-standing commitment to serving his community.</p>
-                  <Link className="text-link home-team-link" href="/about/team">Meet the Team <span aria-hidden="true">↗</span></Link>
+                  <TrackedLink event="meet_team_click" properties={{ location: "homepage" }} className="text-link home-team-link" href="/about/team">Meet the Team <span aria-hidden="true">↗</span></TrackedLink>
                 </MotionReveal>
               </div>
             ))}
@@ -133,7 +134,7 @@ export default function Home() {
               <Phone aria-hidden="true" size={20} />
               <div>
                 <span>Prefer to talk to someone?</span>
-                <a href={siteConfig.phoneHref}>{siteConfig.phone}</a>
+                <TrackedPhoneLink location="homepage" href={siteConfig.phoneHref}>{siteConfig.phone}</TrackedPhoneLink>
               </div>
             </div>
             <div className="home-hours">
@@ -145,7 +146,7 @@ export default function Home() {
             </div>
           </MotionReveal>
           <MotionReveal className="home-quote-form" delay={0.08}>
-            <QuoteRequestForm compact />
+            <QuoteRequestForm compact source="homepage" />
           </MotionReveal>
         </section>
       </main>

@@ -25,7 +25,7 @@ export default async function RequestQuotePage({ searchParams }: { searchParams:
           <p>Choose the kind of coverage you are looking for and share the best way to reach you. This focused first step gives the agency enough context to follow up without asking for sensitive application details.</p>
         </section>
         <section className="quote-page-form">
-          <QuoteRequestForm initialType={type} />
+          <QuoteRequestForm initialType={type} source="request_quote" />
           <aside className="quote-side-note">
             <span>01</span>
             <h2>What happens next?</h2>
@@ -33,7 +33,7 @@ export default async function RequestQuotePage({ searchParams }: { searchParams:
             <div><strong>No sensitive application data</strong><p>No Social Security number, driver&apos;s license number, banking details, medical history, or VIN is requested here.</p></div>
           </aside>
         </section>
-        <AgencyContactStrip />
+        <AgencyContactStrip location="quote_form" />
       </main>
       <SiteFooter />
     </>

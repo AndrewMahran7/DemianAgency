@@ -8,6 +8,7 @@ import { SiteHeader } from "@/components/demian/site-header";
 import { StructuredData } from "@/components/demian/structured-data";
 import { absoluteUrl, createPageMetadata } from "@/lib/seo";
 import { minaDemian } from "@/lib/team";
+import { TrackedLink } from "@/components/demian/analytics-link";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Meet Mina Demian | Demian Insurance Agency",
@@ -66,7 +67,7 @@ export default function MeetTheTeamPage() {
               With more than a decade across insurance, employee benefits, banking, and client advisory work, Mina brings broad perspective to every conversation. As a husband and father, he understands that the decisions behind a policy are deeply personal.
             </p>
             <div className="hero-actions founder-actions">
-              <Link className="button" href="/request-quote">Request a Quote <ArrowRight size={18} aria-hidden="true" /></Link>
+              <TrackedLink event="quote_cta_click" properties={{ location: "team_page" }} className="button" href="/request-quote">Request a Quote <ArrowRight size={18} aria-hidden="true" /></TrackedLink>
               <Link className="text-link" href="/insurance">Explore Coverage <span aria-hidden="true">↗</span></Link>
             </div>
             <p className="founder-location"><MapPin size={16} aria-hidden="true" /> Serving Southwest Florida</p>
@@ -179,7 +180,7 @@ export default function MeetTheTeamPage() {
 
         <section className="final-cta team-final-cta">
           <div><p className="eyebrow light"><span /> Start a conversation</p><h2>Ready to talk about what you&apos;re protecting?</h2></div>
-          <div><p>Share what you need help with and start a more personal insurance conversation.</p><Link className="button button-light" href="/request-quote">Request a Quote <ArrowRight size={18} aria-hidden="true" /></Link></div>
+          <div><p>Share what you need help with and start a more personal insurance conversation.</p><TrackedLink event="quote_cta_click" properties={{ location: "team_page" }} className="button button-light" href="/request-quote">Request a Quote <ArrowRight size={18} aria-hidden="true" /></TrackedLink></div>
         </section>
       </main>
       <StructuredData data={structuredData} />

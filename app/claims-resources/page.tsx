@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { RouteShell } from "@/components/demian/route-shell";
+import { TrackedLink } from "@/components/demian/analytics-link";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
@@ -11,10 +11,10 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function ResourcesPage() {
   return (
-    <RouteShell eyebrow="Claims & resources" title="Clear next steps when you need them." description="This resource hub is reserved for verified claims contacts, carrier links, document guidance, and policy resources. No unconfirmed instructions are shown.">
+    <RouteShell eyebrow="Claims & resources" title="Clear next steps when you need them." description="This resource hub is reserved for verified claims contacts, carrier links, document guidance, and policy resources. No unconfirmed instructions are shown." quoteLocation="claims_resources">
       <div className="resource-next-step">
         <p>Need help now? Start a service request so the agency can identify the appropriate carrier contact and help you understand what information to have ready.</p>
-        <Link className="text-link" href="/request-service?type=Claims%20help">Request Claim Guidance <span aria-hidden="true">↗</span></Link>
+        <TrackedLink event="service_cta_click" properties={{ location: "claims_resources" }} className="text-link" href="/request-service?type=Claims%20help">Request Claim Guidance <span aria-hidden="true">↗</span></TrackedLink>
       </div>
     </RouteShell>
   );
