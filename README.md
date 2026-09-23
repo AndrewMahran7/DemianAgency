@@ -43,12 +43,33 @@ Use the standard `npm ci` install command on Vercel. The `install:ci` script is 
 
 Vercel sets `VERCEL=1` automatically, which selects the Vite + Nitro build path. `NITRO_PRESET=vercel` is not required in Vercel. No `vercel.json` file or production deploy command is needed.
 
+## Transactional form email
+
+Quote and service requests are delivered through Resend. The agency notification is sent first and is the critical operation: the website only shows a received state after that email succeeds. The customer confirmation is attempted second; if it fails after the agency notification succeeds, the submission remains successful so the customer is not encouraged to create a duplicate request.
+
+Production setup:
+
+1. Create or connect a Resend account.
+2. Add and verify `demianinsurance.com` in Resend.
+3. Add the exact DNS records Resend provides to the domain, then wait for Resend to report the domain as verified. Do not guess or substitute DNS values.
+4. Create a production Resend API key.
+5. In Vercel, open **Settings → Environment Variables** and add:
+   - `RESEND_API_KEY=<secret>`
+   - `AGENCY_INBOX=mina.demian@demianinsurance.com`
+   - `EMAIL_FROM=Demian Insurance Agency <forms@demianinsurance.com>`
+   - `SITE_URL=https://demianinsurance.com`
+6. Redeploy so the deployment receives the new environment variables.
+
+`RESEND_API_KEY` is server-only and must never use a `NEXT_PUBLIC_` prefix. For local provider testing, explicitly set `EMAIL_FROM` to a sender permitted by your Resend account; the application never falls back to a development sender or fake success. The forms render without email configuration, but a submission fails safely until all four values are present. Add Vercel-level rate limiting or Turnstile later if observed abuse warrants it; the initial implementation uses server validation, a small request-body limit, and a honeypot without storing form data.
+
 ## Quality checks
 
 ```bash
+npm ci
+npm run test:forms
 npx tsc --noEmit
 npm run lint
 npm run build
 ```
 
-The service-request form is an isolated frontend simulation. It does not send or store information. The agency email, office address, license-display information, remaining line-specific photography, final legal copy, and a secure submission endpoint are intentionally pending.
+The agency office address, license-display information, remaining line-specific photography, and final legal copy are intentionally pending.

@@ -29,7 +29,7 @@ export default async function RequestQuotePage({ searchParams }: { searchParams:
           <aside className="quote-side-note">
             <span>01</span>
             <h2>What happens next?</h2>
-            <p>In the live experience, a team member will review the request and begin a personal coverage conversation. Carrier eligibility, policy terms, and available options depend on the details of each request.</p>
+            <p>A team member will review the request and begin a personal coverage conversation. Carrier eligibility, policy terms, and available options depend on the details of each request.</p>
             <div><strong>No sensitive application data</strong><p>No Social Security number, driver&apos;s license number, banking details, medical history, or VIN is requested here.</p></div>
           </aside>
         </section>

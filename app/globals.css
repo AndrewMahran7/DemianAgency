@@ -186,6 +186,12 @@ h1 { max-width: 720px; margin: 0; font-family: var(--font-serif); font-size: cla
 .request-form { display: grid; grid-template-columns: 1fr 1fr; gap: 23px 20px; padding: clamp(28px, 4vw, 58px); }
 .demo-notice { grid-column: 1 / -1; display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-left: 2px solid var(--primary); background: var(--blue-soft); font-size: .74rem; line-height: 1.45; color: #566473; }
 .demo-notice svg { flex: 0 0 auto; color: #866d3f; }
+.form-honeypot { position: absolute !important; left: -10000px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
+.submission-error { display: flex; align-items: flex-start; gap: 10px; padding: 14px 16px; border-left: 3px solid #a43a34; background: #f8e9e5; color: #6f2521; font-size: .82rem; line-height: 1.55; }
+.submission-error:focus { outline: 2px solid var(--ring); outline-offset: 2px; }
+.submission-error svg { flex: 0 0 auto; margin-top: 2px; }
+.submission-error p { margin: 0; }
+.submission-error a, .form-success a { color: inherit; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 .field { min-width: 0; }
 .field-wide { grid-column: 1 / -1; }
 .field label, .field legend { display: block; margin: 0 0 9px; font-size: .76rem; font-weight: 700; letter-spacing: .025em; }

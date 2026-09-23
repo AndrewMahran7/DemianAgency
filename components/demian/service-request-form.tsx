@@ -27,6 +27,7 @@ const initialValues: FormValues = {
 };
 
 type Errors = Partial<Record<keyof FormValues, string>>;
+type FormStatus = "idle" | "loading" | "success" | "error";
 
 function validate(values: FormValues): Errors {
   const errors: Errors = {};
@@ -44,8 +45,9 @@ export function ServiceRequestForm({ compact = false, initialType = "" }: { comp
   const startingValues = { ...initialValues, requestType: matchedInitialType };
   const [values, setValues] = useState<FormValues>(() => startingValues);
   const [errors, setErrors] = useState<Errors>({});
-  const [status, setStatus] = useState<"idle" | "loading" | "success">("idle");
+  const [status, setStatus] = useState<FormStatus>("idle");
   const formRef = useRef<HTMLFormElement>(null);
+  const submissionErrorRef = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
 
   useEffect(() => {
@@ -98,8 +100,25 @@ export function ServiceRequestForm({ compact = false, initialType = "" }: { comp
       return;
     }
     setStatus("loading");
-    await new Promise((resolve) => window.setTimeout(resolve, 900));
-    setStatus("success");
+    try {
+      const companyWebsite = String(new FormData(event.currentTarget).get("companyWebsite") ?? "");
+      const response = await fetch("/api/service", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...values, companyWebsite }),
+      });
+      const result = await response.json().catch(() => null) as { fieldErrors?: Errors } | null;
+      if (!response.ok) {
+        if (result?.fieldErrors) setErrors(result.fieldErrors);
+        setStatus("error");
+        requestAnimationFrame(() => submissionErrorRef.current?.focus());
+        return;
+      }
+      setStatus("success");
+    } catch {
+      setStatus("error");
+      requestAnimationFrame(() => submissionErrorRef.current?.focus());
+    }
   }
 
   function reset() {
@@ -114,14 +133,16 @@ export function ServiceRequestForm({ compact = false, initialType = "" }: { comp
         {status === "success" ? (
           <motion.div className="form-success" key="success" role="status" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
             <span className="success-icon"><Check aria-hidden="true" /></span>
-            <p className="eyebrow">Demo complete</p>
-            <h3>Your request is ready for the real connection.</h3>
-            <p>This preview did not send or store your information. In the live experience, a dedicated customer service representative will follow up within one business day using your selected contact method. Mina is available for escalations when needed.</p>
-            <button className="text-button" type="button" onClick={reset}><RotateCcw size={16} /> Start another demo</button>
+            <p className="eyebrow">Request received</p>
+            <h3>Thanks, {values.firstName}. We received your service request.</h3>
+            <p>A member of our customer service team will follow up within one business day with a resolution or any additional information needed.</p>
+            <button className="text-button" type="button" onClick={reset}><RotateCcw aria-hidden="true" size={16} /> Start another request</button>
           </motion.div>
         ) : (
-          <motion.form ref={formRef} key="form" className="request-form" onSubmit={handleSubmit} noValidate initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-            <div className="demo-notice"><LockKeyhole size={15} aria-hidden="true" /><span><strong>Frontend preview:</strong> Nothing entered here is sent or stored.</span></div>
+          <motion.form ref={formRef} key="form" className="request-form" onSubmit={handleSubmit} noValidate aria-busy={status === "loading"} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+            <div className="demo-notice"><LockKeyhole size={15} aria-hidden="true" /><span><strong>Privacy note:</strong> Please don&apos;t include Social Security numbers, payment details, or other sensitive application information.</span></div>
+            <div className="form-honeypot" aria-hidden="true"><label htmlFor="service-company-website">Company website</label><input id="service-company-website" name="companyWebsite" type="text" tabIndex={-1} autoComplete="off" /></div>
+            {status === "error" && <div className="submission-error field-wide" role="alert" tabIndex={-1} ref={submissionErrorRef}><AlertCircle aria-hidden="true" size={18} /><p><strong>We couldn&apos;t send your request right now.</strong><br />Please try again, or call us at <a href="tel:+19413771806">(941) 377-1806</a>.</p></div>}
 
             <div className="field field-wide">
               <label id="request-type-label">Insurance or service type</label>
@@ -138,13 +159,13 @@ export function ServiceRequestForm({ compact = false, initialType = "" }: { comp
 
             <div className="field field-wide">
               <label htmlFor="help">What can we help with?</label>
-              <Textarea id="help" value={values.help} onChange={(event) => update("help", event.target.value)} placeholder="Briefly describe what you need help with" aria-invalid={Boolean(errors.help)} aria-describedby={errors.help ? "help-error" : "help-hint"} />
+              <Textarea id="help" value={values.help} maxLength={3000} onChange={(event) => update("help", event.target.value)} placeholder="Briefly describe what you need help with" aria-invalid={Boolean(errors.help)} aria-describedby={errors.help ? "help-error" : "help-hint"} />
               {errors.help ? <p className="field-error" id="help-error"><AlertCircle size={14} />{errors.help}</p> : <p className="field-hint" id="help-hint">A sentence or two is perfect.</p>}
             </div>
 
             <div className="field field-wide">
               <label htmlFor="policy">Policy number <span>(if applicable)</span></label>
-              <Input id="policy" value={values.policy} onChange={(event) => update("policy", event.target.value)} autoComplete="off" />
+              <Input id="policy" value={values.policy} maxLength={100} onChange={(event) => update("policy", event.target.value)} autoComplete="off" />
             </div>
 
             <div className="form-divider field-wide"><span>Contact information</span></div>
@@ -168,13 +189,13 @@ export function ServiceRequestForm({ compact = false, initialType = "" }: { comp
 
             <div className="field field-wide">
               <label htmlFor="details">Additional details <span>(optional)</span></label>
-              <Textarea id="details" value={values.details} onChange={(event) => update("details", event.target.value)} placeholder="Anything else the team should know?" />
+              <Textarea id="details" value={values.details} maxLength={3000} onChange={(event) => update("details", event.target.value)} placeholder="Anything else the team should know?" />
             </div>
 
             <div className="form-submit field-wide">
-              <p>By continuing in the future live form, you&apos;ll ask the Demian team to contact you about your request.</p>
+              <p>By submitting, you&apos;ll ask the Demian team to contact you about your request.</p>
               <button className="button" type="submit" disabled={status === "loading"}>
-                {status === "loading" ? <><LoaderCircle className="spin" size={18} /> Preparing demo...</> : <>Preview Request <ArrowRight size={18} /></>}
+                {status === "loading" ? <><LoaderCircle className="spin" aria-hidden="true" size={18} /> Sending request...</> : <>Send Service Request <ArrowRight aria-hidden="true" size={18} /></>}
               </button>
             </div>
           </motion.form>
@@ -190,7 +211,7 @@ function TextField({ id, label, value, error, type = "text", autoComplete, onCha
   return (
     <div className="field">
       <label htmlFor={id}>{label}</label>
-      <Input id={id} type={type} value={value} onChange={(event) => onChange(event.target.value)} autoComplete={autoComplete} aria-invalid={Boolean(error)} aria-describedby={error ? `${id}-error` : undefined} />
+      <Input id={id} type={type} value={value} maxLength={type === "email" ? 254 : type === "tel" ? 50 : 100} onChange={(event) => onChange(event.target.value)} autoComplete={autoComplete} aria-invalid={Boolean(error)} aria-describedby={error ? `${id}-error` : undefined} />
       {error && <p className="field-error" id={`${id}-error`}><AlertCircle size={14} />{error}</p>}
     </div>
   );

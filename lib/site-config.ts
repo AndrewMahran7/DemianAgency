@@ -1,4 +1,5 @@
 import { BriefcaseBusiness, CarFront, HeartHandshake, House } from "lucide-react";
+import { serviceRequestTypes } from "@/lib/forms/validation";
 
 export const siteConfig = {
   businessName: "Demian Insurance Agency",
@@ -61,18 +62,7 @@ export const services = [
   },
 ] as const;
 
-export const requestTypes = [
-  "Auto",
-  "Home",
-  "Life",
-  "Business",
-  "Claims help",
-  "Policy change",
-  "Documents / proof",
-  "Billing / question",
-  "New coverage",
-  "Other",
-] as const;
+export const requestTypes = serviceRequestTypes;
 
 export const missingBusinessInformation = [
   "email",
