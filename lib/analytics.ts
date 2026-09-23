@@ -14,7 +14,7 @@ export type AnalyticsEventMap = {
   quote_submission_error: { category: "validation" | "delivery" | "network" };
   service_cta_click: { location: "header" | "homepage_hero" | "insurance_page" | "client_service" | "claims_resources" | "footer" };
   service_submission_success: { requestType: ServiceRequestType };
-  phone_click: { location: "homepage" | "quote_form" | "client_service" | "insurance_page" | "footer" | "contact" };
+  phone_click: { location: "homepage" | "quote_form" | "client_service" | "insurance_page" | "footer" | "contact" | "legal" };
   meet_team_click: { location: "homepage" };
 };
 

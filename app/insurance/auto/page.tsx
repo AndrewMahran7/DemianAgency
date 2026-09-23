@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ArrowRight, CarFront, Gauge, RefreshCcw, ShieldCheck } from "lucide-react";
 import { AgencyContactStrip, ExistingCustomerCTA, QuoteActions } from "@/components/demian/insurance-conversion";
+import { TrackedLink } from "@/components/demian/analytics-link";
 import { ImagePlaceholder } from "@/components/demian/image-placeholder";
 import { MotionReveal } from "@/components/demian/motion-reveal";
 import { SiteFooter } from "@/components/demian/site-footer";
@@ -83,12 +83,12 @@ export default function AutoPage() {
 
         <section className="auto-discounts section">
           <MotionReveal><ShieldCheck aria-hidden="true" size={25} /><p className="eyebrow"><span /> Available opportunities</p><h2>Ask what you may qualify for.</h2></MotionReveal>
-          <div><p>Discount opportunities may include the following when available and when eligibility requirements are met. No specific discount or savings amount is promised.</p><ul>{autoInsurance.discountExamples.map((discount) => <li key={discount}>{discount}</li>)}</ul><Link className="text-link" href="/request-quote?type=Auto">Discuss an Auto Quote <span aria-hidden="true">↗</span></Link></div>
+          <div><p>Discount opportunities may include the following when available and when eligibility requirements are met. No specific discount or savings amount is promised.</p><ul>{autoInsurance.discountExamples.map((discount) => <li key={discount}>{discount}</li>)}</ul><TrackedLink event="quote_cta_click" properties={{ location: "auto_page", insuranceType: "Auto" }} className="text-link" href="/request-quote?type=Auto">Discuss an Auto Quote <span aria-hidden="true">↗</span></TrackedLink></div>
         </section>
 
         <section className="line-final-cta auto-final-cta">
           <div><p className="eyebrow light"><span /> Ready when you are</p><h2>Put the whole household into the auto conversation.</h2></div>
-          <div><p>Start with the vehicles, drivers, and questions you have today.</p><Link className="button button-light" href="/request-quote?type=Auto">Request an Auto Quote <ArrowRight aria-hidden="true" size={18} /></Link></div>
+          <div><p>Start with the vehicles, drivers, and questions you have today.</p><TrackedLink event="quote_cta_click" properties={{ location: "auto_page", insuranceType: "Auto" }} className="button button-light" href="/request-quote?type=Auto">Request an Auto Quote <ArrowRight aria-hidden="true" size={18} /></TrackedLink></div>
         </section>
         <AgencyContactStrip />
         <ExistingCustomerCTA />

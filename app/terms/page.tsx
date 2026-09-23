@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { TrackedPhoneLink } from "@/components/demian/analytics-link";
 import { LegalPage, LegalSection } from "@/components/demian/legal-page";
 import { createPageMetadata } from "@/lib/seo";
 
@@ -41,7 +42,7 @@ export default function TermsPage() {
         <p>The site is provided for informational and service-request purposes. Availability may occasionally be interrupted, and we do not guarantee that every feature will always operate without delay or error. Insurance outcomes are governed by actual policies, carriers, underwriting decisions, and applicable terms—not by general website content.</p>
       </LegalSection>
       <LegalSection title="Changes and contact">
-        <p>We may update these terms by posting a revised version and changing the date shown above. Questions may be sent to <a href="mailto:mina.demian@demianinsurance.com">mina.demian@demianinsurance.com</a> or directed to <a href="tel:+19413771806">(941) 377-1806</a>.</p>
+        <p>We may update these terms by posting a revised version and changing the date shown above. Questions may be sent to <a href="mailto:mina.demian@demianinsurance.com">mina.demian@demianinsurance.com</a> or directed to <TrackedPhoneLink location="legal" href="tel:+19413771806">(941) 377-1806</TrackedPhoneLink>.</p>
       </LegalSection>
     </LegalPage>
   );

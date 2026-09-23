@@ -364,18 +364,12 @@ h1 { max-width: 720px; margin: 0; font-family: var(--font-serif); font-size: cla
 .qualifications-section { display: grid; grid-template-columns: 1fr 1fr; }
 .qualification-panel { position: relative; min-height: 600px; display: flex; flex-direction: column; justify-content: flex-end; padding: clamp(64px, 8vw, 122px); }
 .education-panel { background: #ded5c4; }
-.license-panel { background: var(--navy); color: var(--ivory); }
+.perspective-panel { background: var(--navy); color: var(--ivory); }
 .qualification-icon { position: absolute; top: clamp(48px, 6vw, 88px); right: clamp(48px, 6vw, 88px); display: grid; width: 54px; height: 54px; place-items: center; border: 1px solid currentColor; border-radius: 50%; opacity: .7; }
 .qualification-panel .section-index { margin-bottom: 30px; }
-.license-panel .section-index { color: #c5b27d; }
+.perspective-panel .section-index { color: #c5b27d; }
 .qualification-panel h2 { max-width: 650px; margin: 0; font-family: var(--font-serif); font-size: clamp(3rem, 4.6vw, 5.3rem); font-weight: 400; line-height: .97; letter-spacing: -.05em; }
 .qualification-panel > p:last-child { max-width: 510px; margin: 28px 0 0; font-size: .85rem; font-weight: 700; line-height: 1.55; letter-spacing: .035em; text-transform: uppercase; color: #5e6b79; }
-.license-authority { margin: 28px 0 0 !important; font-size: .7rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: #b6c8da; }
-.license-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 42px 0 0; padding: 0; border-top: 1px solid rgb(255 255 255 / 17%); list-style: none; }
-.license-list li { display: flex; min-height: 100px; flex-direction: column; justify-content: center; padding: 18px 20px; border-left: 1px solid rgb(255 255 255 / 17%); }
-.license-list li:last-child { border-right: 1px solid rgb(255 255 255 / 17%); }
-.license-list span { font-family: var(--font-serif); font-size: 1.25rem; }
-.license-list small { margin-top: 7px; font-size: .61rem; letter-spacing: .1em; text-transform: uppercase; color: #aebfd0; }
 
 .community-section { position: relative; display: grid; grid-template-columns: .75fr 1.25fr; gap: 10vw; min-height: 720px; align-items: center; padding: clamp(90px, 10vw, 160px) clamp(24px, 6.8vw, 110px); overflow: hidden; background: #ab8f58; color: var(--navy); }
 .community-mark { position: absolute; top: 8%; left: 3%; display: flex; flex-direction: column; color: rgb(10 36 70 / 14%); pointer-events: none; }
@@ -938,8 +932,6 @@ h1 { max-width: 720px; margin: 0; font-family: var(--font-serif); font-size: cla
   .qualification-panel { min-height: 520px; padding: 76px 22px 54px; }
   .qualification-panel h2 { font-size: clamp(2.8rem, 12vw, 4rem); }
   .qualification-icon { top: 40px; right: 22px; }
-  .license-list { grid-template-columns: 1fr; }
-  .license-list li { border-right: 1px solid rgb(255 255 255 / 17%); border-bottom: 1px solid rgb(255 255 255 / 17%); }
   .community-section { grid-template-columns: 1fr; min-height: 0; padding: 88px 22px; }
   .community-mark { top: 85px; left: auto; right: -20px; }
   .community-mark strong { font-size: 9rem; }

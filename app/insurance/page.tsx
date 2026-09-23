@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { AgencyContactStrip, ExistingCustomerCTA, QuoteActions } from "@/components/demian/insurance-conversion";
+import { TrackedLink } from "@/components/demian/analytics-link";
 import { MotionReveal } from "@/components/demian/motion-reveal";
 import { SiteFooter } from "@/components/demian/site-footer";
 import { SiteHeader } from "@/components/demian/site-header";
@@ -78,7 +79,7 @@ export default function InsurancePage() {
 
         <section className="overview-decision">
           <div><p className="eyebrow light"><span /> Not sure where to begin?</p><h2>Tell us what you need to protect.</h2></div>
-          <div><p>A short first-contact request gives the agency enough context to begin the right conversation without turning the website into a full insurance application.</p><Link className="button button-light" href="/request-quote">Start a Quote Request <ArrowRight aria-hidden="true" size={18} /></Link></div>
+          <div><p>A short first-contact request gives the agency enough context to begin the right conversation without turning the website into a full insurance application.</p><TrackedLink event="quote_cta_click" properties={{ location: "insurance_page" }} className="button button-light" href="/request-quote">Start a Quote Request <ArrowRight aria-hidden="true" size={18} /></TrackedLink></div>
         </section>
 
         <AgencyContactStrip />

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ArrowRight, Building2, Home as HomeIcon, Layers3, Search, SunMedium } from "lucide-react";
 import { AgencyContactStrip, ExistingCustomerCTA, QuoteActions } from "@/components/demian/insurance-conversion";
+import { TrackedLink } from "@/components/demian/analytics-link";
 import { ImagePlaceholder } from "@/components/demian/image-placeholder";
 import { MotionReveal } from "@/components/demian/motion-reveal";
 import { SiteFooter } from "@/components/demian/site-footer";
@@ -52,7 +52,7 @@ export default function HomeInsurancePage() {
             <p className="home-market-lead">Demian can shop multiple carriers across Florida for eligible home-insurance needs.</p>
             <p>That broader view can be useful when premiums increase, a carrier changes eligibility or exits, a homeowner wants alternatives, or the property itself changes.</p>
             <p>More options to evaluate does not promise a lower rate, carrier acceptance, or a particular outcome. It creates a more informed place to start.</p>
-            <Link className="button button-light" href="/request-quote?type=Home">Explore Home Insurance Options <ArrowRight aria-hidden="true" size={18} /></Link>
+            <TrackedLink event="quote_cta_click" properties={{ location: "home_page", insuranceType: "Home" }} className="button button-light" href="/request-quote?type=Home">Explore Home Insurance Options <ArrowRight aria-hidden="true" size={18} /></TrackedLink>
           </MotionReveal>
         </section>
 
@@ -90,7 +90,7 @@ export default function HomeInsurancePage() {
 
         <section className="line-final-cta home-final-cta">
           <div><p className="eyebrow light"><span /> Start with the property</p><h2>See which home-insurance options may be available.</h2></div>
-          <div><p>Share a few details and begin a Florida-focused coverage conversation.</p><Link className="button button-light" href="/request-quote?type=Home">Request a Home Quote <ArrowRight aria-hidden="true" size={18} /></Link></div>
+          <div><p>Share a few details and begin a Florida-focused coverage conversation.</p><TrackedLink event="quote_cta_click" properties={{ location: "home_page", insuranceType: "Home" }} className="button button-light" href="/request-quote?type=Home">Request a Home Quote <ArrowRight aria-hidden="true" size={18} /></TrackedLink></div>
         </section>
         <AgencyContactStrip />
         <ExistingCustomerCTA />

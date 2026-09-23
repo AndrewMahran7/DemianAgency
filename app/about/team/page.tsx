@@ -18,7 +18,7 @@ export const metadata: Metadata = createPageMetadata({
 
 const credibility = [
   ["12+ Years", "Insurance, financial services & client advisory experience"],
-  ["Florida Licensed", "Life & Health + Property & Casualty"],
+  ["Family Owned", "Personal guidance rooted in real relationships"],
   ["SDSU Graduate", "B.S. Business Administration & Management"],
   ["10+ Years Giving Back", "Community volunteer since 2015"],
 ] as const;
@@ -132,7 +132,7 @@ export default function MeetTheTeamPage() {
             <h2>{minaDemian.education.institution}</h2>
             <p>{minaDemian.education.degree}</p>
           </MotionReveal>
-          <MotionReveal className="qualification-panel license-panel" delay={0.08}>
+          <MotionReveal className="qualification-panel perspective-panel" delay={0.08}>
             <div className="qualification-icon"><Users aria-hidden="true" size={25} strokeWidth={1.5} /></div>
             <p className="section-index">04 / Perspective</p>
             <h2>Experience across insurance and client advisory work.</h2>

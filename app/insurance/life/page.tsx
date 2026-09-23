@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowRight, HeartHandshake, Users } from "lucide-react";
 import { AgencyContactStrip, ExistingCustomerCTA, QuoteActions } from "@/components/demian/insurance-conversion";
+import { TrackedLink } from "@/components/demian/analytics-link";
 import { ImagePlaceholder } from "@/components/demian/image-placeholder";
 import { MotionReveal } from "@/components/demian/motion-reveal";
 import { SiteFooter } from "@/components/demian/site-footer";
@@ -57,7 +57,7 @@ export default function LifePage() {
           </MotionReveal>
           <div className="life-dependents-copy">
             <p>A spouse or partner. Children. Aging parents. A business partner. Employees whose work depends on continuity. The right starting point is not a product name—it is a clear view of the responsibilities that would continue.</p>
-            <Link className="text-link" href="/request-quote?type=Life">Start a Life Insurance Conversation <span aria-hidden="true">↗</span></Link>
+            <TrackedLink event="quote_cta_click" properties={{ location: "life_page", insuranceType: "Life" }} className="text-link" href="/request-quote?type=Life">Start a Life Insurance Conversation <span aria-hidden="true">↗</span></TrackedLink>
           </div>
         </section>
 
@@ -86,7 +86,7 @@ export default function LifePage() {
 
         <section className="line-final-cta life-final-cta">
           <div><p className="eyebrow light"><span /> A thoughtful first step</p><h2>Start with the people and plans behind the policy.</h2></div>
-          <div><p>Share what has you considering life insurance and begin a personal conversation.</p><Link className="button button-light" href="/request-quote?type=Life">Request a Life Insurance Quote <ArrowRight aria-hidden="true" size={18} /></Link></div>
+          <div><p>Share what has you considering life insurance and begin a personal conversation.</p><TrackedLink event="quote_cta_click" properties={{ location: "life_page", insuranceType: "Life" }} className="button button-light" href="/request-quote?type=Life">Request a Life Insurance Quote <ArrowRight aria-hidden="true" size={18} /></TrackedLink></div>
         </section>
         <AgencyContactStrip />
         <ExistingCustomerCTA />

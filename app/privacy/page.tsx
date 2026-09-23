@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { TrackedPhoneLink } from "@/components/demian/analytics-link";
 import { LegalPage, LegalSection } from "@/components/demian/legal-page";
 import { createPageMetadata } from "@/lib/seo";
 
@@ -12,7 +13,7 @@ export default function PrivacyPage() {
   return (
     <LegalPage eyebrow="Information" title="Privacy Policy" introduction="This policy explains what information this website collects, why we use it, and the choices available to you when you contact Demian Insurance Agency online.">
       <LegalSection title="Information you provide">
-        <p>Our quote and service forms may collect your first and last name, email address, phone number, preferred contact method, the insurance or service category you select, and any optional message or details you choose to provide. A service request may also include an optional policy number.</p>
+        <p>Our quote and service forms may collect your first and last name, email address, phone number, preferred contact method, and the insurance or service category you select. Quote requests may include an optional note. Service requests include a short description of the help needed and may also include optional additional details and a policy number.</p>
         <p>The website is designed as a first-contact experience. It does not ask you to submit a Social Security number, driver&apos;s license number, banking or payment-card information, or detailed medical history. Please do not include highly sensitive information in a general website form.</p>
       </LegalSection>
       <LegalSection title="How we use information">
@@ -34,7 +35,7 @@ export default function PrivacyPage() {
         <p>We use reasonable administrative and technical measures intended to protect information, but no method of transmission or storage can be guaranteed to be completely secure.</p>
       </LegalSection>
       <LegalSection title="Your choices and questions">
-        <p>You may contact us with privacy questions or requests concerning information you submitted. Email <a href="mailto:mina.demian@demianinsurance.com">mina.demian@demianinsurance.com</a> or call <a href="tel:+19413771806">(941) 377-1806</a>.</p>
+        <p>You may contact us with privacy questions or requests concerning information you submitted. Email <a href="mailto:mina.demian@demianinsurance.com">mina.demian@demianinsurance.com</a> or call <TrackedPhoneLink location="legal" href="tel:+19413771806">(941) 377-1806</TrackedPhoneLink>.</p>
       </LegalSection>
       <LegalSection title="Children">
         <p>This website is intended for people seeking insurance services and is not directed toward children. Please contact us if you believe a child has submitted information through the website.</p>

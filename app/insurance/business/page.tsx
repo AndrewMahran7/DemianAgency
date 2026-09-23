@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ArrowRight, BarChart3, BriefcaseBusiness, Building2, Network } from "lucide-react";
 import { AgencyContactStrip, ExistingCustomerCTA, QuoteActions } from "@/components/demian/insurance-conversion";
+import { TrackedLink } from "@/components/demian/analytics-link";
 import { ImagePlaceholder } from "@/components/demian/image-placeholder";
 import { MotionReveal } from "@/components/demian/motion-reveal";
 import { SiteFooter } from "@/components/demian/site-footer";
@@ -69,12 +69,12 @@ export default function BusinessPage() {
 
         <section className="business-review section">
           <div><p className="eyebrow"><span /> Review the whole operation</p><h2>Changes in the business can change the insurance conversation.</h2></div>
-          <div><p>New property, vehicles, employees, services, customer interactions, contracts, or digital dependencies may create new questions. A review is an opportunity to understand what changed and what insurance categories may be relevant.</p><Link className="text-link" href="/request-quote?type=Business">Talk About Your Business <span aria-hidden="true">↗</span></Link></div>
+          <div><p>New property, vehicles, employees, services, customer interactions, contracts, or digital dependencies may create new questions. A review is an opportunity to understand what changed and what insurance categories may be relevant.</p><TrackedLink event="quote_cta_click" properties={{ location: "business_page", insuranceType: "Business" }} className="text-link" href="/request-quote?type=Business">Talk About Your Business <span aria-hidden="true">↗</span></TrackedLink></div>
         </section>
 
         <section className="line-final-cta business-final-cta">
           <div><p className="eyebrow light"><span /> Start with the operation</p><h2>Bring the full business into view.</h2></div>
-          <div><p>Share what the business does, where it operates, and what has changed.</p><Link className="button button-light" href="/request-quote?type=Business">Request a Business Quote <ArrowRight aria-hidden="true" size={18} /></Link></div>
+          <div><p>Share what the business does, where it operates, and what has changed.</p><TrackedLink event="quote_cta_click" properties={{ location: "business_page", insuranceType: "Business" }} className="button button-light" href="/request-quote?type=Business">Request a Business Quote <ArrowRight aria-hidden="true" size={18} /></TrackedLink></div>
         </section>
         <AgencyContactStrip />
         <ExistingCustomerCTA />
