@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ArrowRight, BarChart3, BriefcaseBusiness, Building2, Network } from "lucide-react";
 import { AgencyContactStrip, ExistingCustomerCTA, QuoteActions } from "@/components/demian/insurance-conversion";
 import { TrackedLink } from "@/components/demian/analytics-link";
-import { ImagePlaceholder } from "@/components/demian/image-placeholder";
 import { MotionReveal } from "@/components/demian/motion-reveal";
 import { SiteFooter } from "@/components/demian/site-footer";
 import { SiteHeader } from "@/components/demian/site-header";
@@ -31,7 +31,9 @@ export default function BusinessPage() {
             <QuoteActions label={businessInsurance.quoteLabel} line="Business" />
           </MotionReveal>
           <MotionReveal className="business-hero-visual" delay={0.08} immediate>
-            <ImagePlaceholder className="line-hero-placeholder" label={businessInsurance.imageLabel} detail={businessInsurance.imageDetail} />
+            <div className="line-hero-photo business-hero-photo">
+              <Image src={businessInsurance.imageSrc} alt={businessInsurance.imageAlt} fill priority sizes="(max-width: 1280px) 100vw, 48vw" />
+            </div>
           </MotionReveal>
         </section>
 
@@ -48,7 +50,7 @@ export default function BusinessPage() {
             <h2>Build the conversation around the business—not a generic checklist.</h2>
           </MotionReveal>
           <div className="business-coverage-grid">
-            {businessInsurance.products.map((product, index) => <MotionReveal className="business-coverage" delay={index * 0.035} key={product}><small>0{index + 1}</small><BriefcaseBusiness aria-hidden="true" size={18} /><strong>{product}</strong></MotionReveal>)}
+            {businessInsurance.products.map((product, index) => <MotionReveal className={`business-coverage${"secondary" in product ? " is-secondary" : ""}`} delay={index * 0.035} key={product.name}><small>{String(index + 1).padStart(2, "0")}</small><BriefcaseBusiness aria-hidden="true" size={18} /><strong>{product.name}</strong><p>{product.description}</p></MotionReveal>)}
           </div>
           <p className="business-coverage-note">Availability, eligibility, limits, exclusions, and policy terms vary by business and carrier.</p>
         </section>

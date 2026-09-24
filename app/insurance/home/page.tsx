@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ArrowRight, Building2, Home as HomeIcon, Layers3, Search, SunMedium } from "lucide-react";
 import { AgencyContactStrip, ExistingCustomerCTA, QuoteActions } from "@/components/demian/insurance-conversion";
 import { TrackedLink } from "@/components/demian/analytics-link";
-import { ImagePlaceholder } from "@/components/demian/image-placeholder";
 import { MotionReveal } from "@/components/demian/motion-reveal";
 import { SiteFooter } from "@/components/demian/site-footer";
 import { SiteHeader } from "@/components/demian/site-header";
@@ -26,7 +26,9 @@ export default function HomeInsurancePage() {
       <main className="insurance-line home-page">
         <section className="line-hero home-hero">
           <MotionReveal className="home-hero-visual" immediate>
-            <ImagePlaceholder className="line-hero-placeholder" label={homeInsurance.imageLabel} detail={homeInsurance.imageDetail} />
+            <div className="line-hero-photo home-insurance-photo">
+              <Image src={homeInsurance.imageSrc} alt={homeInsurance.imageAlt} fill priority sizes="(max-width: 1280px) 100vw, 54vw" />
+            </div>
             <span className="home-visual-label"><SunMedium aria-hidden="true" size={18} /> Florida homes. Florida considerations.</span>
           </MotionReveal>
           <MotionReveal className="line-hero-copy" delay={0.08} immediate>
@@ -76,6 +78,29 @@ export default function HomeInsurancePage() {
           </MotionReveal>
           <div className="home-consideration-list">
             {homeInsurance.considerations.map((item, index) => <MotionReveal delay={index * 0.045} key={item}><span>0{index + 1}</span><strong>{item}</strong></MotionReveal>)}
+          </div>
+        </section>
+
+        <section className="home-coverages section" aria-labelledby="home-coverages-title">
+          <MotionReveal className="home-coverages-heading">
+            <p className="eyebrow"><span /> Homeowners coverage framework</p>
+            <h2 id="home-coverages-title">A clearer way to read Coverages A–F.</h2>
+            <p>These summaries are educational. Coverage availability, limits, exclusions, causes of loss, and terms vary by policy and carrier.</p>
+          </MotionReveal>
+          <div className="home-coverage-sections">
+            {homeInsurance.coverageSections.map((section, sectionIndex) => (
+              <MotionReveal className="home-coverage-section" delay={sectionIndex * 0.08} key={section.label}>
+                <h3>{section.label}</h3>
+                <div className="home-coverage-list">
+                  {section.coverages.map((coverage) => (
+                    <article className="home-coverage-item" key={coverage.code}>
+                      <span aria-hidden="true">{coverage.code}</span>
+                      <div><h4>{coverage.name}</h4><p>{coverage.description}</p></div>
+                    </article>
+                  ))}
+                </div>
+              </MotionReveal>
+            ))}
           </div>
         </section>
 
