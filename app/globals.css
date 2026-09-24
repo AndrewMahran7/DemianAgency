@@ -516,7 +516,7 @@ h1 { max-width: 720px; margin: 0; font-family: var(--font-serif); font-size: cla
 .line-hero-photo img { object-fit: cover; }
 .auto-hero-photo img { object-position: 63% center; }
 .home-insurance-photo img { object-position: center; }
-.life-insurance-photo img { object-position: center 42%; }
+.life-insurance-photo img { object-position: center 8%; }
 .business-hero-photo img { object-position: 48% center; }
 
 /* Auto: directional and kinetic */
@@ -1062,8 +1062,8 @@ h1 { max-width: 720px; margin: 0; font-family: var(--font-serif); font-size: cla
   .home-review-mark { max-width: 370px; }
   .life-hero { min-height: auto; padding: 78px 22px 34px; }
   .life-hero h1 { font-size: clamp(3.7rem, 16.5vw, 5.2rem); }
-  .life-hero-image { height: 340px; margin-top: 54px; }
-  .life-insurance-photo { min-height: 340px; }
+  .life-hero-image { height: auto; aspect-ratio: 4 / 3; margin-top: 54px; }
+  .life-insurance-photo { min-height: 0; }
   .life-family { grid-template-columns: 1fr; min-height: 0; }
   .life-family-portrait { min-height: 0; aspect-ratio: 4 / 5; }
   .life-family-copy { padding: 76px 22px; }
