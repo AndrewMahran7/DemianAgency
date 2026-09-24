@@ -50,9 +50,42 @@ export default function BusinessPage() {
             <h2>Build the conversation around the business—not a generic checklist.</h2>
           </MotionReveal>
           <div className="business-coverage-grid">
-            {businessInsurance.products.map((product, index) => <MotionReveal className={`business-coverage${"secondary" in product ? " is-secondary" : ""}`} delay={index * 0.035} key={product.name}><small>{String(index + 1).padStart(2, "0")}</small><BriefcaseBusiness aria-hidden="true" size={18} /><strong>{product.name}</strong><p>{product.description}</p></MotionReveal>)}
+            {businessInsurance.products.map((product, index) => (
+              <MotionReveal className="business-coverage" delay={index * 0.035} key={product.name}>
+                <small>{String(index + 1).padStart(2, "0")}</small>
+                <BriefcaseBusiness aria-hidden="true" size={18} />
+                <strong>{product.name}</strong>
+                <ul>{product.points.map((point) => <li key={point}>{point}</li>)}</ul>
+              </MotionReveal>
+            ))}
           </div>
-          <p className="business-coverage-note">Availability, eligibility, limits, exclusions, and policy terms vary by business and carrier.</p>
+          <div className="business-coverage-subsection" aria-labelledby="business-bundles-title">
+            <h3 id="business-bundles-title">Bundles and Extras</h3>
+            <div className="business-coverage-grid business-coverage-grid-extras">
+              {businessInsurance.bundles.map((product, index) => (
+                <MotionReveal className="business-coverage" delay={index * 0.035} key={product.name}>
+                  <small>{String(index + 7).padStart(2, "0")}</small>
+                  <BriefcaseBusiness aria-hidden="true" size={18} />
+                  <strong>{product.name}</strong>
+                  <ul>{product.points.map((point) => <li key={point}>{point}</li>)}</ul>
+                </MotionReveal>
+              ))}
+            </div>
+          </div>
+          <div className="business-coverage-subsection business-coverage-secondary" aria-labelledby="business-additional-title">
+            <h3 id="business-additional-title">Additional Coverage</h3>
+            <div className="business-coverage-grid business-coverage-grid-secondary">
+              {businessInsurance.secondaryProducts.map((product, index) => (
+                <MotionReveal className="business-coverage is-secondary" delay={index * 0.035} key={product.name}>
+                  <small>{String(index + 9).padStart(2, "0")}</small>
+                  <BriefcaseBusiness aria-hidden="true" size={18} />
+                  <strong>{product.name}</strong>
+                  <ul>{product.points.map((point) => <li key={point}>{point}</li>)}</ul>
+                </MotionReveal>
+              ))}
+            </div>
+          </div>
+          <p className="business-coverage-note">Coverage availability, limits, exclusions, and terms vary by policy, carrier, and business circumstances.</p>
         </section>
 
         <section className="business-industries section">

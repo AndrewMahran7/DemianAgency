@@ -85,7 +85,6 @@ export default function HomeInsurancePage() {
           <MotionReveal className="home-coverages-heading">
             <p className="eyebrow"><span /> Homeowners coverage framework</p>
             <h2 id="home-coverages-title">A clearer way to read Coverages A–F.</h2>
-            <p>These summaries are educational. Coverage availability, limits, exclusions, causes of loss, and terms vary by policy and carrier.</p>
           </MotionReveal>
           <div className="home-coverage-sections">
             {homeInsurance.coverageSections.map((section, sectionIndex) => (
@@ -102,6 +101,7 @@ export default function HomeInsurancePage() {
               </MotionReveal>
             ))}
           </div>
+          <p className="home-coverage-note">Coverage availability, limits, exclusions, and terms vary by policy and carrier.</p>
         </section>
 
         <section className="home-review">
