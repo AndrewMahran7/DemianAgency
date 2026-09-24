@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { ArrowRight, CarFront, Gauge, RefreshCcw, ShieldCheck } from "lucide-react";
 import { AgencyContactStrip, ExistingCustomerCTA, QuoteActions } from "@/components/demian/insurance-conversion";
 import { TrackedLink } from "@/components/demian/analytics-link";
-import { ImagePlaceholder } from "@/components/demian/image-placeholder";
 import { MotionReveal } from "@/components/demian/motion-reveal";
 import { SiteFooter } from "@/components/demian/site-footer";
 import { SiteHeader } from "@/components/demian/site-header";
@@ -31,7 +31,9 @@ export default function AutoPage() {
             <QuoteActions label={autoInsurance.quoteLabel} line="Auto" />
           </MotionReveal>
           <MotionReveal className="auto-hero-visual" delay={0.08} immediate>
-            <ImagePlaceholder className="line-hero-placeholder" label={autoInsurance.imageLabel} detail={autoInsurance.imageDetail} />
+            <div className="line-hero-photo auto-hero-photo">
+              <Image src={autoInsurance.imageSrc} alt={autoInsurance.imageAlt} fill priority sizes="(max-width: 1280px) 100vw, 53vw" />
+            </div>
             <div className="auto-motion-note"><Gauge aria-hidden="true" size={19} /><span>Built around how you actually drive</span></div>
           </MotionReveal>
         </section>

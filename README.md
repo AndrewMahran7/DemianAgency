@@ -80,4 +80,4 @@ npm run lint
 npm run build
 ```
 
-The agency office address and remaining line-specific photography are intentionally pending. The Privacy Policy and Website Terms are practical drafts and should receive owner and legal review before they are treated as final legal advice.
+The agency office address is intentionally pending. The Privacy Policy and Website Terms are practical drafts and should receive owner and legal review before they are treated as final legal advice.

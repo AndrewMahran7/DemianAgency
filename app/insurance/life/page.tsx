@@ -3,7 +3,6 @@ import Image from "next/image";
 import { ArrowRight, HeartHandshake, Users } from "lucide-react";
 import { AgencyContactStrip, ExistingCustomerCTA, QuoteActions } from "@/components/demian/insurance-conversion";
 import { TrackedLink } from "@/components/demian/analytics-link";
-import { ImagePlaceholder } from "@/components/demian/image-placeholder";
 import { MotionReveal } from "@/components/demian/motion-reveal";
 import { SiteFooter } from "@/components/demian/site-footer";
 import { SiteHeader } from "@/components/demian/site-header";
@@ -33,7 +32,9 @@ export default function LifePage() {
             <QuoteActions label={lifeInsurance.quoteLabel} line="Life" />
           </MotionReveal>
           <MotionReveal className="life-hero-image" delay={0.1} immediate>
-            <ImagePlaceholder className="line-hero-placeholder" label={lifeInsurance.imageLabel} detail={lifeInsurance.imageDetail} />
+            <div className="line-hero-photo life-insurance-photo">
+              <Image src={lifeInsurance.imageSrc} alt={lifeInsurance.imageAlt} fill priority sizes="(max-width: 760px) 100vw, 78vw" />
+            </div>
           </MotionReveal>
         </section>
 
@@ -75,7 +76,7 @@ export default function LifePage() {
         <section className="life-products section">
           <MotionReveal className="life-products-heading"><HeartHandshake aria-hidden="true" size={25} /><p className="eyebrow"><span /> Policy conversations</p><h2>Different structures for different needs.</h2><p>Demian works with multiple life insurance carriers. Product suitability and availability depend on the customer, carrier, underwriting, and policy terms.</p></MotionReveal>
           <ol className="life-product-list">
-            {lifeInsurance.products.map((product, index) => <MotionReveal delay={index * 0.05} key={product}><li><span>0{index + 1}</span><strong>{product}</strong></li></MotionReveal>)}
+            {lifeInsurance.products.map((product, index) => <MotionReveal delay={index * 0.05} key={product}><li><strong>{product}</strong></li></MotionReveal>)}
           </ol>
         </section>
 
