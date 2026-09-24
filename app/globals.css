@@ -615,8 +615,8 @@ h1 { max-width: 720px; margin: 0; font-family: var(--font-serif); font-size: cla
 .life-hero-copy .eyebrow, .life-hero-copy .quote-actions { justify-content: center; }
 .life-hero h1 { max-width: 920px; margin-inline: auto; font-size: clamp(4.2rem, 7.7vw, 8.5rem); line-height: .88; }
 .life-hero-copy > p:not(.eyebrow) { margin-inline: auto; }
-.life-hero-image { max-width: 1180px; height: 390px; margin: clamp(60px, 7vw, 100px) auto 0; }
-.life-insurance-photo { min-height: 390px; }
+.life-hero-image { max-width: 1180px; height: clamp(390px, 44vw, 450px); margin: clamp(60px, 7vw, 100px) auto 0; }
+.life-insurance-photo { min-height: clamp(390px, 44vw, 450px); }
 .life-family { display: grid; grid-template-columns: minmax(330px, .78fr) minmax(0, 1.22fr); min-height: 700px; background: var(--navy-deep); color: #fff; }
 .life-family-portrait { position: relative; min-height: 700px; overflow: hidden; background: #ccc; }
 .life-family-portrait img { object-fit: cover; object-position: center 18%; }
