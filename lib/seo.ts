@@ -88,10 +88,17 @@ export function createAgencySchema() {
     "@type": "InsuranceAgency",
     name: siteConfig.businessName,
     telephone: "+19413771806",
-    founder: {
-      "@type": "Person",
-      name: "Mina Demian",
-    },
+    employee: [
+      {
+        "@type": "Person",
+        name: "Mina Demian",
+        jobTitle: "Principal",
+      },
+      {
+        "@type": "Person",
+        name: "Matt Alexander",
+      },
+    ],
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",

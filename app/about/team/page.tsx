@@ -7,12 +7,12 @@ import { SiteFooter } from "@/components/demian/site-footer";
 import { SiteHeader } from "@/components/demian/site-header";
 import { StructuredData } from "@/components/demian/structured-data";
 import { absoluteUrl, createPageMetadata } from "@/lib/seo";
-import { minaDemian } from "@/lib/team";
+import { mattAlexander, minaDemian } from "@/lib/team";
 import { TrackedLink } from "@/components/demian/analytics-link";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Meet Mina Demian | Demian Insurance Agency",
-  description: "Meet Mina Demian, founder and Florida-licensed insurance professional bringing a personal approach to auto, home, life, and business coverage.",
+  title: "Meet the Team | Demian Insurance Agency",
+  description: "Meet Mina Demian, Principal and Florida-licensed insurance professional, and team member Matt Alexander at Demian Insurance Agency.",
   path: "/about/team",
 });
 
@@ -28,7 +28,7 @@ export default function MeetTheTeamPage() {
     "@context": "https://schema.org",
     "@type": "Person",
     name: minaDemian.name,
-    jobTitle: "Founder",
+    jobTitle: "Principal",
     worksFor: {
       "@type": "InsuranceAgency",
       name: "Demian Insurance Agency",
@@ -53,11 +53,11 @@ export default function MeetTheTeamPage() {
                 sizes="(max-width: 760px) 100vw, 48vw"
                 className="founder-portrait"
               />
-              <span className="portrait-index" aria-hidden="true">01 / Founder</span>
+              <span className="portrait-index" aria-hidden="true">01 / Principal</span>
             </div>
           </MotionReveal>
           <MotionReveal className="founder-intro" delay={0.08} immediate>
-            <p className="eyebrow"><span /> Meet the founder</p>
+            <p className="eyebrow"><span /> Meet the principal</p>
             <div className="founder-name-row">
               <h1>{minaDemian.name}</h1>
             </div>
@@ -81,6 +81,29 @@ export default function MeetTheTeamPage() {
               <span>{label}</span>
             </MotionReveal>
           ))}
+        </section>
+
+        <section className="team-roster" aria-labelledby="team-roster-title">
+          <MotionReveal className="team-roster-heading">
+            <p className="section-index">Team / Matt Alexander</p>
+            <p className="eyebrow"><span /> The people behind the agency</p>
+            <h2 id="team-roster-title">A small team with a personal point of view.</h2>
+          </MotionReveal>
+          <MotionReveal className="team-roster-card" delay={0.08}>
+            <div className="team-roster-portrait">
+              <Image
+                src={mattAlexander.portrait}
+                alt={mattAlexander.portraitAlt}
+                fill
+                sizes="(max-width: 760px) 100vw, 42vw"
+              />
+              <span aria-hidden="true">02 / Team Member</span>
+            </div>
+            <div className="team-roster-identity">
+              <h3>{mattAlexander.name}</h3>
+              <p>{mattAlexander.title}</p>
+            </div>
+          </MotionReveal>
         </section>
 
         <section className="founder-story section">

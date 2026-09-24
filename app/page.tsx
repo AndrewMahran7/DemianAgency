@@ -98,9 +98,14 @@ export default function Home() {
         </section>
 
         <section className="home-team" id="team">
+          <MotionReveal className="home-team-heading">
+            <p className="eyebrow light"><span /> Meet the team</p>
+            <h2>A real relationship starts with a real introduction.</h2>
+            <p>Get to know the people behind Demian Insurance Agency.</p>
+          </MotionReveal>
           <div className="home-team-list">
             {teamMembers.map((member, index) => (
-              <div className="home-team-member" key={member.slug}>
+              <MotionReveal className="home-team-member" delay={index * 0.08} key={member.slug}>
                 <MotionReveal className="home-team-portrait">
                   <Image
                     src={member.portrait}
@@ -110,19 +115,19 @@ export default function Home() {
                   />
                   <span aria-hidden="true">{member.title.split(",")[0]} / {String(index + 1).padStart(2, "0")}</span>
                 </MotionReveal>
-                <MotionReveal className="home-team-copy" delay={0.08}>
-                  <p className="eyebrow light"><span /> Meet the person behind the agency</p>
-                  <h2>A real relationship starts with a real introduction.</h2>
+                <div className="home-team-copy">
                   <div className="home-team-identity">
                     <h3>{member.name}</h3>
                     <p>{member.title}</p>
                   </div>
-                  <p className="home-team-bio">A husband, father, and Florida-licensed insurance professional, Mina brings more than a decade of experience across insurance, financial services, employee benefits, banking, and client advisory work—along with a long-standing commitment to serving his community.</p>
-                  <TrackedLink event="meet_team_click" properties={{ location: "homepage" }} className="text-link home-team-link" href="/about/team">Meet the Team <span aria-hidden="true">↗</span></TrackedLink>
-                </MotionReveal>
-              </div>
+                  {member.homepageSummary ? <p className="home-team-bio">{member.homepageSummary}</p> : null}
+                </div>
+              </MotionReveal>
             ))}
           </div>
+          <MotionReveal className="home-team-action">
+            <TrackedLink event="meet_team_click" properties={{ location: "homepage" }} className="text-link home-team-link" href="/about/team">Meet the Team <span aria-hidden="true">↗</span></TrackedLink>
+          </MotionReveal>
         </section>
 
         <section className="home-quote" id="request-quote">

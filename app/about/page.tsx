@@ -9,7 +9,7 @@ import { minaDemian } from "@/lib/team";
 
 export const metadata: Metadata = createPageMetadata({
   title: "About Demian Insurance Agency | Florida",
-  description: "Meet the family-owned Florida insurance agency built around clear explanations, thoughtful options, and a real relationship with founder Mina Demian.",
+  description: "Meet the family-owned Florida insurance agency built around clear explanations, thoughtful options, and a real relationship with Principal Mina Demian.",
   path: "/about",
 });
 
@@ -21,11 +21,11 @@ export default function AboutPage() {
           <Image src={minaDemian.portrait} alt={minaDemian.portraitAlt} fill sizes="(max-width: 760px) 100vw, 40vw" />
         </div>
         <div className="about-founder-copy">
-          <p className="eyebrow"><span /> Meet the founder</p>
+          <p className="eyebrow"><span /> Meet the principal</p>
           <h2>{minaDemian.name}</h2>
           <p>{minaDemian.title}</p>
           <p>More than a decade of relevant professional experience, a family perspective, and a belief that insurance guidance should always feel personal.</p>
-          <Link className="button" href="/about/team">Meet Mina <ArrowRight size={18} aria-hidden="true" /></Link>
+          <Link className="button" href="/about/team">Meet the Team <ArrowRight size={18} aria-hidden="true" /></Link>
         </div>
       </MotionReveal>
     </RouteShell>

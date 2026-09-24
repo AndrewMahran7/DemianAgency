@@ -14,9 +14,13 @@ export type TeamMember = {
   slug: string;
   name: string;
   title: string;
-  location: string;
   portrait: string;
   portraitAlt: string;
+  homepageSummary?: string;
+};
+
+export type DetailedTeamMember = TeamMember & {
+  location: string;
   professionalIdentity: readonly string[];
   experienceSummary: string;
   education: TeamEducation;
@@ -29,14 +33,15 @@ export type TeamMember = {
   socialLinks: readonly { label: string; href: string }[];
 };
 
-export const teamMembers: readonly TeamMember[] = [
-  {
+export const minaDemian: DetailedTeamMember = {
     slug: "mina-demian",
     name: "Mina Demian",
-    title: "Founder, Demian Insurance Agency",
+    title: "Principal, Demian Insurance Agency",
     location: "Southwest Florida",
     portrait: "/team/mina-demian.jpg",
-    portraitAlt: "Mina Demian, Founder of Demian Insurance Agency",
+    portraitAlt: "Mina Demian, Principal of Demian Insurance Agency",
+    homepageSummary:
+      "A husband, father, and Florida-licensed insurance professional, Mina brings more than a decade of experience across insurance, financial services, employee benefits, banking, and client advisory work.",
     professionalIdentity: ["Father", "Husband", "Employee Benefits Strategist"],
     experienceSummary:
       "12+ years across insurance, financial services, employee benefits, and client advisory work",
@@ -77,7 +82,7 @@ export const teamMembers: readonly TeamMember[] = [
       },
       {
         organization: "Demian Insurance Agency",
-        role: "Founder",
+        role: "Principal",
         period: "Today",
         focus: ["Personal guidance", "Home, auto, life & business insurance"],
       },
@@ -93,7 +98,14 @@ export const teamMembers: readonly TeamMember[] = [
       ],
     },
     socialLinks: [],
-  },
-] as const;
+};
 
-export const minaDemian = teamMembers[0];
+export const mattAlexander: TeamMember = {
+  slug: "matt-alexander",
+  name: "Matt Alexander",
+  title: "Team Member",
+  portrait: "/images/team/matt-alexander.jpg",
+  portraitAlt: "Matt Alexander of Demian Insurance Agency",
+};
+
+export const teamMembers: readonly TeamMember[] = [minaDemian, mattAlexander];
