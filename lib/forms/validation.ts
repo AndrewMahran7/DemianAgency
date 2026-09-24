@@ -37,8 +37,7 @@ export type ServiceSubmission = {
 
 type ValidationResult<T> =
   | { kind: "valid"; value: T }
-  | { kind: "invalid"; fieldErrors: Record<string, string> }
-  | { kind: "spam" };
+  | { kind: "invalid"; fieldErrors: Record<string, string> };
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -72,10 +71,6 @@ function stringValue(
   return value;
 }
 
-function isHoneypotSubmission(input: Record<string, unknown>) {
-  return typeof input.companyWebsite === "string" && input.companyWebsite.trim().length > 0;
-}
-
 function rejectUnexpectedFields(input: Record<string, unknown>, allowed: readonly string[], errors: Record<string, string>) {
   if (Object.keys(input).some((key) => !allowed.includes(key))) {
     errors.form = "The request contains unsupported fields.";
@@ -84,10 +79,9 @@ function rejectUnexpectedFields(input: Record<string, unknown>, allowed: readonl
 
 export function validateQuoteSubmission(input: unknown): ValidationResult<QuoteSubmission> {
   if (!isRecord(input)) return { kind: "invalid", fieldErrors: { form: "Submit a valid request." } };
-  if (isHoneypotSubmission(input)) return { kind: "spam" };
 
   const errors: Record<string, string> = {};
-  rejectUnexpectedFields(input, ["insuranceType", "firstName", "lastName", "email", "phone", "contactMethod", "notes", "companyWebsite"], errors);
+  rejectUnexpectedFields(input, ["insuranceType", "firstName", "lastName", "email", "phone", "contactMethod", "notes"], errors);
 
   const insuranceType = stringValue(input, "insuranceType", errors, { label: "Insurance type", max: 100, required: true });
   const firstName = stringValue(input, "firstName", errors, { label: "First name", max: 100, required: true });
@@ -108,10 +102,9 @@ export function validateQuoteSubmission(input: unknown): ValidationResult<QuoteS
 
 export function validateServiceSubmission(input: unknown): ValidationResult<ServiceSubmission> {
   if (!isRecord(input)) return { kind: "invalid", fieldErrors: { form: "Submit a valid request." } };
-  if (isHoneypotSubmission(input)) return { kind: "spam" };
 
   const errors: Record<string, string> = {};
-  rejectUnexpectedFields(input, ["requestType", "help", "policy", "firstName", "lastName", "email", "phone", "contactMethod", "details", "companyWebsite"], errors);
+  rejectUnexpectedFields(input, ["requestType", "help", "policy", "firstName", "lastName", "email", "phone", "contactMethod", "details"], errors);
 
   const requestType = stringValue(input, "requestType", errors, { label: "Request type", max: 100, required: true });
   const help = stringValue(input, "help", errors, { label: "Request details", max: 3000, min: 10, required: true, multiline: true });

@@ -70,11 +70,10 @@ export function QuoteRequestForm({ initialType = "", compact = false, source }: 
     }
     setStatus("loading");
     try {
-      const companyWebsite = String(new FormData(event.currentTarget).get("companyWebsite") ?? "");
       const response = await fetch("/api/quote", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...values, companyWebsite }),
+        body: JSON.stringify(values),
       });
       const result = await response.json().catch(() => null) as { fieldErrors?: QuoteErrors } | null;
       if (!response.ok) {
@@ -114,7 +113,6 @@ export function QuoteRequestForm({ initialType = "", compact = false, source }: 
         ) : (
           <motion.form ref={formRef} key="form" className="request-form quote-form" onSubmit={handleSubmit} noValidate aria-busy={status === "loading"} initial={reduceMotion ? false : { opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
             <div className="demo-notice"><LockKeyhole aria-hidden="true" size={15} /><span><strong>Privacy note:</strong> Please don&apos;t include Social Security numbers, payment details, or other sensitive application information.</span></div>
-            <div className="form-honeypot" aria-hidden="true"><label htmlFor="quote-company-website">Company website</label><input id="quote-company-website" name="companyWebsite" type="text" tabIndex={-1} autoComplete="off" /></div>
             {status === "error" && <div className="submission-error field-wide" role="alert" tabIndex={-1} ref={submissionErrorRef}><AlertCircle aria-hidden="true" size={18} /><p><strong>We couldn&apos;t send your request right now.</strong><br />Please try again, or call us at <TrackedPhoneLink location="quote_form" href="tel:+19413771806">(941) 377-1806</TrackedPhoneLink>.</p></div>}
 
             <div className="field field-wide">

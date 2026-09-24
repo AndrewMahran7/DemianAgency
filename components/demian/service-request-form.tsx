@@ -103,11 +103,10 @@ export function ServiceRequestForm({ compact = false, initialType = "" }: { comp
     }
     setStatus("loading");
     try {
-      const companyWebsite = String(new FormData(event.currentTarget).get("companyWebsite") ?? "");
       const response = await fetch("/api/service", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...values, companyWebsite }),
+        body: JSON.stringify(values),
       });
       const result = await response.json().catch(() => null) as { fieldErrors?: Errors } | null;
       if (!response.ok) {
@@ -145,7 +144,6 @@ export function ServiceRequestForm({ compact = false, initialType = "" }: { comp
         ) : (
           <motion.form ref={formRef} key="form" className="request-form" onSubmit={handleSubmit} noValidate aria-busy={status === "loading"} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
             <div className="demo-notice"><LockKeyhole size={15} aria-hidden="true" /><span><strong>Privacy note:</strong> Please don&apos;t include Social Security numbers, payment details, or other sensitive application information.</span></div>
-            <div className="form-honeypot" aria-hidden="true"><label htmlFor="service-company-website">Company website</label><input id="service-company-website" name="companyWebsite" type="text" tabIndex={-1} autoComplete="off" /></div>
             {status === "error" && <div className="submission-error field-wide" role="alert" tabIndex={-1} ref={submissionErrorRef}><AlertCircle aria-hidden="true" size={18} /><p><strong>We couldn&apos;t send your request right now.</strong><br />Please try again, or call us at <TrackedPhoneLink location="client_service" href="tel:+19413771806">(941) 377-1806</TrackedPhoneLink>.</p></div>}
 
             <div className="field field-wide">

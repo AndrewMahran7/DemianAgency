@@ -68,7 +68,7 @@ Production setup:
    - `SITE_URL=https://demianinsurance.com`
 6. Redeploy so the deployment receives the new environment variables.
 
-`RESEND_API_KEY` is server-only and must never use a `NEXT_PUBLIC_` prefix. For local provider testing, explicitly set `EMAIL_FROM` to a sender permitted by your Resend account; the application never falls back to a development sender or fake success. The forms render without email configuration, but a submission fails safely until all four values are present. Add Vercel-level rate limiting or Turnstile later if observed abuse warrants it; the initial implementation uses server validation, a small request-body limit, and a honeypot without storing form data.
+`RESEND_API_KEY` is server-only and must never use a `NEXT_PUBLIC_` prefix. For local provider testing, explicitly set `EMAIL_FROM` to a sender permitted by your Resend account; the application never falls back to a development sender or fake success. The forms render without email configuration, but a submission fails safely until all four values are present. The current implementation uses strict server validation and a small request-body limit without storing form data. Add a customer-safe anti-bot layer such as Vercel-level rate limiting or Turnstile later only if observed abuse warrants it.
 
 ## Quality checks
 
