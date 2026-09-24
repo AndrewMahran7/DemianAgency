@@ -85,6 +85,7 @@ test("valid quote requests send the agency notification before the customer conf
   assert.equal(sent[0].subject, "[NEW QUOTE] Home — Jane Smith");
   assert.equal(sent[0].replyTo, quote.email);
   assert.equal(sent[1].to, quote.email);
+  assert.equal(sent[1].subject, "Demian Insurance Agency | We received your quote request");
   assert.equal(sent[1].replyTo, config.agencyInbox);
 });
 
@@ -172,6 +173,7 @@ test("valid service requests send with and without an optional policy number", a
     assert.equal(sent[0].from, config.emailFrom);
     assert.equal(sent[0].subject, "[CLIENT SERVICE] Policy Change — John Smith");
     assert.equal(sent[0].replyTo, service.email);
+    assert.equal(sent[1].subject, "Demian Insurance Agency | We received your service request");
     assert.equal(sent[1].replyTo, config.agencyInbox);
     if (!payload.policy) assert.doesNotMatch(sent[0].text, /Policy number:/);
   }

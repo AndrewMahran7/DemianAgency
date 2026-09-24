@@ -93,7 +93,7 @@ export function createQuoteMessages(submission: QuoteSubmission, config: EmailCo
     confirmation: {
       from: config.emailFrom,
       to: submission.email,
-      subject: "We received your quote request | Demian Insurance Agency",
+      subject: "Demian Insurance Agency | We received your quote request",
       replyTo: config.agencyInbox,
       html: confirmationHtml(submission.firstName, "We received your quote request.", [`Thanks for reaching out to Demian Insurance Agency.`, `We've received your ${insurance} quote request. A member of our team will follow up using your preferred contact method.`]),
       text: [`Hi ${submission.firstName},`, ``, `Thanks for reaching out to Demian Insurance Agency.`, ``, `We've received your ${insurance} quote request. A member of our team will follow up using your preferred contact method.`, ``, `If you'd rather speak with someone, call ${phone} during business hours:`, hoursText, ``, `Demian Insurance Agency`].join("\n"),
@@ -126,7 +126,7 @@ export function createServiceMessages(submission: ServiceSubmission, config: Ema
     confirmation: {
       from: config.emailFrom,
       to: submission.email,
-      subject: "We received your service request | Demian Insurance Agency",
+      subject: "Demian Insurance Agency | We received your service request",
       replyTo: config.agencyInbox,
       html: confirmationHtml(submission.firstName, "We received your service request.", [`A member of the Demian Insurance Agency customer service team will follow up within one business day with a resolution or any additional information needed.`, `We'll use your preferred contact method.`]),
       text: [`Hi ${submission.firstName},`, ``, `We've received your service request.`, ``, `A member of the Demian Insurance Agency customer service team will follow up within one business day with a resolution or any additional information needed.`, ``, `We'll use your preferred contact method.`, ``, `Need to speak with someone?`, phone, hoursText, ``, `Demian Insurance Agency`].join("\n"),
