@@ -25,7 +25,7 @@ export default function AboutPage() {
           <h2>{minaDemian.name}</h2>
           <p>{minaDemian.title}</p>
           <p>More than a decade of relevant professional experience, a family perspective, and a belief that insurance guidance should always feel personal.</p>
-          <Link className="button" href="/about/team">Meet the Team <ArrowRight size={18} aria-hidden="true" /></Link>
+          <Link className="button" href="/about/mina-demian">Meet Mina <ArrowRight size={18} aria-hidden="true" /></Link>
         </div>
       </MotionReveal>
     </RouteShell>

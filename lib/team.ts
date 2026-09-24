@@ -14,9 +14,13 @@ export type TeamMember = {
   slug: string;
   name: string;
   title: string;
+  jobTitle: string;
   portrait: string;
   portraitAlt: string;
+  shortBio?: string;
   homepageSummary?: string;
+  profilePath?: string;
+  sortOrder: number;
 };
 
 export type DetailedTeamMember = TeamMember & {
@@ -37,11 +41,16 @@ export const minaDemian: DetailedTeamMember = {
     slug: "mina-demian",
     name: "Mina Demian",
     title: "Principal, Demian Insurance Agency",
+    jobTitle: "Principal",
     location: "Southwest Florida",
     portrait: "/team/mina-demian.jpg",
     portraitAlt: "Mina Demian, Principal of Demian Insurance Agency",
+    shortBio:
+      "Mina brings more than a decade of experience across insurance, financial services, employee benefits, banking, and client advisory work to a personal approach grounded in clear guidance.",
     homepageSummary:
       "A husband, father, and Florida-licensed insurance professional, Mina brings more than a decade of experience across insurance, financial services, employee benefits, banking, and client advisory work.",
+    profilePath: "/about/mina-demian",
+    sortOrder: 1,
     professionalIdentity: ["Father", "Husband", "Employee Benefits Strategist"],
     experienceSummary:
       "12+ years across insurance, financial services, employee benefits, and client advisory work",
@@ -103,9 +112,11 @@ export const minaDemian: DetailedTeamMember = {
 export const mattAlexander: TeamMember = {
   slug: "matt-alexander",
   name: "Matt Alexander",
-  title: "Team Member",
+  title: "Licensed Insurance Professional",
+  jobTitle: "Licensed Insurance Professional",
   portrait: "/images/team/matt-alexander.jpg",
   portraitAlt: "Matt Alexander of Demian Insurance Agency",
+  sortOrder: 2,
 };
 
-export const teamMembers: readonly TeamMember[] = [minaDemian, mattAlexander];
+export const teamMembers: readonly TeamMember[] = [minaDemian, mattAlexander].sort((a, b) => a.sortOrder - b.sortOrder);

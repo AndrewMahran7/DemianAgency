@@ -32,6 +32,7 @@ export const publicRoutes = [
   "/insurance/business",
   "/about",
   "/about/team",
+  "/about/mina-demian",
   "/request-quote",
   "/client-service",
   "/request-service",
@@ -97,6 +98,7 @@ export function createAgencySchema() {
       {
         "@type": "Person",
         name: "Matt Alexander",
+        jobTitle: "Licensed Insurance Professional",
       },
     ],
     openingHoursSpecification: [
