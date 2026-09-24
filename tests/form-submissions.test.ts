@@ -6,7 +6,7 @@ import { readSubmissionBody } from "../lib/forms/request-body.ts";
 import { validateQuoteSubmission, validateServiceSubmission } from "../lib/forms/validation.ts";
 
 const config = {
-  agencyInbox: "mina.demian@demianinsurance.com",
+  agencyInbox: "mina@demianinsurance.com",
   emailFrom: "Demian Insurance Agency <forms@demianinsurance.com>",
   siteUrl: "https://demianinsurance.com",
 };

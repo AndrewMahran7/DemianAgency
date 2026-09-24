@@ -63,7 +63,7 @@ Production setup:
 4. Create a production Resend API key.
 5. In Vercel, open **Settings → Environment Variables** and add:
    - `RESEND_API_KEY=<secret>`
-   - `AGENCY_INBOX=mina.demian@demianinsurance.com`
+   - `AGENCY_INBOX=mina@demianinsurance.com`
    - `EMAIL_FROM=Demian Insurance Agency <forms@demianinsurance.com>`
    - `SITE_URL=https://demianinsurance.com`
 6. Redeploy so the deployment receives the new environment variables.

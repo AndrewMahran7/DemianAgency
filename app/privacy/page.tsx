@@ -35,7 +35,7 @@ export default function PrivacyPage() {
         <p>We use reasonable administrative and technical measures intended to protect information, but no method of transmission or storage can be guaranteed to be completely secure.</p>
       </LegalSection>
       <LegalSection title="Your choices and questions">
-        <p>You may contact us with privacy questions or requests concerning information you submitted. Email <a href="mailto:mina.demian@demianinsurance.com">mina.demian@demianinsurance.com</a> or call <TrackedPhoneLink location="legal" href="tel:+19413771806">(941) 377-1806</TrackedPhoneLink>.</p>
+        <p>You may contact us with privacy questions or requests concerning information you submitted. Email <a href="mailto:mina@demianinsurance.com">mina@demianinsurance.com</a> or call <TrackedPhoneLink location="legal" href="tel:+19413771806">(941) 377-1806</TrackedPhoneLink>.</p>
       </LegalSection>
       <LegalSection title="Children">
         <p>This website is intended for people seeking insurance services and is not directed toward children. Please contact us if you believe a child has submitted information through the website.</p>
