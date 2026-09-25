@@ -79,7 +79,6 @@ export const homeInsurance = {
     "Homeowners", "Condo", "Renters", "Landlord / rental property", "Flood",
     "Wind / hurricane", "Umbrella", "High-value homes", "Secondary & vacation homes",
   ],
-  considerations: ["Hurricanes", "Flooding", "Wind", "Roof age", "Water damage", "Liability", "Replacement cost"],
   coverageSections: [
     {
       label: "Section I — Property coverages",
@@ -182,5 +181,4 @@ export const businessInsurance = {
     },
   ],
   industries: ["Contractors", "Restaurants", "Professional services", "Medical offices", "Real-estate businesses"],
-  exposures: ["Operations", "Property", "Vehicles", "Employees", "Customer interaction", "Digital risks"],
 } as const;

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ArrowRight, Building2, Home as HomeIcon, Layers3, Search, SunMedium } from "lucide-react";
+import { ArrowRight, Building2, Home as HomeIcon, Search, SunMedium } from "lucide-react";
 import { AgencyContactStrip, ExistingCustomerCTA, QuoteActions } from "@/components/demian/insurance-conversion";
 import { TrackedLink } from "@/components/demian/analytics-link";
 import { MotionReveal } from "@/components/demian/motion-reveal";
@@ -69,18 +69,6 @@ export default function HomeInsurancePage() {
           </div>
         </section>
 
-        <section className="home-considerations section">
-          <MotionReveal className="home-considerations-intro">
-            <Layers3 aria-hidden="true" size={25} />
-            <p className="eyebrow"><span /> Florida property context</p>
-            <h2>Understand the details before assuming what a policy includes.</h2>
-            <p>Coverage depends on the policy, carrier, property, selected options, exclusions, and terms. Flood coverage, hurricane-related protections, and replacement-cost treatment should never be assumed.</p>
-          </MotionReveal>
-          <div className="home-consideration-list">
-            {homeInsurance.considerations.map((item, index) => <MotionReveal delay={index * 0.045} key={item}><span>0{index + 1}</span><strong>{item}</strong></MotionReveal>)}
-          </div>
-        </section>
-
         <section className="home-coverages section" aria-labelledby="home-coverages-title">
           <MotionReveal className="home-coverages-heading">
             <p className="eyebrow"><span /> Homeowners coverage framework</p>
@@ -101,7 +89,13 @@ export default function HomeInsurancePage() {
               </MotionReveal>
             ))}
           </div>
-          <p className="home-coverage-note">Coverage availability, limits, exclusions, and terms vary by policy and carrier.</p>
+          <aside className="home-coverage-context" aria-label="Florida home coverage considerations">
+            <strong>Florida homes come with extra considerations.</strong>
+            <div>
+              <p>Hurricanes, flooding, wind, roof age, water damage, liability, and replacement cost can all affect what coverage may be appropriate.</p>
+              <p>Coverage availability, limits, exclusions, and terms vary by policy, carrier, property, and selected options.</p>
+            </div>
+          </aside>
         </section>
 
         <section className="home-review">

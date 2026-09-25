@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ArrowRight, BarChart3, BriefcaseBusiness, Building2, Network } from "lucide-react";
+import { ArrowRight, BarChart3, BriefcaseBusiness, Building2 } from "lucide-react";
 import { AgencyContactStrip, ExistingCustomerCTA, QuoteActions } from "@/components/demian/insurance-conversion";
 import { TrackedLink } from "@/components/demian/analytics-link";
 import { MotionReveal } from "@/components/demian/motion-reveal";
@@ -37,17 +37,14 @@ export default function BusinessPage() {
           </MotionReveal>
         </section>
 
-        <section className="business-exposures section">
-          <MotionReveal className="business-exposures-heading"><Network aria-hidden="true" size={26} /><p className="eyebrow"><span /> Understand the operation</p><h2>Six places to begin the conversation.</h2><p>These are discussion areas—not underwriting conclusions. The relevant insurance categories depend on the business and carrier terms.</p></MotionReveal>
-          <div className="business-exposure-grid">
-            {businessInsurance.exposures.map((exposure, index) => <MotionReveal delay={index * 0.05} key={exposure}><span>0{index + 1}</span><strong>{exposure}</strong></MotionReveal>)}
-          </div>
-        </section>
-
         <section className="business-coverages">
           <MotionReveal className="business-coverages-title">
             <p className="eyebrow light"><span /> Commercial coverage categories</p>
             <h2>Build the conversation around the business—not a generic checklist.</h2>
+            <div className="business-coverage-context">
+              <strong>Every business is different.</strong>
+              <p>We look at how you operate, what you own, who works for you, how you use vehicles, how you interact with customers, and where digital risks may exist before discussing coverage options.</p>
+            </div>
           </MotionReveal>
           <div className="business-coverage-grid">
             {businessInsurance.products.map((product, index) => (
