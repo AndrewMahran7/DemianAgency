@@ -5,20 +5,25 @@ import { TrackedLink } from "./analytics-link";
 import { SiteHeader } from "./site-header";
 import { SiteFooter } from "./site-footer";
 
-export function RouteShell({ eyebrow, title, description, quoteLocation, children }: {
+export function RouteShell({ eyebrow, title, description, quoteLocation, heroActions, mainClassName, children }: {
   eyebrow: string;
   title: string;
   description: string;
-  quoteLocation: AnalyticsEventMap["quote_cta_click"]["location"];
+  quoteLocation?: AnalyticsEventMap["quote_cta_click"]["location"];
+  heroActions?: React.ReactNode;
+  mainClassName?: string;
   children?: React.ReactNode;
 }) {
   return (
     <>
       <SiteHeader />
-      <main className="route-main">
+      <main className={`route-main${mainClassName ? ` ${mainClassName}` : ""}`}>
         <section className="route-hero">
           <div><p className="eyebrow"><span />{eyebrow}</p><h1>{title}</h1></div>
-          <div><p>{description}</p><TrackedLink event="quote_cta_click" properties={{ location: quoteLocation }} className="button" href={siteConfig.requestQuoteHref}>Request a Quote <ArrowRight aria-hidden="true" size={18} /></TrackedLink></div>
+          <div>
+            <p>{description}</p>
+            {heroActions ?? (quoteLocation && <TrackedLink event="quote_cta_click" properties={{ location: quoteLocation }} className="button" href={siteConfig.requestQuoteHref}>Request a Quote <ArrowRight aria-hidden="true" size={18} /></TrackedLink>)}
+          </div>
         </section>
         {children && <section className="route-content">{children}</section>}
       </main>
