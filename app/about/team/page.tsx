@@ -49,7 +49,7 @@ export default function MeetTheTeamPage() {
         <section className="team-directory-hero">
           <MotionReveal immediate>
             <p className="eyebrow"><span /> Our team</p>
-            <h1>Real people.<br />Personal guidance.</h1>
+            <h1>Meet your team.</h1>
           </MotionReveal>
           <MotionReveal className="team-directory-intro" delay={0.08} immediate>
             <p>Demian Insurance Agency is built around real relationships, clear guidance, and people customers can actually reach.</p>
@@ -62,29 +62,31 @@ export default function MeetTheTeamPage() {
             <h2 id="team-directory-title">Meet the team.</h2>
           </MotionReveal>
 
-          <div className="team-directory-grid">
+          <div className="team-directory-list">
             {teamMembers.map((member, index) => (
-              <MotionReveal className={`team-directory-card team-directory-card-${member.slug}`} delay={index * 0.08} key={member.slug}>
+              <article className={`team-directory-row team-directory-card-${member.slug}`} key={member.slug}>
                 <div className="team-directory-portrait">
                   <Image
                     src={member.image}
                     alt={member.imageAlt}
                     fill
-                    sizes="(max-width: 760px) 100vw, (max-width: 1100px) 46vw, 30vw"
+                    sizes="(max-width: 600px) 280px, 240px"
                   />
                   <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
                 </div>
                 <div className="team-directory-copy">
-                  <p className="team-directory-role">{member.role}</p>
                   <h3>{member.name}</h3>
-                  {member.shortBio ? <p className="team-directory-bio">{member.shortBio}</p> : null}
+                  <p className="team-directory-role">{member.role}</p>
+                </div>
+                {(member.shortBio || member.profilePath) && <div className="team-directory-details">
+                  {member.shortBio && <p className="team-directory-bio">{member.shortBio}</p>}
                   {member.profilePath ? (
                     <Link className="text-link team-directory-link" href={member.profilePath} aria-label={`Meet ${member.name}`}>
                       Meet {member.name.split(" ")[0]} <span aria-hidden="true">↗</span>
                     </Link>
                   ) : null}
-                </div>
-              </MotionReveal>
+                </div>}
+              </article>
             ))}
           </div>
         </section>

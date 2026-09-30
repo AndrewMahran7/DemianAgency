@@ -8,7 +8,7 @@ export function MotionReveal({ children, className = "", delay = 0, immediate = 
   return (
     <motion.div
       className={className}
-      initial={reduceMotion ? false : { opacity: 0, y: 22 }}
+      initial={reduceMotion || immediate ? false : { opacity: 0, y: 22 }}
       animate={!reduceMotion && immediate ? { opacity: 1, y: 0 } : undefined}
       whileInView={!reduceMotion && !immediate ? { opacity: 1, y: 0 } : undefined}
       viewport={{ once: true, margin: "-70px" }}

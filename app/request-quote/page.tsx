@@ -20,9 +20,9 @@ export default async function RequestQuotePage({ searchParams }: { searchParams:
         <section className="quote-page-intro">
           <div>
             <p className="eyebrow"><span /> Request a quote</p>
-            <h1>Start with a conversation, not a full application.</h1>
+            <h1>Start with a conversation.</h1>
           </div>
-          <p>Choose the kind of coverage you are looking for and share the best way to reach you. This focused first step gives the agency enough context to follow up without asking for sensitive application details.</p>
+          <p>Tell us what you would like to insure and how to reach you. A team member will follow up to discuss your options. No full application needed.</p>
         </section>
         <section className="quote-page-form">
           <QuoteRequestForm initialType={type} source="request_quote" />

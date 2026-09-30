@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { AgencyContactStrip, ExistingCustomerCTA, QuoteActions } from "@/components/demian/insurance-conversion";
 import { TrackedLink } from "@/components/demian/analytics-link";
@@ -16,6 +15,7 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 const lines = Object.values(insuranceLines);
+const categoryNames = { auto: "Auto", home: "Home", life: "Life", business: "Business" } as const;
 
 export default function InsurancePage() {
   return (
@@ -33,11 +33,24 @@ export default function InsurancePage() {
           </MotionReveal>
         </section>
 
+        <section className="overview-lines" aria-label="Insurance categories">
+          {lines.map((line, index) => (
+            <MotionReveal className="overview-line-reveal" delay={index * 0.05} key={line.key}>
+              <TrackedLink event="insurance_category_click" properties={{ source: "insurance_overview", insuranceType: categoryNames[line.key] }} className="overview-line" href={line.href}>
+                <span className="overview-line-index">0{index + 1}</span>
+                <div className="overview-line-title"><p>{line.audience}</p><h2>{line.name}</h2></div>
+                <p className="overview-line-summary">{line.summary}</p>
+                <span className="overview-line-arrow" aria-hidden="true"><ArrowUpRight size={19} /></span>
+              </TrackedLink>
+            </MotionReveal>
+          ))}
+        </section>
+
         <section className="overview-approach">
           <MotionReveal className="overview-approach-intro">
             <p className="eyebrow light"><span /> One agency / Two paths</p>
-            <h2>The market path should fit the risk.</h2>
-            <p>Every conversation begins with Demian Insurance Agency. From there, the coverage need determines how the agency reaches the market.</p>
+            <h2>How we find coverage options.</h2>
+            <p>Some coverage needs fit a dedicated carrier relationship. Others benefit from comparing multiple carriers. Your Demian team guides both conversations.</p>
             <p className="overview-origin"><span aria-hidden="true">D</span><strong>One agency relationship guiding both paths.</strong></p>
           </MotionReveal>
 
@@ -62,19 +75,6 @@ export default function InsurancePage() {
               </ul>
             </MotionReveal>
           </div>
-        </section>
-
-        <section className="overview-lines" aria-label="Insurance categories">
-          {lines.map((line, index) => (
-            <MotionReveal className="overview-line-reveal" delay={index * 0.05} key={line.key}>
-              <Link className="overview-line" href={line.href}>
-                <span className="overview-line-index">0{index + 1}</span>
-                <div className="overview-line-title"><p>{line.audience}</p><h2>{line.name}</h2></div>
-                <p className="overview-line-summary">{line.summary}</p>
-                <span className="overview-line-arrow" aria-hidden="true"><ArrowUpRight size={19} /></span>
-              </Link>
-            </MotionReveal>
-          ))}
         </section>
 
         <section className="overview-decision">

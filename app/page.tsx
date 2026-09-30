@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Clock3, Phone, ShieldCheck } from "lucide-react";
 import { MotionReveal } from "@/components/demian/motion-reveal";
 import { QuoteRequestForm } from "@/components/demian/quote-request-form";
@@ -34,6 +33,7 @@ export default function Home() {
               <TrackedLink event="quote_cta_click" properties={{ location: "homepage_hero" }} className="button" href={siteConfig.requestQuoteHref}>Request a Quote <ArrowRight aria-hidden="true" size={18} /></TrackedLink>
               <TrackedLink event="service_cta_click" properties={{ location: "homepage_hero" }} className="text-link" href={siteConfig.clientServiceHref}>Client Service <span aria-hidden="true">↗</span></TrackedLink>
             </div>
+            <p className="home-hero-phone">Prefer to talk? <TrackedPhoneLink location="homepage" href={siteConfig.phoneHref}>{siteConfig.phone}</TrackedPhoneLink></p>
             <p className="home-hero-region"><ShieldCheck aria-hidden="true" size={18} /> Serving {siteConfig.serviceRegion}</p>
           </MotionReveal>
 
@@ -83,13 +83,13 @@ export default function Home() {
               const Icon = service.icon;
               return (
                 <MotionReveal delay={index * 0.05} key={service.name}>
-                  <Link className="home-offering" href={service.href} aria-label={`Explore ${service.name} insurance`}>
+                  <TrackedLink event="insurance_category_click" properties={{ source: "homepage", insuranceType: service.name }} className="home-offering" href={service.href} aria-label={`Explore ${service.name} insurance`}>
                     <span className="home-offering-index">{service.index}</span>
                     <Icon aria-hidden="true" size={22} strokeWidth={1.5} />
                     <h3>{service.name}</h3>
                     <p>{service.description}</p>
                     <ArrowUpRight className="home-offering-arrow" aria-hidden="true" size={22} />
-                  </Link>
+                  </TrackedLink>
                 </MotionReveal>
               );
             })}

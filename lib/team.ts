@@ -118,12 +118,12 @@ export const kingsleyBenecke: TeamMember = {
   slug: "kingsley-benecke",
   name: "Kingsley Benecke",
   role: "Customer Service Representative",
-  image: "/team/kingsley-benecke.png",
+  image: "/team/kingsley-benecke.webp",
   imageAlt: "Kingsley Benecke, Customer Service Representative",
   shortBio:
     "Originally from South Africa, Kingsley has called Sarasota home since 2006. He brings three years of experience helping local families and business owners with friendly, clear, and dependable service.",
   longBio: [
-    "Hi, I’m Kingsley, a Customer Service Representative with Allstate here in beautiful Sarasota, Florida.",
+    "Hi, I’m Kingsley, a Customer Service Representative here in beautiful Sarasota, Florida.",
     "Originally from South Africa, I made Sarasota my home in 2006 and have loved being a part of this vibrant Gulf Coast community ever since. For the past three years, I’ve had the privilege of helping local families and business owners protect what matters most to them. Whether you need help navigating your coverage options, updating a policy, or simply getting answers to your questions, I pride myself on providing friendly, clear, and dependable guidance every step of the way.",
     "Outside of work, you can usually find me enjoying everything Sarasota has to offer. I look forward to serving you and ensuring you always feel like you’re in good hands!",
   ],
@@ -134,7 +134,7 @@ export const christinaAgro: TeamMember = {
   slug: "christina-agro",
   name: "Christina Agro",
   role: "Onboarding Specialist",
-  image: "/team/christina-agro.png",
+  image: "/team/christina-agro.webp",
   imageAlt: "Christina Agro, Onboarding Specialist",
   sortOrder: 4,
 };
@@ -143,7 +143,7 @@ export const christianSantarelli: TeamMember = {
   slug: "christian-santarelli",
   name: "Christian Santarelli",
   role: "Licensed Property & Casualty and Life Insurance Professional",
-  image: "/team/christian-santarelli.png",
+  image: "/team/christian-santarelli.webp",
   imageAlt: "Christian Santarelli of Demian Insurance Agency",
   shortBio:
     "Christian takes a straightforward, relationship-focused approach to helping clients understand their coverage and make informed decisions that fit their individual needs.",
