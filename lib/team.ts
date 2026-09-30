@@ -139,6 +139,27 @@ export const christinaAgro: TeamMember = {
   sortOrder: 4,
 };
 
-export const teamMembers: readonly TeamMember[] = [minaDemian, mattAlexander, kingsleyBenecke, christinaAgro].sort(
-  (a, b) => a.sortOrder - b.sortOrder,
-);
+export const christianSantarelli: TeamMember = {
+  slug: "christian-santarelli",
+  name: "Christian Santarelli",
+  role: "Licensed Property & Casualty and Life Insurance Professional",
+  image: "/team/christian-santarelli.png",
+  imageAlt: "Christian Santarelli of Demian Insurance Agency",
+  shortBio:
+    "Christian takes a straightforward, relationship-focused approach to helping clients understand their coverage and make informed decisions that fit their individual needs.",
+  longBio: [
+    "Christian is a licensed Property & Casualty and Life Insurance professional with the Demian Agency, where he takes a straightforward, relationship-focused approach to helping clients protect what matters most.",
+    "Christian believes insurance should be more than simply selecting limits and checking boxes. One of his main goals during every insurance review is to make sure his clients actually understand the coverage options they are choosing and how those coverages can help protect them, their loved ones, their property, and the property of others. He takes the time to explain coverage in everyday terms so clients can make informed decisions that fit their individual needs.",
+    "Outside of insurance, Christian is heavily involved in the local pool community and serves as a division representative for one of his local leagues. He enjoys the competitive side of pool, as well as the friendships and sense of community that come with it. When he’s not around the pool table, you’ll often find him on the golf course or enjoying time outdoors and exploring nature.",
+    "Christian brings that same combination of competition, community, and genuine personal connection into his work with clients. His goal is to build lasting relationships and be someone his clients can turn to when they have questions about their insurance—not just someone they hear from when it’s time to renew a policy.",
+  ],
+  sortOrder: 5,
+};
+
+export const teamMembers: readonly TeamMember[] = [
+  minaDemian,
+  mattAlexander,
+  kingsleyBenecke,
+  christinaAgro,
+  christianSantarelli,
+].sort((a, b) => a.sortOrder - b.sortOrder);
