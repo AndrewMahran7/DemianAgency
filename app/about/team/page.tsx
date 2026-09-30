@@ -12,7 +12,7 @@ import { teamMembers } from "@/lib/team";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Meet the Team | Demian Insurance Agency",
-  description: "Meet the people behind Demian Insurance Agency, including Principal Mina Demian and Licensed Insurance Professional Matt Alexander.",
+  description: "Meet the people behind Demian Insurance Agency, including Mina Demian, Matt Alexander, and Kingsley Benecke.",
   path: "/about/team",
 });
 

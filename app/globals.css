@@ -317,7 +317,7 @@ h1 { max-width: 720px; margin: 0; font-family: var(--font-serif); font-size: cla
 .team-directory-heading { display: flex; align-items: end; justify-content: space-between; gap: 40px; }
 .team-directory-heading .section-index { margin: 0 0 10px; color: #c5b27d; }
 .team-directory-heading h2 { margin: 0; font-family: var(--font-serif); font-size: clamp(3rem, 5vw, 5.5rem); font-weight: 400; line-height: .95; letter-spacing: -.05em; }
-.team-directory-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: clamp(22px, 3vw, 44px); margin-top: 64px; }
+.team-directory-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: clamp(22px, 3vw, 44px); margin-top: 64px; }
 .team-directory-card { min-width: 0; background: #102f52; border: 1px solid rgb(255 255 255 / 16%); }
 .team-directory-portrait { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: #c8c8c5; }
 .team-directory-portrait img { object-fit: cover; object-position: center 18%; }
@@ -326,7 +326,7 @@ h1 { max-width: 720px; margin: 0; font-family: var(--font-serif); font-size: cla
 .team-directory-copy { padding: clamp(28px, 4vw, 52px); }
 .team-directory-role { margin: 0 0 15px; font-size: .67rem; font-weight: 750; letter-spacing: .13em; line-height: 1.45; text-transform: uppercase; color: #8bb9e3; }
 .team-directory-copy h3 { margin: 0; font-family: var(--font-serif); font-size: clamp(2.35rem, 3.6vw, 4.2rem); font-weight: 400; line-height: .95; letter-spacing: -.045em; }
-.team-directory-bio { max-width: 600px; margin: 24px 0 0; font-size: .9rem; line-height: 1.72; color: #c3d1de; }
+.team-directory-bio { max-width: 600px; margin: 24px 0 0; white-space: pre-line; font-size: .9rem; line-height: 1.72; color: #c3d1de; }
 .team-directory-link { margin-top: 24px; border-color: #8197ae; color: #f5f0e6; }
 .section-index { margin: 0 0 44px; font-size: .64rem; font-weight: 730; letter-spacing: .15em; text-transform: uppercase; color: #947a49; }
 .light-index { color: #c8b682; }
@@ -783,11 +783,12 @@ h1 { max-width: 720px; margin: 0; font-family: var(--font-serif); font-size: cla
 .home-team-heading .eyebrow { grid-column: 1 / -1; }
 .home-team-heading h2 { max-width: 780px; margin: 0; font-family: var(--font-serif); font-size: clamp(3.05rem, 4.9vw, 5.4rem); font-weight: 400; line-height: .96; letter-spacing: -.05em; }
 .home-team-heading > p:last-child { max-width: 440px; margin: 0 0 7px; line-height: 1.7; color: #c3d1de; }
-.home-team-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; margin-top: 62px; background: rgb(255 255 255 / 17%); border: 1px solid rgb(255 255 255 / 17%); }
+.home-team-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; margin-top: 62px; background: rgb(255 255 255 / 17%); border: 1px solid rgb(255 255 255 / 17%); }
 .home-team-member { min-width: 0; background: var(--navy-deep); }
 .home-team-portrait { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: #c8c8c8; }
 .home-team-portrait img { object-fit: cover; object-position: center 17%; }
 .home-team-member:nth-child(2) .home-team-portrait img { object-position: center 25%; }
+.home-team-member:nth-child(3) .home-team-portrait img { object-position: center 28%; }
 .home-team-portrait > span { position: absolute; right: 22px; bottom: 22px; padding: 9px 13px; background: var(--navy); font-size: .58rem; font-weight: 750; letter-spacing: .13em; text-transform: uppercase; }
 .home-team-copy { padding: clamp(28px, 3.8vw, 50px); }
 .home-team-identity { margin: 0; }
@@ -1169,6 +1170,7 @@ h1 { max-width: 720px; margin: 0; font-family: var(--font-serif); font-size: cla
   .home-offering p { grid-column: 3 / -1; grid-row: 2; padding: 0 46px 7px 0; }
   .home-offering-arrow { grid-column: 4; grid-row: 1; }
   .home-team-heading { grid-template-columns: 1fr; gap: 24px; }
+  .home-team-list, .team-directory-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .home-team-heading .eyebrow { grid-column: 1; }
   .home-team-heading > p:last-child { margin: 0; }
   .home-team-copy { padding: 32px; }

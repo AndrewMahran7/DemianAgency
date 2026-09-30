@@ -119,4 +119,16 @@ export const mattAlexander: TeamMember = {
   sortOrder: 2,
 };
 
-export const teamMembers: readonly TeamMember[] = [minaDemian, mattAlexander].sort((a, b) => a.sortOrder - b.sortOrder);
+export const kingsleyBenecke: TeamMember = {
+  slug: "kingsley-benecke",
+  name: "Kingsley Benecke",
+  title: "Customer Service Representative",
+  jobTitle: "Customer Service Representative",
+  portrait: "/team/kingsley-benecke.png",
+  portraitAlt: "Kingsley Benecke, Customer Service Representative",
+  shortBio:
+    "Hi, I’m Kingsley, a Customer Service Representative with Allstate here in beautiful Sarasota, Florida.\n\nOriginally from South Africa, I made Sarasota my home in 2006 and have loved being a part of this vibrant Gulf Coast community ever since. For the past three years, I’ve had the privilege of helping local families and business owners protect what matters most to them. Whether you need help navigating your coverage options, updating a policy, or simply getting answers to your questions, I pride myself on providing friendly, clear, and dependable guidance every step of the way.\n\nOutside of work, you can usually find me enjoying everything Sarasota has to offer. I look forward to serving you and ensuring you always feel like you’re in good hands!",
+  sortOrder: 3,
+};
+
+export const teamMembers: readonly TeamMember[] = [minaDemian, mattAlexander, kingsleyBenecke].sort((a, b) => a.sortOrder - b.sortOrder);

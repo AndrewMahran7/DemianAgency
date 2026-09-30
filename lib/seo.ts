@@ -100,6 +100,11 @@ export function createAgencySchema() {
         name: "Matt Alexander",
         jobTitle: "Licensed Insurance Professional",
       },
+      {
+        "@type": "Person",
+        name: "Kingsley Benecke",
+        jobTitle: "Customer Service Representative",
+      },
     ],
     openingHoursSpecification: [
       {
