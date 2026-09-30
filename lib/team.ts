@@ -130,4 +130,15 @@ export const kingsleyBenecke: TeamMember = {
   sortOrder: 3,
 };
 
-export const teamMembers: readonly TeamMember[] = [minaDemian, mattAlexander, kingsleyBenecke].sort((a, b) => a.sortOrder - b.sortOrder);
+export const christinaAgro: TeamMember = {
+  slug: "christina-agro",
+  name: "Christina Agro",
+  role: "Onboarding Specialist",
+  image: "/team/christina-agro.png",
+  imageAlt: "Christina Agro, Onboarding Specialist",
+  sortOrder: 4,
+};
+
+export const teamMembers: readonly TeamMember[] = [minaDemian, mattAlexander, kingsleyBenecke, christinaAgro].sort(
+  (a, b) => a.sortOrder - b.sortOrder,
+);
