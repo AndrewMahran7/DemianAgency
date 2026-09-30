@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site-config";
+import { teamMembers } from "@/lib/team";
 
 const rawSiteUrl = process.env.SITE_URL?.trim();
 
@@ -92,23 +93,11 @@ export function createAgencySchema() {
     name: siteConfig.businessName,
     telephone: "+19413771806",
     ...(logo ? { logo, image: logo } : {}),
-    employee: [
-      {
-        "@type": "Person",
-        name: "Mina Demian",
-        jobTitle: "Principal",
-      },
-      {
-        "@type": "Person",
-        name: "Matt Alexander",
-        jobTitle: "Licensed Insurance Professional",
-      },
-      {
-        "@type": "Person",
-        name: "Kingsley Benecke",
-        jobTitle: "Customer Service Representative",
-      },
-    ],
+    employee: teamMembers.map((member) => ({
+      "@type": "Person",
+      name: member.name,
+      jobTitle: member.role,
+    })),
     openingHoursSpecification: [
       {
         "@type": "OpeningHoursSpecification",

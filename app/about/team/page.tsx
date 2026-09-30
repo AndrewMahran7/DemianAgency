@@ -34,9 +34,9 @@ export default function MeetTheTeamPage() {
       item: {
         "@type": "Person",
         name: member.name,
-        jobTitle: member.jobTitle,
+        jobTitle: member.role,
         worksFor: agency,
-        ...(absoluteUrl(member.portrait) ? { image: absoluteUrl(member.portrait) } : {}),
+        ...(absoluteUrl(member.image) ? { image: absoluteUrl(member.image) } : {}),
         ...(member.profilePath && absoluteUrl(member.profilePath) ? { url: absoluteUrl(member.profilePath) } : {}),
       },
     })),
@@ -67,15 +67,15 @@ export default function MeetTheTeamPage() {
               <MotionReveal className={`team-directory-card team-directory-card-${member.slug}`} delay={index * 0.08} key={member.slug}>
                 <div className="team-directory-portrait">
                   <Image
-                    src={member.portrait}
-                    alt={member.portraitAlt}
+                    src={member.image}
+                    alt={member.imageAlt}
                     fill
-                    sizes="(max-width: 760px) 100vw, 46vw"
+                    sizes="(max-width: 760px) 100vw, (max-width: 1100px) 46vw, 30vw"
                   />
                   <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
                 </div>
                 <div className="team-directory-copy">
-                  <p className="team-directory-role">{member.jobTitle}</p>
+                  <p className="team-directory-role">{member.role}</p>
                   <h3>{member.name}</h3>
                   {member.shortBio ? <p className="team-directory-bio">{member.shortBio}</p> : null}
                   {member.profilePath ? (

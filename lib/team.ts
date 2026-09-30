@@ -13,12 +13,11 @@ export type TeamEducation = {
 export type TeamMember = {
   slug: string;
   name: string;
-  title: string;
-  jobTitle: string;
-  portrait: string;
-  portraitAlt: string;
+  role: string;
+  image: string;
+  imageAlt: string;
   shortBio?: string;
-  homepageSummary?: string;
+  longBio?: readonly string[];
   profilePath?: string;
   sortOrder: number;
 };
@@ -40,15 +39,12 @@ export type DetailedTeamMember = TeamMember & {
 export const minaDemian: DetailedTeamMember = {
     slug: "mina-demian",
     name: "Mina Demian",
-    title: "Principal, Demian Insurance Agency",
-    jobTitle: "Principal",
+    role: "Principal",
     location: "Southwest Florida",
-    portrait: "/team/mina-demian.jpg",
-    portraitAlt: "Mina Demian, Principal of Demian Insurance Agency",
+    image: "/team/mina-demian.jpg",
+    imageAlt: "Mina Demian, Principal of Demian Insurance Agency",
     shortBio:
       "Mina brings more than a decade of experience across insurance, financial services, employee benefits, banking, and client advisory work to a personal approach grounded in clear guidance.",
-    homepageSummary:
-      "A husband, father, and Florida-licensed insurance professional, Mina brings more than a decade of experience across insurance, financial services, employee benefits, banking, and client advisory work.",
     profilePath: "/about/mina-demian",
     sortOrder: 1,
     professionalIdentity: ["Father", "Husband", "Employee Benefits Strategist"],
@@ -112,22 +108,25 @@ export const minaDemian: DetailedTeamMember = {
 export const mattAlexander: TeamMember = {
   slug: "matt-alexander",
   name: "Matt Alexander",
-  title: "Licensed Insurance Professional",
-  jobTitle: "Licensed Insurance Professional",
-  portrait: "/images/team/matt-alexander.jpg",
-  portraitAlt: "Matt Alexander of Demian Insurance Agency",
+  role: "Licensed Insurance Professional",
+  image: "/images/team/matt-alexander.jpg",
+  imageAlt: "Matt Alexander of Demian Insurance Agency",
   sortOrder: 2,
 };
 
 export const kingsleyBenecke: TeamMember = {
   slug: "kingsley-benecke",
   name: "Kingsley Benecke",
-  title: "Customer Service Representative",
-  jobTitle: "Customer Service Representative",
-  portrait: "/team/kingsley-benecke.png",
-  portraitAlt: "Kingsley Benecke, Customer Service Representative",
+  role: "Customer Service Representative",
+  image: "/team/kingsley-benecke.png",
+  imageAlt: "Kingsley Benecke, Customer Service Representative",
   shortBio:
-    "Hi, I’m Kingsley, a Customer Service Representative with Allstate here in beautiful Sarasota, Florida.\n\nOriginally from South Africa, I made Sarasota my home in 2006 and have loved being a part of this vibrant Gulf Coast community ever since. For the past three years, I’ve had the privilege of helping local families and business owners protect what matters most to them. Whether you need help navigating your coverage options, updating a policy, or simply getting answers to your questions, I pride myself on providing friendly, clear, and dependable guidance every step of the way.\n\nOutside of work, you can usually find me enjoying everything Sarasota has to offer. I look forward to serving you and ensuring you always feel like you’re in good hands!",
+    "Originally from South Africa, Kingsley has called Sarasota home since 2006. He brings three years of experience helping local families and business owners with friendly, clear, and dependable service.",
+  longBio: [
+    "Hi, I’m Kingsley, a Customer Service Representative with Allstate here in beautiful Sarasota, Florida.",
+    "Originally from South Africa, I made Sarasota my home in 2006 and have loved being a part of this vibrant Gulf Coast community ever since. For the past three years, I’ve had the privilege of helping local families and business owners protect what matters most to them. Whether you need help navigating your coverage options, updating a policy, or simply getting answers to your questions, I pride myself on providing friendly, clear, and dependable guidance every step of the way.",
+    "Outside of work, you can usually find me enjoying everything Sarasota has to offer. I look forward to serving you and ensuring you always feel like you’re in good hands!",
+  ],
   sortOrder: 3,
 };
 

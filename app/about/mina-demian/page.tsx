@@ -36,7 +36,7 @@ export default function MinaDemianPage() {
       ...(absoluteUrl("/") ? { url: absoluteUrl("/") } : {}),
     },
     alumniOf: { "@type": "CollegeOrUniversity", name: minaDemian.education.institution },
-    ...(absoluteUrl(minaDemian.portrait) ? { image: absoluteUrl(minaDemian.portrait) } : {}),
+    ...(absoluteUrl(minaDemian.image) ? { image: absoluteUrl(minaDemian.image) } : {}),
   };
 
   return (
@@ -47,8 +47,8 @@ export default function MinaDemianPage() {
           <MotionReveal className="founder-portrait-wrap" immediate>
             <div className="founder-portrait-frame">
               <Image
-                src={minaDemian.portrait}
-                alt={minaDemian.portraitAlt}
+                src={minaDemian.image}
+                alt={minaDemian.imageAlt}
                 fill
                 priority
                 sizes="(max-width: 760px) 100vw, 48vw"
@@ -62,7 +62,7 @@ export default function MinaDemianPage() {
             <div className="founder-name-row">
               <h1>{minaDemian.name}</h1>
             </div>
-            <p className="founder-role">{minaDemian.title}</p>
+            <p className="founder-role">{minaDemian.role}, Demian Insurance Agency</p>
             <h2>A personal approach to protecting what matters.</h2>
             <p className="founder-lede">
               With more than a decade across insurance, employee benefits, banking, and client advisory work, Mina brings broad perspective to every conversation. As a husband and father, he understands that the decisions behind a policy are deeply personal.

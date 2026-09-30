@@ -7,9 +7,9 @@ import { QuoteRequestForm } from "@/components/demian/quote-request-form";
 import { SiteFooter } from "@/components/demian/site-footer";
 import { SiteHeader } from "@/components/demian/site-header";
 import { StructuredData } from "@/components/demian/structured-data";
+import { TeamPhotoPlaceholder } from "@/components/demian/team-photo-placeholder";
 import { createAgencySchema, createPageMetadata } from "@/lib/seo";
 import { services, siteConfig } from "@/lib/site-config";
-import { teamMembers } from "@/lib/team";
 import { TrackedLink, TrackedPhoneLink } from "@/components/demian/analytics-link";
 
 export const metadata: Metadata = createPageMetadata({
@@ -96,36 +96,15 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="home-team" id="team">
-          <MotionReveal className="home-team-heading">
-            <p className="eyebrow light"><span /> Meet the team</p>
-            <h2>A real relationship starts with a real introduction.</h2>
-            <p>Get to know the people behind Demian Insurance Agency.</p>
+        <section className="home-team-teaser" id="team">
+          <MotionReveal>
+            <TeamPhotoPlaceholder />
           </MotionReveal>
-          <div className="home-team-list">
-            {teamMembers.map((member, index) => (
-              <MotionReveal className="home-team-member" delay={index * 0.08} key={member.slug}>
-                <MotionReveal className="home-team-portrait">
-                  <Image
-                    src={member.portrait}
-                    alt={member.portraitAlt}
-                    fill
-                    sizes="(max-width: 900px) 100vw, 43vw"
-                  />
-                  <span aria-hidden="true">{member.title.split(",")[0]} / {String(index + 1).padStart(2, "0")}</span>
-                </MotionReveal>
-                <div className="home-team-copy">
-                  <div className="home-team-identity">
-                    <h3>{member.name}</h3>
-                    <p>{member.title}</p>
-                  </div>
-                  {member.homepageSummary ? <p className="home-team-bio">{member.homepageSummary}</p> : null}
-                </div>
-              </MotionReveal>
-            ))}
-          </div>
-          <MotionReveal className="home-team-action">
-            <TrackedLink event="meet_team_click" properties={{ location: "homepage" }} className="text-link home-team-link" href="/about/team">Meet the Team <span aria-hidden="true">↗</span></TrackedLink>
+          <MotionReveal className="home-team-teaser-copy" delay={0.08}>
+            <p className="eyebrow light"><span /> Meet the team</p>
+            <h2>Real people.<br />Personal guidance.</h2>
+            <p>Behind every conversation is a team you can reach—people who listen, explain options clearly, and stay available when questions or changes arise.</p>
+            <TrackedLink event="meet_team_click" properties={{ location: "homepage" }} className="button button-light" href="/about/team">Meet the Team <ArrowRight aria-hidden="true" size={18} /></TrackedLink>
           </MotionReveal>
         </section>
 

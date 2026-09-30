@@ -40,7 +40,7 @@ export default function LifePage() {
 
         <section className="life-family">
           <MotionReveal className="life-family-portrait">
-            <Image src={minaDemian.portrait} alt={minaDemian.portraitAlt} fill sizes="(max-width: 760px) 100vw, 34vw" />
+            <Image src={minaDemian.image} alt={minaDemian.imageAlt} fill sizes="(max-width: 760px) 100vw, 34vw" />
           </MotionReveal>
           <MotionReveal className="life-family-copy" delay={0.08}>
             <p className="eyebrow light"><span /> Family owned and operated</p>
