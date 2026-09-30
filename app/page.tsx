@@ -7,7 +7,7 @@ import { QuoteRequestForm } from "@/components/demian/quote-request-form";
 import { SiteFooter } from "@/components/demian/site-footer";
 import { SiteHeader } from "@/components/demian/site-header";
 import { StructuredData } from "@/components/demian/structured-data";
-import { TeamPhotoPlaceholder } from "@/components/demian/team-photo-placeholder";
+import { HomeTeamImage } from "@/components/demian/home-team-image";
 import { createAgencySchema, createPageMetadata } from "@/lib/seo";
 import { services, siteConfig } from "@/lib/site-config";
 import { TrackedLink, TrackedPhoneLink } from "@/components/demian/analytics-link";
@@ -98,7 +98,7 @@ export default function Home() {
 
         <section className="home-team-teaser" id="team">
           <MotionReveal>
-            <TeamPhotoPlaceholder />
+            <HomeTeamImage />
           </MotionReveal>
           <MotionReveal className="home-team-teaser-copy" delay={0.08}>
             <p className="eyebrow light"><span /> Meet the team</p>

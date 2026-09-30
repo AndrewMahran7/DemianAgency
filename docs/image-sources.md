@@ -2,6 +2,12 @@
 
 Third-party photography used by the public site is stored locally and is illustrative. The people shown are not represented as Demian Insurance Agency clients or employees.
 
+## Homepage temporary team-section image
+
+| Page / usage | Local file | Platform | Photographer | Original source | License | Accessed | Note |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Homepage temporary team-section image | `public/images/home/florida-seven-mile-bridge.jpg` | Pexels | Mikhail Nilov | [Seven Mile Bridge crossing coastal water in Marathon, Florida](https://www.pexels.com/photo/long-bridge-cross-the-sea-9400874/) | [Pexels License](https://www.pexels.com/license/) | September 30, 2026 | Temporary homepage image until approved Demian Insurance Agency team photography is supplied. |
+
 All four insurance images below are available under the [Pexels License](https://www.pexels.com/license/), which permits free use on websites and does not require attribution. Accessed September 24, 2026.
 
 | Page / usage | Local file | Platform | Photographer | Original source |
