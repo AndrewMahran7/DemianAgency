@@ -275,11 +275,10 @@ h1 { max-width: 720px; margin: 0; font-family: var(--font-serif); font-size: cla
 .contact-route-details a { margin-top: 10px; font-family: var(--font-serif); font-size: clamp(1.9rem, 3vw, 2.8rem); line-height: 1; color: var(--navy); }
 .contact-route-details p { margin: 25px 0 0; font-size: .78rem; line-height: 1.75; color: var(--ink-muted); }
 .claims-hero-actions { display: flex; align-items: center; gap: 26px; margin-top: 34px; }
-.claims-guidance-panel { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(260px, .75fr); align-items: end; gap: clamp(44px, 7vw, 100px); max-width: 1100px; padding: clamp(42px, 5vw, 70px); border-top: 3px solid var(--primary); border-bottom: 1px solid var(--border); background: #e9e2d5; }
+.claims-guidance-panel { max-width: 940px; padding: clamp(42px, 5vw, 64px); border-top: 3px solid var(--primary); border-bottom: 1px solid var(--border); background: #e9e2d5; }
 .claims-guidance-copy .eyebrow { margin-bottom: 18px; }
 .claims-guidance-copy h2 { max-width: 650px; margin: 0; font-family: var(--font-serif); font-size: clamp(2.7rem, 4.5vw, 4.8rem); font-weight: 400; line-height: .96; letter-spacing: -.045em; }
-.claims-guidance-copy > p:last-child { max-width: 650px; margin: 24px 0 0; font-size: .96rem; line-height: 1.72; color: var(--ink-muted); }
-.claims-guidance-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+.claims-guidance-copy > p:last-child { max-width: 620px; margin: 24px 0 0; font-size: .96rem; line-height: 1.72; color: var(--ink-muted); }
 .about-agency-story { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(300px, .88fr); gap: 42px clamp(55px, 8vw, 120px); padding: clamp(70px, 8vw, 120px) 0; border-top: 1px solid var(--border); }
 .about-agency-heading h2 { max-width: 780px; margin: 0; font-family: var(--font-serif); font-size: clamp(3rem, 5vw, 5.4rem); font-weight: 400; line-height: .96; letter-spacing: -.05em; }
 .about-agency-copy { align-self: end; max-width: 620px; padding-bottom: 8px; }
@@ -908,7 +907,6 @@ h1 { max-width: 720px; margin: 0; font-family: var(--font-serif); font-size: cla
 @media (max-width: 900px) {
   .claims-page .route-hero { grid-template-columns: 1fr; align-items: start; gap: 38px; padding: 86px clamp(22px, 6.8vw, 60px) 70px; }
   .claims-page .route-hero h1 { font-size: clamp(3.7rem, 12vw, 5.6rem); }
-  .claims-guidance-panel { grid-template-columns: 1fr; align-items: start; gap: 34px; }
 }
 
 @media (max-width: 760px) {
@@ -971,7 +969,6 @@ h1 { max-width: 720px; margin: 0; font-family: var(--font-serif); font-size: cla
   .claims-hero-actions .button { width: 100%; }
   .claims-hero-actions .text-link { align-self: flex-start; }
   .claims-guidance-panel { padding: 40px 24px 44px; }
-  .claims-guidance-actions .button { width: 100%; }
   .about-agency-story { gap: 36px; padding: 66px 0 78px; }
   .about-agency-heading h2, .about-team-heading h2 { font-size: clamp(2.8rem, 12.5vw, 4.15rem); }
   .about-principles { grid-template-columns: 1fr; margin-top: 12px; }

@@ -12,7 +12,7 @@ export type AnalyticsEventMap = {
   quote_form_start: { source: "homepage" | "request_quote" };
   quote_submission_success: { insuranceType: QuoteInsuranceType };
   quote_submission_error: { category: "validation" | "delivery" | "network" };
-  service_cta_click: { location: "header" | "homepage_hero" | "insurance_page" | "client_service" | "claims_hero" | "claims_guidance" | "footer" };
+  service_cta_click: { location: "header" | "homepage_hero" | "insurance_page" | "client_service" | "claims_hero" | "footer" };
   service_submission_success: { requestType: ServiceRequestType };
   phone_click: { location: "homepage" | "quote_form" | "client_service" | "insurance_page" | "footer" | "contact" | "legal" };
   meet_team_click: { location: "homepage" };

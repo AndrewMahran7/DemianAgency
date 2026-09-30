@@ -33,12 +33,6 @@ export default function ResourcesPage() {
           <h2>Start with the Demian team.</h2>
           <p>A member of the agency can help identify the appropriate carrier contact and what information may be useful to have ready.</p>
         </div>
-        <div className="claims-guidance-actions">
-          <TrackedLink event="service_cta_click" properties={{ location: "claims_guidance" }} className="button" href="/request-service?type=Claims%20help">
-            Request Claim Guidance <ArrowRight aria-hidden="true" size={18} />
-          </TrackedLink>
-          <Link className="text-link" href="/client-service">Client Service <span aria-hidden="true">↗</span></Link>
-        </div>
       </div>
     </RouteShell>
   );
