@@ -8,8 +8,8 @@ import { createPageMetadata } from "@/lib/seo";
 import { minaDemian } from "@/lib/team";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "About Demian Insurance Agency | Florida",
-  description: "Meet the family-owned Florida insurance agency built around clear explanations, thoughtful options, and a real relationship with Principal Mina Demian.",
+  title: "About Demian Insurance Agency | Florida Insurance Team",
+  description: "Learn about Demian Insurance Agency, a family-owned Florida insurance team focused on clear guidance, personal service, and lasting relationships.",
   path: "/about",
 });
 

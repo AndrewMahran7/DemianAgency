@@ -6,7 +6,7 @@ import { SiteFooter } from "@/components/demian/site-footer";
 import { SiteHeader } from "@/components/demian/site-header";
 
 export const metadata: Metadata = {
-  title: "Page Not Found | Demian Insurance Agency",
+  title: "Page Not Found",
   description: "The requested page could not be found.",
   robots: { index: false, follow: true },
 };

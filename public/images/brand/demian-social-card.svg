@@ -1,0 +1,8 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#F7F4EC"/>
+  <rect x="72" y="72" width="486" height="486" rx="72" fill="#075FB9"/>
+  <path d="M204 194H318C408.96 194 465.8 247.04 465.8 329.14C465.8 411.23 408.96 464.28 318 464.28H204V194ZM312.51 415.31C373.72 415.31 412.91 383.56 412.91 329.14C412.91 274.72 373.72 242.97 312.51 242.97H255.93V415.31H312.51Z" fill="#E6D6B1"/>
+  <text x="624" y="279" fill="#0B2745" font-family="Georgia, 'Times New Roman', serif" font-size="82" letter-spacing="-2">Demian</text>
+  <text x="629" y="344" fill="#075FB9" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" letter-spacing="7">INSURANCE AGENCY</text>
+  <path d="M630 387H1070" stroke="#D5C292" stroke-width="4"/>
+</svg>

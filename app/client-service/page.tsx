@@ -9,8 +9,8 @@ import { siteConfig } from "@/lib/site-config";
 import { TrackedLink, TrackedPhoneLink } from "@/components/demian/analytics-link";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Client Service | Demian Insurance Agency",
-  description: "Policy changes, documents, billing questions, claim guidance, and service requests for existing Demian Insurance Agency clients.",
+  title: "Client Service & Policy Help | Demian Insurance Agency",
+  description: "Need help with a policy change, billing question, documents, or a claim? Contact the Demian Insurance Agency team for fast, personal client service.",
   path: "/client-service",
 });
 

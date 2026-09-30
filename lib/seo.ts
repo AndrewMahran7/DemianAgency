@@ -55,10 +55,10 @@ export function absoluteUrl(path: string) {
 
 export function createPageMetadata({ title, description, path, image }: PageMetadata): Metadata {
   const canonical = absoluteUrl(path);
-  const socialImage = image ? absoluteUrl(image) : undefined;
+  const socialImage = absoluteUrl(image ?? "/images/brand/demian-social-card.png");
 
   return {
-    title,
+    title: { absolute: title },
     description,
     ...(canonical ? { alternates: { canonical } } : {}),
     openGraph: {
@@ -84,11 +84,14 @@ const areaServed = siteConfig.serviceAreas.map((county) => ({
 }));
 
 export function createAgencySchema() {
+  const logo = absoluteUrl("/favicon-512x512.png");
+
   return {
     "@context": "https://schema.org",
     "@type": "InsuranceAgency",
     name: siteConfig.businessName,
     telephone: "+19413771806",
+    ...(logo ? { logo, image: logo } : {}),
     employee: [
       {
         "@type": "Person",
@@ -130,6 +133,8 @@ export function createAgencySchema() {
 }
 
 export function createInsuranceServiceSchema(name: string, description: string, path: string) {
+  const logo = absoluteUrl("/favicon-512x512.png");
+
   return {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -140,6 +145,7 @@ export function createInsuranceServiceSchema(name: string, description: string, 
       "@type": "InsuranceAgency",
       name: siteConfig.businessName,
       telephone: "+19413771806",
+      ...(logo ? { logo } : {}),
     },
     areaServed,
     ...(absoluteUrl(path) ? { url: absoluteUrl(path) } : {}),

@@ -10,10 +10,10 @@ import { StructuredData } from "@/components/demian/structured-data";
 import { businessInsurance } from "@/lib/insurance";
 import { createInsuranceServiceSchema, createPageMetadata } from "@/lib/seo";
 
-const description = "Florida small-business insurance guidance for general liability, property, commercial auto, workers' compensation, E&O, cyber, BOP, umbrella, and EPLI.";
+const description = "Explore General Liability, Commercial Property, Workers' Comp, Commercial Auto, Cyber, BOP, and other small-business insurance options.";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Florida Business Insurance | Demian Insurance Agency",
+  title: "Small Business Insurance | Demian Insurance Agency",
   description,
   path: "/insurance/business",
 });

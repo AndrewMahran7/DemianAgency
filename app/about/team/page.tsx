@@ -12,7 +12,7 @@ import { teamMembers } from "@/lib/team";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Meet the Team | Demian Insurance Agency",
-  description: "Meet the people behind Demian Insurance Agency, including Mina Demian, Matt Alexander, and Kingsley Benecke.",
+  description: "Meet the Demian Insurance Agency team and the people who provide personal insurance guidance and client service across Florida.",
   path: "/about/team",
 });
 
@@ -20,6 +20,7 @@ export default function MeetTheTeamPage() {
   const agency = {
     "@type": "InsuranceAgency",
     name: "Demian Insurance Agency",
+    ...(absoluteUrl("/favicon-512x512.png") ? { logo: absoluteUrl("/favicon-512x512.png") } : {}),
     ...(absoluteUrl("/") ? { url: absoluteUrl("/") } : {}),
   };
 

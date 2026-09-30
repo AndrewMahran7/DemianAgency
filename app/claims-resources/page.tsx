@@ -6,8 +6,8 @@ import { TrackedLink } from "@/components/demian/analytics-link";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Claims & Resources | Demian Insurance Agency",
-  description: "Request claim guidance, find policy resources, and get existing-customer support from Demian Insurance Agency.",
+  title: "Claims Help & Resources | Demian Insurance Agency",
+  description: "Need help with a claim or next steps? Request claim guidance from the Demian Insurance Agency team and access verified policy resources.",
   path: "/claims-resources",
 });
 
@@ -16,7 +16,7 @@ export default function ResourcesPage() {
     <RouteShell
       eyebrow="Claims & resources"
       title="Clear next steps when you need them."
-      description="Carrier claim contacts and policy resources are being verified before they appear here. If you need help now, the Demian team can help identify the appropriate next step and what information may be useful to have ready."
+      description="Carrier claim contacts and policy resources are being verified before they appear here. The Demian team can help identify the appropriate next step and useful information to have ready; claim decisions remain with the carrier."
       mainClassName="claims-page"
       heroActions={(
         <div className="claims-hero-actions">

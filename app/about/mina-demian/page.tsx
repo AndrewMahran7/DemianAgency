@@ -12,7 +12,7 @@ import { TrackedLink } from "@/components/demian/analytics-link";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Meet Mina Demian | Demian Insurance Agency",
-  description: "Meet Mina Demian, Principal of Demian Insurance Agency, and learn about the personal perspective behind his approach to insurance guidance.",
+  description: "Meet Mina Demian, Principal of Demian Insurance Agency, and learn how his personal, relationship-first approach shapes the agency's guidance.",
   path: "/about/mina-demian",
 });
 
@@ -32,6 +32,7 @@ export default function MinaDemianPage() {
     worksFor: {
       "@type": "InsuranceAgency",
       name: "Demian Insurance Agency",
+      ...(absoluteUrl("/favicon-512x512.png") ? { logo: absoluteUrl("/favicon-512x512.png") } : {}),
       ...(absoluteUrl("/") ? { url: absoluteUrl("/") } : {}),
     },
     alumniOf: { "@type": "CollegeOrUniversity", name: minaDemian.education.institution },

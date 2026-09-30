@@ -11,10 +11,10 @@ import { lifeInsurance } from "@/lib/insurance";
 import { createInsuranceServiceSchema, createPageMetadata } from "@/lib/seo";
 import { minaDemian } from "@/lib/team";
 
-const description = "Florida life insurance guidance through multiple carriers, including term, whole, universal, final expense, and key-person or business life coverage.";
+const description = "Explore term, whole, universal, final expense, and business life insurance options with personal guidance from Demian Insurance Agency.";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Florida Life Insurance | Demian Insurance Agency",
+  title: "Life Insurance | Demian Insurance Agency",
   description,
   path: "/insurance/life",
 });

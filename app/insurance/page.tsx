@@ -10,8 +10,8 @@ import { insuranceLines } from "@/lib/insurance";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Insurance Coverage | Demian Insurance Agency",
-  description: "Explore Florida auto, home, life, and small-business insurance with direct carrier relationships and broader market access where available.",
+  title: "Auto, Home, Life & Business Insurance | Demian Insurance Agency",
+  description: "Explore Auto, Home, Life, and Business Insurance options with personal guidance from Demian Insurance Agency across Florida's Gulf Coast.",
   path: "/insurance",
 });
 

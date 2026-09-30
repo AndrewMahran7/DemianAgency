@@ -80,4 +80,12 @@ npm run lint
 npm run build
 ```
 
+## Production SEO checklist
+
+1. Verify `demianinsurance.com` in Google Search Console.
+2. Submit `https://demianinsurance.com/sitemap.xml`.
+3. Use URL Inspection for `/`, `/insurance/home`, `/insurance/auto`, `/insurance/life`, `/insurance/business`, `/client-service`, `/claims-resources`, and `/about/team`.
+4. After important metadata changes are live, request indexing for the affected URLs. Indexing is not immediate or guaranteed.
+5. Monitor the Search Console **Indexing** reports and **Performance** report for coverage issues, queries, impressions, and click-through trends.
+
 The agency office address is intentionally pending. The Privacy Policy and Website Terms are practical drafts and should receive owner and legal review before they are treated as final legal advice.

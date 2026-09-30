@@ -8,8 +8,8 @@ import { createPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Request Service | Demian Insurance Agency",
-  description: "Submit a policy change, document request, billing question, claim-guidance request, or other service request to Demian Insurance Agency.",
+  title: "Request Policy Service | Demian Insurance Agency",
+  description: "Send Demian Insurance Agency a policy change, document, billing, or claim-guidance request for coverage you already have.",
   path: "/request-service",
 });
 

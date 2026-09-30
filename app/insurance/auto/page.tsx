@@ -10,10 +10,10 @@ import { StructuredData } from "@/components/demian/structured-data";
 import { autoInsurance } from "@/lib/insurance";
 import { createInsuranceServiceSchema, createPageMetadata } from "@/lib/seo";
 
-const description = "Florida auto insurance guidance for standard personal auto, plus motorcycles, classic cars, RVs, boats, and special-risk options where available.";
+const description = "Explore personal auto insurance for Florida drivers with personalized guidance, including specialty vehicle options where available.";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Florida Auto Insurance | Demian Insurance Agency",
+  title: "Auto Insurance | Demian Insurance Agency",
   description,
   path: "/insurance/auto",
 });

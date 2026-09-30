@@ -14,9 +14,8 @@ import { TrackedLink, TrackedPhoneLink } from "@/components/demian/analytics-lin
 
 export const metadata: Metadata = createPageMetadata({
   title: "Florida Insurance Guidance | Demian Insurance Agency",
-  description: "Personal Florida insurance guidance for your vehicles, home, family, and small business from a family-owned agency you can call.",
+  description: "Explore Auto, Home, Life, and Business Insurance with clear guidance from the family-owned Demian Insurance Agency on Florida's Gulf Coast.",
   path: "/",
-  image: "/images/home/coastal-family-home.jpg",
 });
 
 export default function Home() {

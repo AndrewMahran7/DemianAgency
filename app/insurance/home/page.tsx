@@ -11,7 +11,7 @@ import { homeInsurance } from "@/lib/insurance";
 import { createInsuranceServiceSchema, createPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
-const description = "Florida home insurance guidance with multiple carrier options for homeowners, condos, renters, landlords, flood, wind, and hurricane considerations.";
+const description = "Explore Florida home insurance guidance for homeowners, condos, rentals, flood, wind, and more, with access to multiple carrier options where available.";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Florida Home Insurance | Demian Insurance Agency",

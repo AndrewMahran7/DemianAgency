@@ -26,8 +26,8 @@ export function InsuranceServices() {
               <h3>{service.name}</h3>
               <p>{service.description}</p>
             </div>
-            <Link href={service.href} aria-label={`Learn more about ${service.name} insurance`}>
-              Learn more <ArrowUpRight aria-hidden="true" size={17} />
+            <Link href={service.href} aria-label={`Explore ${service.name} Insurance`}>
+              Explore {service.name} Insurance <ArrowUpRight aria-hidden="true" size={17} />
             </Link>
           </motion.article>
         );

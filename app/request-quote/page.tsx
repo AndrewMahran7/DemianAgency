@@ -7,7 +7,7 @@ import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Request an Insurance Quote | Demian Insurance Agency",
-  description: "Request a Florida auto, home, life, or small-business insurance quote and start a personal conversation with Demian Insurance Agency.",
+  description: "Request a quote for Auto, Home, Life, or Business Insurance from Demian Insurance Agency. Start with a simple contact form and connect with a real person.",
   path: "/request-quote",
 });
 

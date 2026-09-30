@@ -7,8 +7,8 @@ import { siteConfig } from "@/lib/site-config";
 import { TrackedPhoneLink } from "@/components/demian/analytics-link";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Contact Demian Insurance Agency | Florida",
-  description: "Call Demian Insurance Agency or send a request for personal help with Florida insurance quotes, policy service, or claims guidance.",
+  title: "Contact Demian Insurance Agency",
+  description: "Call Demian Insurance Agency at (941) 377-1806 for quote or policy service help. Hours: Monday-Friday 9 AM-6 PM; Saturday 9 AM-1 PM.",
   path: "/contact",
 });
 
