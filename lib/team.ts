@@ -136,6 +136,12 @@ export const christinaAgro: TeamMember = {
   role: "Onboarding Specialist",
   image: "/team/christina-agro.webp",
   imageAlt: "Christina Agro, Onboarding Specialist",
+  shortBio:
+    "Christina brings four years of insurance experience to client onboarding, billing, and the agency’s day-to-day operations, with an organized, dependable, and detail-oriented approach.",
+  longBio: [
+    "Christina Agro has spent the past four years in the insurance industry, where she plays an important role in supporting the agency’s day-to-day operations. She specializes in client onboarding and billing, helping ensure a smooth and positive experience for customers and the agency team.",
+    "Organized, dependable, and detail-oriented, Christina is focused on providing excellent service and building positive relationships with clients.",
+  ],
   sortOrder: 4,
 };
 
