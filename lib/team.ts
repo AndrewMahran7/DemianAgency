@@ -162,10 +162,29 @@ export const christianSantarelli: TeamMember = {
   sortOrder: 5,
 };
 
+export const miaWalker: TeamMember = {
+  slug: "mia-walker",
+  name: "Mia Walker",
+  role: "Insurance Professional",
+  image: "/team/mia-walker.webp",
+  imageAlt: "Mia Walker, Insurance Professional",
+  shortBio:
+    "Mia brings 17 years of insurance experience and a client-centered approach to creating thoughtful coverage solutions, simplifying complex topics, and building lasting relationships.",
+  longBio: [
+    "With a rich and rewarding 17-year career in the insurance industry, I am Mia Walker, a dedicated insurance professional passionate about safeguarding my clients and their valuable assets.",
+    "Bringing extensive expertise to the table, I have served in various capacities within the insurance sector, specializing in crafting comprehensive coverage solutions that mitigate risks and provide peace of mind to my clients. My journey has allowed me to witness the ever-evolving landscape of insurance, adapting and growing alongside the industry.",
+    "Throughout my career, I have received accolades for my dedication to client satisfaction and innovative approaches to insurance solutions. My ability to tailor coverage plans to meet the unique needs of each client has been a cornerstone of my success.",
+    "One aspect of my professional journey that brings me immense joy is the opportunity to educate my clients. I believe in empowering them with knowledge, helping them make informed decisions about their coverage. I aim to demystify insurance complexities, making the process more transparent and accessible.",
+    "My passion lies in not just selling insurance but in building lasting relationships and being a trusted advisor to my clients. I am committed to creating a positive impact on their lives by ensuring they are well-protected and informed in an ever-changing world.",
+  ],
+  sortOrder: 6,
+};
+
 export const teamMembers: readonly TeamMember[] = [
   minaDemian,
   mattAlexander,
   kingsleyBenecke,
   christinaAgro,
   christianSantarelli,
+  miaWalker,
 ].sort((a, b) => a.sortOrder - b.sortOrder);

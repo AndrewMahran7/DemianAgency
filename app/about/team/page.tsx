@@ -63,7 +63,7 @@ export default function MeetTheTeamPage() {
           </MotionReveal>
 
           <div className="team-directory-list">
-            {teamMembers.map((member, index) => (
+            {teamMembers.map((member) => (
               <article className={`team-directory-row team-directory-card-${member.slug}`} key={member.slug}>
                 <div className="team-directory-portrait">
                   <Image
@@ -72,7 +72,6 @@ export default function MeetTheTeamPage() {
                     fill
                     sizes="(max-width: 600px) 280px, 240px"
                   />
-                  <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
                 </div>
                 <div className="team-directory-copy">
                   <h3>{member.name}</h3>
