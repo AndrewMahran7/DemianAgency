@@ -151,7 +151,7 @@ export const miaWalker: TeamMember = {
   slug: "mia-walker",
   name: "Mia Walker",
   role: "Office Manager",
-  image: "/team/mia-walker.webp",
+  image: "/team/mia-walker.png",
   imageAlt: "Mia Walker, Office Manager",
   shortBio:
     "Mia brings 17 years of insurance experience and a client-centered approach to creating thoughtful coverage solutions, simplifying complex topics, and building lasting relationships.",
