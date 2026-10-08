@@ -117,32 +117,17 @@ export const mattAlexander: TeamMember = {
 export const kingsleyBenecke: TeamMember = {
   slug: "kingsley-benecke",
   name: "Kingsley Benecke",
-  role: "Customer Service Representative",
+  role: "Licensed Sales Professional",
   image: "/team/kingsley-benecke.webp",
-  imageAlt: "Kingsley Benecke, Customer Service Representative",
+  imageAlt: "Kingsley Benecke, Licensed Sales Professional",
   shortBio:
     "Originally from South Africa, Kingsley has called Sarasota home since 2006. He brings three years of experience helping local families and business owners with friendly, clear, and dependable service.",
   longBio: [
-    "Hi, I’m Kingsley, a Customer Service Representative here in beautiful Sarasota, Florida.",
+    "Hi, I’m Kingsley, a Licensed Sales Professional here in beautiful Sarasota, Florida.",
     "Originally from South Africa, I made Sarasota my home in 2006 and have loved being a part of this vibrant Gulf Coast community ever since. For the past three years, I’ve had the privilege of helping local families and business owners protect what matters most to them. Whether you need help navigating your coverage options, updating a policy, or simply getting answers to your questions, I pride myself on providing friendly, clear, and dependable guidance every step of the way.",
     "Outside of work, you can usually find me enjoying everything Sarasota has to offer. I look forward to serving you and ensuring you always feel like you’re in good hands!",
   ],
   sortOrder: 3,
-};
-
-export const christinaAgro: TeamMember = {
-  slug: "christina-agro",
-  name: "Christina Agro",
-  role: "Onboarding Specialist",
-  image: "/team/christina-agro.webp",
-  imageAlt: "Christina Agro, Onboarding Specialist",
-  shortBio:
-    "Christina brings four years of insurance experience to client onboarding, billing, and the agency’s day-to-day operations, with an organized, dependable, and detail-oriented approach.",
-  longBio: [
-    "Christina Agro has spent the past four years in the insurance industry, where she plays an important role in supporting the agency’s day-to-day operations. She specializes in client onboarding and billing, helping ensure a smooth and positive experience for customers and the agency team.",
-    "Organized, dependable, and detail-oriented, Christina is focused on providing excellent service and building positive relationships with clients.",
-  ],
-  sortOrder: 4,
 };
 
 export const christianSantarelli: TeamMember = {
@@ -159,15 +144,15 @@ export const christianSantarelli: TeamMember = {
     "Outside of insurance, Christian is heavily involved in the local pool community and serves as a division representative for one of his local leagues. He enjoys the competitive side of pool, as well as the friendships and sense of community that come with it. When he’s not around the pool table, you’ll often find him on the golf course or enjoying time outdoors and exploring nature.",
     "Christian brings that same combination of competition, community, and genuine personal connection into his work with clients. His goal is to build lasting relationships and be someone his clients can turn to when they have questions about their insurance—not just someone they hear from when it’s time to renew a policy.",
   ],
-  sortOrder: 5,
+  sortOrder: 4,
 };
 
 export const miaWalker: TeamMember = {
   slug: "mia-walker",
   name: "Mia Walker",
-  role: "Insurance Professional",
+  role: "Office Manager",
   image: "/team/mia-walker.webp",
-  imageAlt: "Mia Walker, Insurance Professional",
+  imageAlt: "Mia Walker, Office Manager",
   shortBio:
     "Mia brings 17 years of insurance experience and a client-centered approach to creating thoughtful coverage solutions, simplifying complex topics, and building lasting relationships.",
   longBio: [
@@ -177,14 +162,13 @@ export const miaWalker: TeamMember = {
     "One aspect of my professional journey that brings me immense joy is the opportunity to educate my clients. I believe in empowering them with knowledge, helping them make informed decisions about their coverage. I aim to demystify insurance complexities, making the process more transparent and accessible.",
     "My passion lies in not just selling insurance but in building lasting relationships and being a trusted advisor to my clients. I am committed to creating a positive impact on their lives by ensuring they are well-protected and informed in an ever-changing world.",
   ],
-  sortOrder: 6,
+  sortOrder: 5,
 };
 
 export const teamMembers: readonly TeamMember[] = [
   minaDemian,
   mattAlexander,
   kingsleyBenecke,
-  christinaAgro,
   christianSantarelli,
   miaWalker,
 ].sort((a, b) => a.sortOrder - b.sortOrder);
