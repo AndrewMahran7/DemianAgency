@@ -57,6 +57,8 @@ Quote and service requests are delivered through Resend. The agency notification
 
 Production setup:
 
+Quote forms (homepage and Request a Quote) deliver to `AGENCY_INBOX`, set to `mina@demianinsurance.com`. Contact and Request Service forms, including every service category, deliver to `SERVICE_INBOX`, which defaults to `service@demianinsurance.com`. Customer confirmation replies go to the same inbox that received the request; agency notifications still reply directly to the customer.
+
 1. Create or connect a Resend account.
 2. Add and verify `demianinsurance.com` in Resend.
 3. Add the exact DNS records Resend provides to the domain, then wait for Resend to report the domain as verified. Do not guess or substitute DNS values.
@@ -64,6 +66,7 @@ Production setup:
 5. In Vercel, open **Settings → Environment Variables** and add:
    - `RESEND_API_KEY=<secret>`
    - `AGENCY_INBOX=mina@demianinsurance.com`
+   - `SERVICE_INBOX=service@demianinsurance.com` (optional override of the default service group)
    - `EMAIL_FROM=Demian Insurance Agency <forms@demianinsurance.com>`
    - `SITE_URL=https://demianinsurance.com`
 6. Redeploy so the deployment receives the new environment variables.

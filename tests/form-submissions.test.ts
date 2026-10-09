@@ -2,11 +2,12 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import type { EmailMessage } from "../lib/forms/email-templates.ts";
 import { handleQuoteRequest, handleServiceRequest, type SubmissionDependencies } from "../lib/forms/submission-handlers.ts";
-import { validateQuoteSubmission, validateServiceSubmission } from "../lib/forms/validation.ts";
+import { serviceRequestTypes, validateQuoteSubmission, validateServiceSubmission } from "../lib/forms/validation.ts";
 
 const config = {
   apiKey: "test-api-key",
   agencyInbox: "mina@demianinsurance.com",
+  serviceInbox: "service@demianinsurance.com",
   emailFrom: "Demian Insurance Agency <forms@demianinsurance.com>",
   siteUrl: "https://demianinsurance.com",
 };
@@ -169,12 +170,12 @@ test("valid service requests send with and without an optional policy number", a
     const response = await handleServiceRequest(jsonRequest("/api/service", payload), dependencies);
     assert.equal(response.status, 200);
     assert.equal(sent.length, 2);
-    assert.equal(sent[0].to, config.agencyInbox);
+    assert.equal(sent[0].to, config.serviceInbox);
     assert.equal(sent[0].from, config.emailFrom);
     assert.equal(sent[0].subject, "[CLIENT SERVICE] Policy Change — John Smith");
     assert.equal(sent[0].replyTo, service.email);
     assert.equal(sent[1].subject, "Demian Insurance Agency | We received your service request");
-    assert.equal(sent[1].replyTo, config.agencyInbox);
+    assert.equal(sent[1].replyTo, config.serviceInbox);
     if (!payload.policy) assert.doesNotMatch(sent[0].text, /Policy number:/);
   }
 });
@@ -193,7 +194,19 @@ test("autofill-style service values reach delivery", async () => {
   const response = await handleServiceRequest(jsonRequest("/api/service", payload), dependencies);
   assert.equal(response.status, 200);
   assert.equal(sent.length, 2);
-  assert.equal(sent[0].to, config.agencyInbox);
+  assert.equal(sent[0].to, config.serviceInbox);
+});
+
+test("every service/contact category routes to service and customer replies return there", async () => {
+  for (const requestType of serviceRequestTypes) {
+    const { dependencies, sent } = createDependencies();
+    const response = await handleServiceRequest(jsonRequest("/api/service", { ...service, requestType }), dependencies);
+    assert.equal(response.status, 200, requestType);
+    assert.equal(sent[0].to, "service@demianinsurance.com", requestType);
+    assert.equal(sent[0].replyTo, service.email, requestType);
+    assert.equal(sent[1].to, service.email, requestType);
+    assert.equal(sent[1].replyTo, "service@demianinsurance.com", requestType);
+  }
 });
 
 test("service validation rejects invalid email, invalid type, and missing required fields without sending", async () => {

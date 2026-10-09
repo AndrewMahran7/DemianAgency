@@ -7,6 +7,7 @@ type ResendConfig = EmailConfig & { apiKey: string };
 export function getResendConfig(): ResendConfig | null {
   const apiKey = process.env.RESEND_API_KEY?.trim();
   const agencyInbox = process.env.AGENCY_INBOX?.trim();
+  const serviceInbox = process.env.SERVICE_INBOX?.trim() || "service@demianinsurance.com";
   const emailFrom = process.env.EMAIL_FROM?.trim();
   const siteUrl = process.env.SITE_URL?.trim();
   const missing = [
@@ -19,7 +20,7 @@ export function getResendConfig(): ResendConfig | null {
     console.error(`Form email is not configured. Missing: ${missing.join(", ")}.`);
     return null;
   }
-  return { apiKey, agencyInbox, emailFrom, siteUrl } as ResendConfig;
+  return { apiKey, agencyInbox, serviceInbox, emailFrom, siteUrl } as ResendConfig;
 }
 
 export function createResendSender(apiKey: string): EmailSender {

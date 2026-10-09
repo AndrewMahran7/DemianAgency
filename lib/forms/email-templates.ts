@@ -2,6 +2,7 @@ import type { QuoteSubmission, ServiceSubmission } from "./validation";
 
 export type EmailConfig = {
   agencyInbox: string;
+  serviceInbox: string;
   emailFrom: string;
   siteUrl: string;
 };
@@ -117,7 +118,7 @@ export function createServiceMessages(submission: ServiceSubmission, config: Ema
   return {
     internal: {
       from: config.emailFrom,
-      to: config.agencyInbox,
+      to: config.serviceInbox,
       subject: `[CLIENT SERVICE] ${requestType} — ${fullName}`,
       replyTo: submission.email,
       html: internalHtml("CLIENT SERVICE REQUEST", rows, submission.firstName),
@@ -127,7 +128,7 @@ export function createServiceMessages(submission: ServiceSubmission, config: Ema
       from: config.emailFrom,
       to: submission.email,
       subject: "Demian Insurance Agency | We received your service request",
-      replyTo: config.agencyInbox,
+      replyTo: config.serviceInbox,
       html: confirmationHtml(submission.firstName, "We received your service request.", [`A member of the Demian Insurance Agency customer service team will follow up within one business day with a resolution or any additional information needed.`, `We'll use your preferred contact method.`]),
       text: [`Hi ${submission.firstName},`, ``, `We've received your service request.`, ``, `A member of the Demian Insurance Agency customer service team will follow up within one business day with a resolution or any additional information needed.`, ``, `We'll use your preferred contact method.`, ``, `Need to speak with someone?`, phone, hoursText, ``, `Demian Insurance Agency`].join("\n"),
     },
