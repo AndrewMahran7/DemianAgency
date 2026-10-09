@@ -85,14 +85,16 @@ const areaServed = siteConfig.serviceAreas.map((county) => ({
 }));
 
 export function createAgencySchema() {
-  const logo = absoluteUrl("/favicon-512x512.png");
+  const logo = absoluteUrl("/images/brand/demian-emblem.png");
+  const image = absoluteUrl("/images/brand/demian-social-card.png");
 
   return {
     "@context": "https://schema.org",
     "@type": "InsuranceAgency",
     name: siteConfig.businessName,
     telephone: "+19413771806",
-    ...(logo ? { logo, image: logo } : {}),
+    ...(logo ? { logo } : {}),
+    ...(image ? { image } : {}),
     employee: teamMembers.map((member) => ({
       "@type": "Person",
       name: member.name,
@@ -122,7 +124,7 @@ export function createAgencySchema() {
 }
 
 export function createInsuranceServiceSchema(name: string, description: string, path: string) {
-  const logo = absoluteUrl("/favicon-512x512.png");
+  const logo = absoluteUrl("/images/brand/demian-emblem.png");
 
   return {
     "@context": "https://schema.org",

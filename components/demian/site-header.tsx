@@ -20,7 +20,7 @@ export function SiteHeader() {
 
   return (
     <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
-      <Brand />
+      <Brand priority />
       <nav className="desktop-nav" aria-label="Primary navigation">
         {siteConfig.navigation.map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}
       </nav>
