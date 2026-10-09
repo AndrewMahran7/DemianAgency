@@ -6,7 +6,7 @@ import { TrackedLink, TrackedPhoneLink } from "./analytics-link";
 export function SiteFooter() {
   return (
     <footer className="site-footer">
-      <div className="footer-brand"><Brand variant="full" /><p>Personal guidance for homes, vehicles, families, and businesses across {siteConfig.serviceRegion}.</p></div>
+      <div className="footer-brand"><Brand variant="footer" /><p>Personal guidance for homes, vehicles, families, and businesses across {siteConfig.serviceRegion}.</p></div>
       <div className="footer-links">
         <div><span>Insurance</span>{services.map((service) => <Link key={service.name} href={service.href}>{service.name} Insurance</Link>)}</div>
         <div><span>Agency</span><Link href={siteConfig.clientServiceHref}>Client Service</Link>{siteConfig.navigation.slice(1).map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}</div>

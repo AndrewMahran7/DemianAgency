@@ -1,38 +1,44 @@
-import Image from "next/image";
 import Link from "next/link";
 
 const logoByVariant = {
-  compact: {
-    src: "/images/brand/demian-logo-horizontal.png",
+  header: {
+    src: "/images/brand/demian-logo-header-compact.svg",
+    desktopSrc: "/images/brand/demian-logo-header.svg",
     width: 2380,
     height: 920,
   },
-  full: {
-    src: "/images/brand/demian-logo-full.png",
+  drawer: {
+    src: "/images/brand/demian-logo-drawer.svg",
+    width: 2380,
+    height: 920,
+  },
+  footer: {
+    src: "/images/brand/demian-logo-footer.svg",
     width: 2370,
     height: 1000,
   },
 } as const;
 
-export function Brand({ variant = "compact", priority = false }: {
+export function Brand({ variant = "header", priority = false }: {
   variant?: keyof typeof logoByVariant;
   priority?: boolean;
 }) {
   const logo = logoByVariant[variant];
-  const accessibleName = variant === "full"
-    ? "Demian Insurance Agency — Family owned, serving Southwest Florida; home"
-    : "Demian Insurance Agency home";
 
   return (
-    <Link className={`brand brand--${variant}`} href="/" aria-label={accessibleName}>
-      <Image
-        alt=""
-        height={logo.height}
-        priority={priority}
-        sizes={variant === "compact" ? "(max-width: 760px) 200px, 170px" : "(max-width: 760px) 330px, 420px"}
-        src={logo.src}
-        width={logo.width}
-      />
+    <Link className={`brand brand--${variant}`} href="/" aria-label="Demian Insurance Agency">
+      <picture>
+        {"desktopSrc" in logo ? <source media="(min-width: 1360px)" srcSet={logo.desktopSrc} /> : null}
+        <img
+          alt=""
+          decoding="async"
+          fetchPriority={priority ? "high" : undefined}
+          height={logo.height}
+          loading={priority ? "eager" : "lazy"}
+          src={logo.src}
+          width={logo.width}
+        />
+      </picture>
     </Link>
   );
 }

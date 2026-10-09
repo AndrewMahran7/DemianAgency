@@ -32,7 +32,7 @@ export default function MinaDemianPage() {
     worksFor: {
       "@type": "InsuranceAgency",
       name: "Demian Insurance Agency",
-      ...(absoluteUrl("/images/brand/demian-emblem.png") ? { logo: absoluteUrl("/images/brand/demian-emblem.png") } : {}),
+      ...(absoluteUrl("/favicon-512x512.png") ? { logo: absoluteUrl("/favicon-512x512.png") } : {}),
       ...(absoluteUrl("/") ? { url: absoluteUrl("/") } : {}),
     },
     alumniOf: { "@type": "CollegeOrUniversity", name: minaDemian.education.institution },

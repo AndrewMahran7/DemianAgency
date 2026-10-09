@@ -85,7 +85,7 @@ const areaServed = siteConfig.serviceAreas.map((county) => ({
 }));
 
 export function createAgencySchema() {
-  const logo = absoluteUrl("/images/brand/demian-emblem.png");
+  const logo = absoluteUrl("/favicon-512x512.png");
   const image = absoluteUrl("/images/brand/demian-social-card.png");
 
   return {
@@ -124,7 +124,7 @@ export function createAgencySchema() {
 }
 
 export function createInsuranceServiceSchema(name: string, description: string, path: string) {
-  const logo = absoluteUrl("/images/brand/demian-emblem.png");
+  const logo = absoluteUrl("/favicon-512x512.png");
 
   return {
     "@context": "https://schema.org",

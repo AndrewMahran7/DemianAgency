@@ -38,7 +38,7 @@ export function SiteHeader() {
           <SheetHeader className="mobile-sheet-header">
             <SheetTitle className="sr-only">Navigation</SheetTitle>
             <SheetDescription className="sr-only">Demian Insurance Agency site navigation</SheetDescription>
-            <Brand />
+            <Brand variant="drawer" />
           </SheetHeader>
           <nav className="mobile-nav" aria-label="Mobile navigation">
             {siteConfig.navigation.map((item, index) => (
