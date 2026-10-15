@@ -22,7 +22,16 @@ export const siteConfig = {
   clientServiceHref: "/client-service",
   requestServiceHref: "/request-service",
   licenseInformation: null,
-  socialLinks: [],
+  socialLinks: [
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/company/demian-insurance-agency/",
+    },
+    {
+      label: "Facebook",
+      href: "https://www.facebook.com/profile.php?id=61594859285838",
+    },
+  ],
   navigation: [
     { label: "Insurance", href: "/insurance" },
     { label: "About", href: "/about" },
